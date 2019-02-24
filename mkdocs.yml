@@ -1,0 +1,43 @@
+site_name: Plant Genomics Training
+site_description: Training for plant genomics
+site_author: Anna Syme
+site_favicon: favicon.ico
+
+site_url: 'https://plant-genomics.github.io/training/'
+
+repo_name: 'plant-genomics/training'
+repo_url: 'https://github.com/plant-genomics/training'
+
+copyright: '&copy; The authors; 2019-'
+
+#theme: yeti
+theme: material
+
+extra:
+    feature:
+        tabs: true
+    social:
+        - type: 'coffee'
+          link: ''
+        - type: 'github'
+          link: 'https://github.com/plant-genomics/training'
+        - type: 'bug'
+          link: 'https://github.com/plant-genomics/training/issues'
+
+
+markdown_extensions:
+    - admonition
+    - smarty
+    - tables
+    - markdown_include.include
+    - codehilite
+    - pymdownx.details
+    - footnotes
+extra_css:
+    - css/sepsis.css
+
+pages:
+- Welcome: welcome.md
+- Test: test.md
+
+# - About: about/index.md
