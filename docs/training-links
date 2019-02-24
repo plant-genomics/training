@@ -1,5 +1,7 @@
 # Useful training links
 
+## Unix, git, python, R
+https://software-carpentry.org/lessons/
 
 ## Next-gen sequence analysis workshop - ANGUS - UCDavis
 https://angus.readthedocs.io/en/2018/#
@@ -10,8 +12,6 @@ http://pycam.github.io/
 ## Algorithms
 https://www.coursera.org/learn/dna-sequencing
 https://www.youtube.com/user/BenLangmead
-
-
 
 ## Containers for bioinformatics
 https://github.com/pawseysc/bio-workshop-18
