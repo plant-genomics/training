@@ -20,7 +20,11 @@ https://www.youtube.com/user/BenLangmead
 https://github.com/pawseysc/bio-workshop-18
 
 ## Virtual environment
+
 Install miniconda
+e.g. MacOSX Python 3.7 64bit pkg installer
+https://docs.conda.io/en/latest/miniconda.html
+
 Create new environment
 ```conda create --name mynewenv python=3.4```
 Linux/Mac:
