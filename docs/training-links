@@ -27,9 +27,22 @@ https://docs.conda.io/en/latest/miniconda.html
 
 Create new environment
 ```conda create --name mynewenv python=3.7.1```
-Linux/Mac:
 ```conda activate mynewenv```
-```conda install -n mynewenv [package]```
+
+
+Set up the bioconda channel
+https://bioconda.github.io/
+
+```
+conda config --add channels defaults
+conda config --add channels bioconda
+conda config --add channels conda-forge
+```
+
+
+```conda install bwa```
+
+
 ```conda deactivate```
 
 
