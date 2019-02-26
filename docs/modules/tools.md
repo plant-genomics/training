@@ -2,9 +2,10 @@
 
 
 ### Canu
-For noisy long-read assemblies
-https://github.com/marbl/canu
-https://canu.readthedocs.io/en/latest/
+- For noisy long-read assemblies
+- https://github.com/marbl/canu
+- https://canu.readthedocs.io/en/latest/
+
 
 ### wtdbg2
 For noisy long-read assemblies
@@ -38,4 +39,3 @@ https://github.com/lh3/miniasm
 
 
 ### Nanopolish
-
