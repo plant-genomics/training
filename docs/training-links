@@ -26,10 +26,10 @@ e.g. MacOSX Python 3.7 64bit pkg installer
 https://docs.conda.io/en/latest/miniconda.html
 
 Create new environment
-```conda create --name mynewenv python=3.4```
+```conda create --name mynewenv python=3.7.1```
 Linux/Mac:
 ```conda activate mynewenv```
-```conda install -n yourenvname [package]```
+```conda install -n mynewenv [package]```
 ```conda deactivate```
 
 
