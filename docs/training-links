@@ -34,13 +34,13 @@ conda config --add channels bioconda
 conda config --add channels conda-forge
 ```
 
-Create new environment
-```conda create --name mynewenv python=3.7.1```
-```conda activate mynewenv``
+Create new environment called mrbayes
+```conda create --name mrbayes```
+```conda activate mrbayes``
 
 Install a tool (or you can do this outside an environment)
 Search here for tools: https://anaconda.org/bioconda/
-```conda install bwa```
+```conda install mrbayes```
 
 Deactivate the environment
 ```conda deactivate```
