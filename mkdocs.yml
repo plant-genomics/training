@@ -5,20 +5,40 @@ site_author: Anna Syme
 
 site_url: 'https://plant-genomics.github.io/training/'
 
-repo_name: 'plant-genomics/training'
-repo_url: 'https://github.com/plant-genomics/training'
+#repo_name: 'plant-genomics/training'
+#repo_url: 'https://github.com/plant-genomics/training'
 
 copyright: '&copy; The authors; 2019-'
 
 #theme: yeti
-theme: cluster
+#theme: cluster
+theme: windmill
+
+
+nav:
+  - Home: index.md
+  - Getting started: modules/links.md
+  - Tools: modules/tools.md
+  - Data: modules/sample-data.md
+  - Analysis: modules/analysis.md
+  - Using HPC: modules/hpc-analysis.md
+  - Galaxy: modules/galaxy.md
+  - CyVerse: modules/cyverse.md
+  - Help: modules/help.md
+
 
 extra:
+    article_nav_top: false
+    article_nav_bottom: false
+    logo: leaf2.svg
+
+
     feature:
         tabs: true
     social:
-        - type: 'github'
-          link: 'https://github.com/plant-genomics/training'
+        type: 'github'
+        link: 'https://github.com/plant-genomics/training'
+        fa_logo: 'pagelines'
 
 markdown_extensions:
     - admonition
@@ -28,14 +48,11 @@ markdown_extensions:
     - codehilite
     - pymdownx.details
     - footnotes
+extra_css:
+    - css/style.css
 
 
-pages:
-- Welcome: index.md
-- Tools: modules/tools.md
-- Compute: modules/compute.md
-- Links: modules/training-links.md
-- Data: modules/sample-data.md
-- Galaxy: modules/galaxy.md
+
+
 
 # - About: about/index.md
