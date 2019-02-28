@@ -17,13 +17,12 @@ theme: windmill
 
 nav:
   - Home: index.md
-  - Getting started: modules/links.md
+  - Getting started: modules/start.md
   - Tools: modules/tools.md
-  - Data: modules/sample-data.md
+  - Data: modules/data.md
   - Analysis: modules/analysis.md
-  - Using HPC: modules/hpc-analysis.md
-  - Galaxy: modules/galaxy.md
-  - CyVerse: modules/cyverse.md
+  - Using HPC: modules/hpc.md
+  - Platforms: modules/platforms.md
   - Help: modules/help.md
 
 

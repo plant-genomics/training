@@ -1,41 +1,48 @@
-# Genome assembly: tools and links
+## General tools
 
+<ss>BLAST</ss> Sequence matching
 
-### Canu
-- For noisy long-read assemblies
-- https://github.com/marbl/canu
-- https://canu.readthedocs.io/en/latest/
+Paper: A Guide to BLAST: [https://f1000research.com/documents/7-1435](https://f1000research.com/documents/7-1435)
 
+Tutorial: BLAST: [https://isugenomics.github.io/bioinformatics-workbook/dataAnalysis/blast/blast_index](https://isugenomics.github.io/bioinformatics-workbook/dataAnalysis/blast/blast_index)
 
-### wtdbg2
-For noisy long-read assemblies
-Does not error-correct the reads: fast
-Uses "fuzzy" de Bruijn graphs
-https://github.com/ruanjue/wtdbg2
+## Genome assembly
 
-### Masurca
-Joins short reads into super-reads
-Hybrid assemblies
-https://github.com/alekseyzimin/masurca/releases
-http://masurca.blogspot.com/
+<ss>Canu</ss> For noisy long-read assemblies.
 
+Github: [https://github.com/marbl/canu](https://github.com/marbl/canu)
 
-### Flye
-For noisy long-read assemblies
-Does not error-correct the reads: fast
-Final polishing step
-https://github.com/fenderglass/Flye
+Manual: [https://canu.readthedocs.io/en/latest/](https://canu.readthedocs.io/en/latest/)
 
-### Supernova
-For assembling 10x (linked) reads
-https://support.10xgenomics.com/de-novo-assembly/software/pipelines/latest/using/running
+<ss>wtdbg2</ss> For noisy long-read assemblies.
 
-### miniasm
+Does not error-correct the reads: fast; uses "fuzzy" de Bruijn graphs.
+
+Github: [https://github.com/ruanjue/wtdbg2](https://github.com/ruanjue/wtdbg2)
+
+<ss>Masurca</ss> Joins short reads into super-reads; for hybrid assemblies
+
+Github: [https://github.com/alekseyzimin/masurca/releases](https://github.com/alekseyzimin/masurca/releases)
+
+Blog: [http://masurca.blogspot.com/](http://masurca.blogspot.com/)
+
+<ss>Flye</ss> For noisy long-read assemblies
+
+Does not error-correct the reads: fast.
+
+Github: [https://github.com/fenderglass/Flye](https://github.com/fenderglass/Flye)
+
+<ss>Supernova</ss> For assembling 10x (linked) reads
+
+Information: [https://support.10xgenomics.com/de-novo-assembly/software/pipelines/latest/using/running](https://support.10xgenomics.com/de-novo-assembly/software/pipelines/latest/using/running)
+
+<ss>miniasm</ss>
+
 https://github.com/lh3/miniasm
 
-### Racon
+<ss>Racon</ss>
 
-### Pilon
+<ss>Pilon</ss>
 
 
-### Nanopolish
+<ss>Nanopolish</ss>
