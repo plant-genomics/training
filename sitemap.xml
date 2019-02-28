@@ -1,33 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-     <loc>https://plant-genomics.github.io/training/welcome/</loc>
-     <lastmod>2019-02-26</lastmod>
+     <loc>https://plant-genomics.github.io/training/</loc>
+     <lastmod>2019-02-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://plant-genomics.github.io/training/tools/</loc>
-     <lastmod>2019-02-26</lastmod>
+     <loc>https://plant-genomics.github.io/training/modules/start/</loc>
+     <lastmod>2019-02-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://plant-genomics.github.io/training/compute/</loc>
-     <lastmod>2019-02-26</lastmod>
+     <loc>https://plant-genomics.github.io/training/modules/tools/</loc>
+     <lastmod>2019-02-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://plant-genomics.github.io/training/training-links/</loc>
-     <lastmod>2019-02-26</lastmod>
+     <loc>https://plant-genomics.github.io/training/modules/data/</loc>
+     <lastmod>2019-02-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://plant-genomics.github.io/training/sample-data/</loc>
-     <lastmod>2019-02-26</lastmod>
+     <loc>https://plant-genomics.github.io/training/modules/analysis/</loc>
+     <lastmod>2019-02-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://plant-genomics.github.io/training/galaxy/</loc>
-     <lastmod>2019-02-26</lastmod>
+     <loc>https://plant-genomics.github.io/training/modules/hpc/</loc>
+     <lastmod>2019-02-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://plant-genomics.github.io/training/modules/platforms/</loc>
+     <lastmod>2019-02-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://plant-genomics.github.io/training/modules/help/</loc>
+     <lastmod>2019-02-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
