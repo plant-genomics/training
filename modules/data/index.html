@@ -56,17 +56,14 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     <h2 id="how-to-get-data">How to get data</h2>
 <p>Three common options are wget, curl, and sra-toolkit.</p>
-<div class="codehilite"><pre><span></span>wget [address of file]
-</pre></div>
+<pre class="codehilite"><code>wget [address of file]</code></pre>
 
 
-<div class="codehilite"><pre><span></span>curl [address of file]
-</pre></div>
+<pre class="codehilite"><code>curl [address of file]</code></pre>
 
 
 <p>Find some SRR numbers for reads you are interested in (search <a href="https://www.ncbi.nlm.nih.gov/sra">NCBI&rsquo;s SRA</a>), then:</p>
-<div class="codehilite"><pre><span></span>fastq-dump SRR[number goes here]
-</pre></div>
+<pre class="codehilite"><code>fastq-dump SRR[number goes here]</code></pre>
 
 
 <p>More information:</p>
@@ -77,23 +74,19 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </ul>
 <h2 id="sample-sequencing-data">Sample sequencing data</h2>
 <p><ss>PacBio reads</ss> From Canu&rsquo;s quickstart page:</p>
-<div class="codehilite"><pre><span></span>curl -L -o pacbio.fastq http://gembox.cbcb.umd.edu/mhap/raw/ecoli_p6_25x.filtered.fastq
-</pre></div>
+<pre class="codehilite"><code>curl -L -o pacbio.fastq http://gembox.cbcb.umd.edu/mhap/raw/ecoli_p6_25x.filtered.fastq</code></pre>
 
 
 <p><ss>Synthetic PacBio data</ss></p>
-<div class="codehilite"><pre><span></span>wget https://zenodo.org/record/1009308/files/pacbio.fq?download=1
-</pre></div>
+<pre class="codehilite"><code>wget https://zenodo.org/record/1009308/files/pacbio.fq?download=1</code></pre>
 
 
 <p><ss>Nanopore reads</ss> From Canu&rsquo;s quickstart page; data from the Loman lab</p>
-<div class="codehilite"><pre><span></span>curl -L -o oxford.fasta http://nanopore.s3.climb.ac.uk/MAP006-PCR-1_2D_pass.fasta
-</pre></div>
+<pre class="codehilite"><code>curl -L -o oxford.fasta http://nanopore.s3.climb.ac.uk/MAP006-PCR-1_2D_pass.fasta</code></pre>
 
 
 <p><ss>Downsampled nanopore data</ss></p>
-<div class="codehilite"><pre><span></span>wget https://zenodo.org/record/842795/files/minion_1.2d_pass.fastq.fastqsanger?download=1
-</pre></div>
+<pre class="codehilite"><code>wget https://zenodo.org/record/842795/files/minion_1.2d_pass.fastq.fastqsanger?download=1</code></pre>
 
 
 <p><ss>fast5 files</ss>

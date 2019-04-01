@@ -67,29 +67,25 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li>Set up the bioconda channel</li>
 </ul>
 <p>More information: https://bioconda.github.io/</p>
-<div class="codehilite"><pre><span></span>conda config --add channels defaults
+<pre class="codehilite"><code>conda config --add channels defaults
 conda config --add channels bioconda
-conda config --add channels conda-forge
-</pre></div>
+conda config --add channels conda-forge</code></pre>
 
 
 <ul>
 <li>Create new environment called mrbayes</li>
 </ul>
-<div class="codehilite"><pre><span></span>conda create --name mrbayes
-conda activate mrbayes
-</pre></div>
+<pre class="codehilite"><code>conda create --name mrbayes
+conda activate mrbayes</code></pre>
 
 
 <p>Install a tool (or you can do this outside an environment)
 Search here for tools: https://anaconda.org/bioconda/</p>
-<div class="codehilite"><pre><span></span>conda install mrbayes
-</pre></div>
+<pre class="codehilite"><code>conda install mrbayes</code></pre>
 
 
 <p>Deactivate the environment</p>
-<div class="codehilite"><pre><span></span>conda deactivate
-</pre></div>
+<pre class="codehilite"><code>conda deactivate</code></pre>
 
 
 <h3 id="how-to-use-hpc">How to use HPC</h3>
