@@ -21,7 +21,12 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://plant-genomics.github.io/training/modules/analysis/</loc>
+     <loc>https://plant-genomics.github.io/training/modules/vms/</loc>
+     <lastmod>2019-04-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://plant-genomics.github.io/training/modules/docker/</loc>
      <lastmod>2019-04-01</lastmod>
      <changefreq>daily</changefreq>
     </url>

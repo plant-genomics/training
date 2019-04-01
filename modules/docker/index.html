@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="Anna Syme">
+    <link rel="canonical" href="https://plant-genomics.github.io/training/modules/docker/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Using containers - Plant Genomics Training</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <link href="../../css/style.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Containers", url: "#_top", children: [
+              {title: "The basics", url: "#the-basics" },
+              {title: "Getting files in and out of containers", url: "#getting-files-in-and-out-of-containers" },
+              {title: "Example: assemble and annotate a bacterial genome", url: "#example-assemble-and-annotate-a-bacterial-genome" },
+              {title: "Troubleshooting", url: "#troubleshooting" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h2 id="containers">Containers</h2>
+<ul>
+<li>Containers are a collection of tools and their dependencies, packaged into a file.</li>
+<li>You can download and run this file and its software, without directly installing the software itself.</li>
+<li>Types of containers: Docker, Singularity</li>
+</ul>
+<h3 id="the-basics">The basics</h3>
+<ul>
+<li>Download and install Docker Desktop: <a href="https://www.docker.com/products/docker-desktop">https://www.docker.com/products/docker-desktop</a></li>
+<li>Open docker (e.g.: if it&rsquo;s running, it may show an icon in the top menu bar).</li>
+<li>In the terminal (or equivalent):</li>
+</ul>
+<pre class="codehilite"><code>docker pull busybox   //pulls the image named &quot;busybox&quot; from DockerHub
+docker run busybox    //creates the container, then exits if no tasks are running
+docker run busybox ls //creates container, lists files, exits
+docker --help         // docker help</code></pre>
+
+
+<h3 id="getting-files-in-and-out-of-containers">Getting files in and out of containers</h3>
+<ul>
+<li>We will make a folder that can get share files with our containers.</li>
+<li>In your home directory (/Users/yourname/):</li>
+</ul>
+<pre class="codehilite"><code>mkdir workplace     
+cd workplace
+docker run -v /Users/[yourname]/workplace:/data/ busybox touch data/plantfile</code></pre>
+
+
+<ul>
+<li><ss>-v</ss> connectes our local &ldquo;workplace&rdquo; folder with a &ldquo;data&rdquo; folder in the container.</li>
+<li>Around this, we <ss>docker run busybox</ss></li>
+<li>Finally, we create a file with <ss>touch data/plantfile</ss></li>
+</ul>
+<h3 id="example-assemble-and-annotate-a-bacterial-genome">Example: assemble and annotate a bacterial genome</h3>
+<ul>
+<li>Get some sample data files (synthetic bacterial illumina reads):</li>
+</ul>
+<pre class="codehilite"><code>wget https://zenodo.org/record/582600/files/mutant_R1.fastq?download=1
+wget https://zenodo.org/record/582600/files/mutant_R2.fastq?download=1</code></pre>
+
+
+<ul>
+<li>Shorten the names:</li>
+</ul>
+<pre class="codehilite"><code>mv mutant_R1.fastq?download=1 mutant_R1.fastq
+mv mutant_R2.fastq?download=1 mutant_R2.fastq</code></pre>
+
+
+<ul>
+<li>Run the assembly tool (spades) in a container:</li>
+</ul>
+<pre class="codehilite"><code>docker run -v /Users/[yourname]/workplace:/data/ quay.io/biocontainers/spades:3.13.0--0 ./usr/local/bin/spades.py -1 data/mutant_R1.fastq -2 data/mutant_R2.fastq -o data/spades_outdir</code></pre>
+
+
+<ul>
+<li><ss>quay.io/biocontainers/spades:3.13.0&ndash;0</ss> is the image name</li>
+<li><ss>./usr/local/bin/spades.py</ss> is the command to run spades</li>
+<li><ss>-1</ss> specifies the file with forward reads, <fn>data/mutant_R1.fastq<//fn></li>
+<li><ss>-2</ss> specifies the file with reverse reads, <fn>data/mutant_R2.fastq<//fn></li>
+<li><ss>-o</ss> specifies the output directory, <fn>data/spades_outdir</fn></li>
+</ul>
+<pre class="codehilite"><code>ls      //to see the output files in your local workplace folder</code></pre>
+
+
+<ul>
+<li>Move the assembled reads - the contigs file - into the workplace folder:</li>
+</ul>
+<pre class="codehilite"><code>mv spades_outdir/contigs.fasta .</code></pre>
+
+
+<ul>
+<li>Run the annotation tool (prokka) in a container:</li>
+</ul>
+<pre class="codehilite"><code>docker run -v /Users/[yourname]/workplace:/data/ ummidock/prokka:1.13.3-01 prokka contigs.fasta</code></pre>
+
+
+<ul>
+<li><ss>ummidock/prokka:1.13.3-01</ss> is the image name</li>
+<li><ss>prokka</ss> is the command to run prokka</li>
+<li>the input file is <fn>contigs.fasta</fn></li>
+<li>this container has been configured to start within the data folder, so &ldquo;data/&rdquo; is not needed before the input file</li>
+<li>this container has also been configured to put output in the data folder, so it is not necessary to specify an output directory name</li>
+</ul>
+<pre class="codehilite"><code>ls                        //to see the annotation output
+cd PROKKA_outfile_name
+less PROKKA_outfile.txt   //summary of annotation</code></pre>
+
+
+<h3 id="troubleshooting">Troubleshooting</h3>
+<ul>
+<li>
+<p>How do we know what the command is to run the tool?</p>
+<ul>
+<li>Run the container interactively:</li>
+<li>e.g.<code>docker run -it ummidock/prokka:1.13.3-01</code></li>
+<li>Try the tool name and the help flag: e.g. <code>prokka -h</code></li>
+</ul>
+</li>
+<li>
+<p>How do we know if the container has a data folder?</p>
+<ul>
+<li>Run the container, print the working directory:</li>
+<li>e.g. <code>docker run ummidock/prokka:1.13.3-01 pwd</code></li>
+</ul>
+</li>
+</ul>
+
+  <br>
+</div>
+
+<footer class="col-md-12 wm-page-content"><p>&copy; The authors; 2019-</p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>
