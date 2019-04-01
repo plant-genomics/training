@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="Anna Syme">
+    <link rel="canonical" href="https://plant-genomics.github.io/training/modules/analysis/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Analysis - Plant Genomics Training</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <link href="../../css/style.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Set up your computer", url: "#_top", children: [
+              {title: "How to use HPC", url: "#how-to-use-hpc" },
+              {title: "How to use web platforms", url: "#how-to-use-web-platforms" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h2 id="set-up-your-computer">Set up your computer</h2>
+<p>A virtual environment is an area to work in that is associated with certain tools and versions.</p>
+<p>It is often useful to work on different bioinformatics analyses or tasks in different virtual environments, as they may rely on particular versions of tools.</p>
+<p>One way to set this up is to use a package manager called conda.</p>
+<ul>
+<li>Install miniconda</li>
+</ul>
+<p>e.g. MacOSX Python 3.7 64bit pkg installer</p>
+<p>https://docs.conda.io/en/latest/miniconda.html</p>
+<ul>
+<li>Set up the bioconda channel</li>
+</ul>
+<p>More information: https://bioconda.github.io/</p>
+<pre class="codehilite"><code>conda config --add channels defaults
+conda config --add channels bioconda
+conda config --add channels conda-forge</code></pre>
+
+
+<ul>
+<li>Create new environment called mrbayes</li>
+</ul>
+<pre class="codehilite"><code>conda create --name mrbayes
+conda activate mrbayes</code></pre>
+
+
+<p>Install a tool (or you can do this outside an environment)
+Search here for tools: https://anaconda.org/bioconda/</p>
+<pre class="codehilite"><code>conda install mrbayes</code></pre>
+
+
+<p>Deactivate the environment</p>
+<pre class="codehilite"><code>conda deactivate</code></pre>
+
+
+<h3 id="how-to-use-hpc">How to use HPC</h3>
+<p>See <a href="../hpc/">HPC analysis</a></p>
+<h3 id="how-to-use-web-platforms">How to use web platforms</h3>
+<p>See <a href="../platforms/">Web platforms</a></p>
+
+  <br>
+</div>
+
+<footer class="col-md-12 wm-page-content"><p>&copy; The authors; 2019-</p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>
