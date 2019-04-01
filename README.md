@@ -11,20 +11,18 @@ This section is a guide to contributing edits to the repository.
 
 ### Fork and clone this repository
 
-You should do your work in a fork under your own github account:
-
-* Fork this repository in github using the fork button.
-* Clone your fork to your local computer.
+* In GitHub, fork the plant-genomics/training repository [https://github.com/plant-genomics/training](https://github.com/plant-genomics/training)to your own GitHub account.
+* In the terminal (or equivalent), clone your fork to your local computer.
 ```
 git clone https://github.com/yourname/training.git
 ```
 
-### Set up your environment and build the documentation
+### Make a virtual environment
 
 * We are using the Python package [MkDocs](http://www.mkdocs.org/).
 * You can install MkDocs into a virtual environment, e.g. with conda.
 ```
-conda create --name mkdocs      //we call our environment "mkdocs"
+conda create --name mkdocs       //we call our environment "mkdocs"
 conda activate mkdocs
 conda install pip               
 pip install -r requirements.txt  //this file lists the packages required
@@ -37,7 +35,7 @@ pip install -r requirements.txt  //this file lists the packages required
 * In the terminal, open a new tab and serve the page (i.e. display in a browser tab) by: `mkdocs serve`
 * Open your web browser to http://127.0.0.1:8000/ and leave it open.
 * This will update automatically as you make changes to the documenation.
-* On the web, the contents (displayed in the left hand column) are determined by the mkdocs.yaml file.
+* On the web, the contents (displayed in the left hand column) are determined by the <fn>mkdocs.yaml</fn> file.
 * Add or delete topics (and their location) in this file.
 
 ### Pull request
@@ -50,7 +48,7 @@ git commit -m ["add commit message here"]
 git push
 ```
 
-* Open your repository (=a fork of the original repository) in github and create a pull request to the original repository.
+* Open your repository (=a fork of the original repository) in GitHub and create a pull request to the original repository.
 
 * If your fork is up to date, you should see "These branches can be automatically merged" while you are creating the pull request. If your fork is *not* up to date you should bring it up to date (sync with upstream) and resolve any merge conflicts before creating the pull request.
 
