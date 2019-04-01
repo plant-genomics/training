@@ -1,3 +1,4 @@
+mdx
 mkdocs
 markdown-include
 mdx_showable
