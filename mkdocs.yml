@@ -20,6 +20,7 @@ nav:
   - Getting started: modules/start.md
   - Tools: modules/tools.md
   - Data: modules/data.md
+  - Computing: modules/computing.md
   - Virtual environments: modules/envs.md
   - Using containers:  modules/docker.md
   - Using HPC: modules/hpc.md
