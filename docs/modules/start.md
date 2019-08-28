@@ -1,7 +1,26 @@
+## Introduction
 
+* What is plant genomics
+* What is bioinformatics
+
+
+## Getting started in plant genomics
+
+* Where to start
+* Useful papers
+* Useful links
+* Useful databases and resources
+
+## Where to get help
+
+* Biostars
+* SeqAnswers
+* StackOverflow
 
 
 ## Tutorials
+
+Data Carpentry Genomics Workshop: [https://datacarpentry.org/lessons/#genomics-workshop](https://datacarpentry.org/lessons/#genomics-workshop)
 
 ISU Genomics: [https://isugenomics.github.io/bioinformatics-workbook/](https://isugenomics.github.io/bioinformatics-workbook/)
 
