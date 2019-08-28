@@ -13,7 +13,15 @@ This section is a guide to contributing edits to the repository.
 
 * Email Anna the docs. Keep formatting minimal if possible and images as separate files; Anna will format in markdown. 
 
-### or: Fork and clone this repository
+### or: Edit on GitHub
+
+* Click the pencil icon in the top right
+* Edit
+* Click the green "Commit Changes" button at the bottom of the page
+
+### or: Edit on your computer
+
+**Fork and clone this repository**
 
 * In GitHub, fork the plant-genomics/training repository [https://github.com/plant-genomics/training](https://github.com/plant-genomics/training)to your own GitHub account.
 * In the terminal (or equivalent), clone your fork to your local computer.
@@ -21,7 +29,7 @@ This section is a guide to contributing edits to the repository.
 git clone https://github.com/yourname/training.git
 ```
 
-### Make a virtual environment
+**Make a virtual environment**
 
 * We are using the Python package [MkDocs](http://www.mkdocs.org/).
 * You can install MkDocs into a virtual environment, e.g. with conda.
@@ -32,10 +40,7 @@ conda install pip
 pip install -r requirements.txt  //this file lists the packages required
 ```
 
-
-
-
-### Edit
+**Edit**
 
 * A useful editor is Atom: https://atom.io
 * In Atom, open up the folder and edit in here.
@@ -45,7 +50,7 @@ pip install -r requirements.txt  //this file lists the packages required
 * On the web, the contents (displayed in the left hand column) are determined by the <fn>mkdocs.yaml</fn> file.
 * Add or delete topics (and their location) in this file.
 
-### Pull request
+**Pull request**
 
 * Add, commit and push your changes to your repository.
 
@@ -66,7 +71,7 @@ git remote add upstream https://github.com/plant-genomics/training.git
 git fetch upstream
 git merge upstream/master
 ```
-### Deploy
+**Deploy**
 
 * After you, or someone else, accepts your pull request, you can deploy the page (make it available on the internet):
 
