@@ -80,7 +80,7 @@ git clone https://github.com/plant-genomics/training
 cd training
 mkdocs gh-deploy
 ```
-* Note: this is a direct copy of the repository, not a clone of your copy of the repository.
+* Note: this is a direct copy of the repository, not a clone of your copy of the repository. (Your copy may be ahead or behind of this direct copy). 
 * Check that the updated tutorial appears under  https://plant-genomics.github.io/training/
 
 * Note: it is possible that we could make this deployment step automatic; GitHub has this as an option, but not sure if it's per user or per organisation. 
