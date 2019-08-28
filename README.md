@@ -24,7 +24,7 @@ This section is a guide to contributing edits to the repository.
 
 **Fork and clone this repository**
 
-* In GitHub, fork the plant-genomics/training repository [https://github.com/plant-genomics/training](https://github.com/plant-genomics/training)to your own GitHub account.
+* In GitHub, fork the plant-genomics/training repository [https://github.com/plant-genomics/training](https://github.com/plant-genomics/training) to your own GitHub account.
 * In the terminal (or equivalent), clone your fork to your local computer.
 ```
 git clone https://github.com/yourname/training.git
@@ -72,6 +72,9 @@ git remote add upstream https://github.com/plant-genomics/training.git
 git fetch upstream
 git merge upstream/master
 ```
+
+* Note: we could probably change this to make it possible to interact directly with the main repository (cloning from, pushing to) without going via your own GitHub account. 
+
 **Deploy**
 
 * After you, or someone else, accepts your pull request, you can deploy the page (make it available on the internet):
