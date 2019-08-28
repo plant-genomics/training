@@ -18,6 +18,7 @@ This section is a guide to contributing edits to the repository.
 * Click the pencil icon in the top right
 * Edit
 * Click the green "Commit Changes" button at the bottom of the page
+* Note: changes won't appear on the website until someone has deployed it
 
 ### or: Edit on your computer
 
