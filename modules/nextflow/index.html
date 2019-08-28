@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="Anna Syme">
+    <link rel="canonical" href="https://plant-genomics.github.io/training/modules/nextflow/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Workflows - Plant Genomics Training</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <link href="../../css/style.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Nextflow", url: "#_top", children: [
+              {title: "The basics", url: "#the-basics" },
+              {title: "A nextflow script", url: "#a-nextflow-script" },
+              {title: "Inputs, outputs, channels", url: "#inputs-outputs-channels" },
+              {title: "Links", url: "#links" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h2 id="nextflow">Nextflow</h2>
+<h3 id="the-basics">The basics</h3>
+<ul>
+<li>Install nextflow</li>
+<li>Write a script to run a workflow  </li>
+</ul>
+<p>Nextflow documentation is good - prob delete this below</p>
+<h3 id="a-nextflow-script">A nextflow script</h3>
+<p>Make a file called weather.nf</p>
+<pre class="codehilite"><code>nano weather.nf</code></pre>
+
+
+<p>Add this to the script:</p>
+<pre class="codehilite"><code class="language-bin linenums">#!/usr/bin
+process weather {    
+  echo true         
+  &quot;&quot;&quot;
+  echo &quot;stormy&quot;      
+  &quot;&quot;&quot;
+}</code></pre>
+
+
+<ul>
+<li><ss>process</ss> is a step in the workflow</li>
+<li><ss>echo &ldquo;stormy&rdquo;</ss> is the code block</li>
+<li><ss>echo true</ss> allows it to print to screen</li>
+<li>the process is enclosed in these: <ss>{     }</ss></li>
+</ul>
+<p>Run the workflow:</p>
+<pre class="codehilite"><code>nextflow run weather.nf</code></pre>
+
+
+<p>The screen will show:</p>
+<pre class="codehilite"><code>N E X T F L O W  ~  version 19.01.0
+Launching `weather.nf` [stupefied_legentil] - revision: eccaf7e744
+[warm up] executor &gt; local
+[4a/bb33c4] Submitted process &gt; weather
+stormy</code></pre>
+
+
+<ul>
+<li>Our output is on the last line</li>
+<li>Although we printed the output to the screen, nextflow has also saved the output in a default <fn>work</fn> directory</li>
+<li>See <ss>[4a/bb33c4]</ss> next to <ss>Submitted process</ss> - this is the name of the exectued process called &ldquo;weather&rdquo;. This is also a folder of output in your <fn>work</fn> directory.</li>
+<li><code>cd 4a/bb33c4</code> (replace with your process number)</li>
+<li><code>ls -la</code> to see hidden files (these start with a . )</li>
+<li><code>less .command.out</code> to look at output</li>
+</ul>
+<h3 id="inputs-outputs-channels">Inputs, outputs, channels</h3>
+<p>Example script:</p>
+<pre class="codehilite"><code class="language-nextflow linenums">#!/usr/bin/env nextflow
+
+//env is a command that looks in the user's path for nextflow
+//this will use whatever version of nextflow is first in the path
+
+
+//input file
+params.in = &quot;reads.fasta&quot;
+
+//a channel called &quot;sequences&quot;
+sequences = file(params.in)
+
+process split {
+
+input:
+file 'zebra.fa' from sequences
+
+output:
+file 'part_zeb.fa' into records
+//&quot;records&quot; will be a new channel
+
+
+&quot;&quot;&quot;
+head -10 zebra.fa &gt; part_zeb.fa
+//note any programs in here need to be installed in the environment
+&quot;&quot;&quot;
+}
+
+
+process show {
+
+input:
+file x from records
+//&quot;records&quot; is a channel
+
+output:
+stdout result
+
+&quot;&quot;&quot;
+less  $x
+//refer to variable x
+&quot;&quot;&quot;
+
+}
+
+result.subscribe { println it }</code></pre>
+
+
+<h3 id="links">Links</h3>
+<ul>
+<li><a href="https://nf-co.re/nextflow_tutorial">https://nf-co.re/nextflow_tutorial</a></li>
+<li><a href="https://github.com/nextflow-io/awesome-nextflow">https://github.com/nextflow-io/awesome-nextflow</a></li>
+</ul>
+
+  <br>
+</div>
+
+<footer class="col-md-12 wm-page-content"><p>&copy; The authors; 2019-</p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

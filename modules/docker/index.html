@@ -38,6 +38,7 @@
               {title: "Getting files in and out of containers", url: "#getting-files-in-and-out-of-containers" },
               {title: "Example: assemble and annotate a bacterial genome", url: "#example-assemble-and-annotate-a-bacterial-genome" },
               {title: "Troubleshooting", url: "#troubleshooting" },
+              {title: "Links", url: "#links" },
           ]},
         ];
 
@@ -71,6 +72,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <pre class="codehilite"><code>docker pull busybox   //pulls the image named &quot;busybox&quot; from DockerHub
 docker run busybox    //creates the container, then exits if no tasks are running
 docker run busybox ls //creates container, lists files, exits
+docker image ls       //lists all docker images
 docker --help         // docker help</code></pre>
 
 
@@ -79,13 +81,13 @@ docker --help         // docker help</code></pre>
 <li>We will make a folder that can get share files with our containers.</li>
 <li>In your home directory (/Users/yourname/):</li>
 </ul>
-<pre class="codehilite"><code>mkdir workplace     
-cd workplace
-docker run -v /Users/[yourname]/workplace:/data/ busybox touch data/plantfile</code></pre>
+<pre class="codehilite"><code>mkdir workspace     
+cd workspace
+docker run -v /Users/[yourname]/workspace:/data/ busybox touch data/plantfile</code></pre>
 
 
 <ul>
-<li><ss>-v</ss> connectes our local &ldquo;workplace&rdquo; folder with a &ldquo;data&rdquo; folder in the container.</li>
+<li><ss>-v</ss> connectes our local &ldquo;workspace&rdquo; folder with a &ldquo;data&rdquo; folder in the container.</li>
 <li>Around this, we <ss>docker run busybox</ss></li>
 <li>Finally, we create a file with <ss>touch data/plantfile</ss></li>
 </ul>
@@ -107,7 +109,7 @@ mv mutant_R2.fastq?download=1 mutant_R2.fastq</code></pre>
 <ul>
 <li>Run the assembly tool (spades) in a container:</li>
 </ul>
-<pre class="codehilite"><code>docker run -v /Users/[yourname]/workplace:/data/ quay.io/biocontainers/spades:3.13.0--0 ./usr/local/bin/spades.py -1 data/mutant_R1.fastq -2 data/mutant_R2.fastq -o data/spades_outdir</code></pre>
+<pre class="codehilite"><code>docker run -v /Users/[yourname]/workspace:/data/ quay.io/biocontainers/spades:3.13.0--0 ./usr/local/bin/spades.py -1 data/mutant_R1.fastq -2 data/mutant_R2.fastq -o data/spades_outdir</code></pre>
 
 
 <ul>
@@ -117,11 +119,11 @@ mv mutant_R2.fastq?download=1 mutant_R2.fastq</code></pre>
 <li><ss>-2</ss> specifies the file with reverse reads, <fn>data/mutant_R2.fastq<//fn></li>
 <li><ss>-o</ss> specifies the output directory, <fn>data/spades_outdir</fn></li>
 </ul>
-<pre class="codehilite"><code>ls      //to see the output files in your local workplace folder</code></pre>
+<pre class="codehilite"><code>ls      //to see the output files in your local workspace folder</code></pre>
 
 
 <ul>
-<li>Move the assembled reads - the contigs file - into the workplace folder:</li>
+<li>Move the assembled reads - the contigs file - into the workspace folder:</li>
 </ul>
 <pre class="codehilite"><code>mv spades_outdir/contigs.fasta .</code></pre>
 
@@ -129,7 +131,7 @@ mv mutant_R2.fastq?download=1 mutant_R2.fastq</code></pre>
 <ul>
 <li>Run the annotation tool (prokka) in a container:</li>
 </ul>
-<pre class="codehilite"><code>docker run -v /Users/[yourname]/workplace:/data/ ummidock/prokka:1.13.3-01 prokka contigs.fasta</code></pre>
+<pre class="codehilite"><code>docker run -v /Users/[yourname]/workspace:/data/ ummidock/prokka:1.13.3-01 prokka contigs.fasta</code></pre>
 
 
 <ul>
@@ -145,23 +147,22 @@ less PROKKA_outfile.txt   //summary of annotation</code></pre>
 
 
 <h3 id="troubleshooting">Troubleshooting</h3>
-<ul>
-<li>
 <p>How do we know what the command is to run the tool?</p>
 <ul>
 <li>Run the container interactively:</li>
 <li>e.g.<code>docker run -it ummidock/prokka:1.13.3-01</code></li>
 <li>Try the tool name and the help flag: e.g. <code>prokka -h</code></li>
 </ul>
-</li>
-<li>
 <p>How do we know if the container has a data folder?</p>
 <ul>
 <li>Run the container, print the working directory:</li>
-<li>e.g. <code>docker run ummidock/prokka:1.13.3-01 pwd</code></li>
+<li>e.g. <code>docker run ummidock/prokka:1.13.3-01 pwd</code>
+<!-- alternately: <code>docker image inspect &lt;container name&gt; --format '{{json .ContainerConfig.WorkingDir}}'</code> --></li>
+<li>If the working directory is called &ldquo;workdir&rdquo;, use that in place of &ldquo;data&rdquo;</li>
+<li>e.g. <code>-v /Users/[yourname]/workspace:/workdir/</code></li>
 </ul>
-</li>
-</ul>
+<h3 id="links">Links</h3>
+<p>Docker: <a href="https://docs.docker.com/get-started/">https://docs.docker.com/get-started/</a></p>
 
   <br>
 </div>

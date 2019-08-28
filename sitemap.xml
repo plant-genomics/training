@@ -2,47 +2,52 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
      <loc>https://plant-genomics.github.io/training/</loc>
-     <lastmod>2019-04-01</lastmod>
+     <lastmod>2019-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://plant-genomics.github.io/training/modules/start/</loc>
-     <lastmod>2019-04-01</lastmod>
+     <lastmod>2019-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://plant-genomics.github.io/training/modules/tools/</loc>
-     <lastmod>2019-04-01</lastmod>
+     <lastmod>2019-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://plant-genomics.github.io/training/modules/data/</loc>
-     <lastmod>2019-04-01</lastmod>
+     <lastmod>2019-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://plant-genomics.github.io/training/modules/vms/</loc>
-     <lastmod>2019-04-01</lastmod>
+     <loc>https://plant-genomics.github.io/training/modules/envs/</loc>
+     <lastmod>2019-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://plant-genomics.github.io/training/modules/docker/</loc>
-     <lastmod>2019-04-01</lastmod>
+     <lastmod>2019-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://plant-genomics.github.io/training/modules/hpc/</loc>
-     <lastmod>2019-04-01</lastmod>
+     <lastmod>2019-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://plant-genomics.github.io/training/modules/platforms/</loc>
-     <lastmod>2019-04-01</lastmod>
+     <lastmod>2019-08-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://plant-genomics.github.io/training/modules/nextflow/</loc>
+     <lastmod>2019-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://plant-genomics.github.io/training/modules/help/</loc>
-     <lastmod>2019-04-01</lastmod>
+     <lastmod>2019-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
