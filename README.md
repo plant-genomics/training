@@ -9,7 +9,11 @@
 
 This section is a guide to contributing edits to the repository.
 
-### Fork and clone this repository
+### Email 
+
+* Email Anna the docs. Keep formatting minimal if possible and images as separate files; Anna will format in markdown. 
+
+### or: Fork and clone this repository
 
 * In GitHub, fork the plant-genomics/training repository [https://github.com/plant-genomics/training](https://github.com/plant-genomics/training)to your own GitHub account.
 * In the terminal (or equivalent), clone your fork to your local computer.
@@ -27,6 +31,9 @@ conda activate mkdocs
 conda install pip               
 pip install -r requirements.txt  //this file lists the packages required
 ```
+
+
+
 
 ### Edit
 
@@ -70,3 +77,5 @@ mkdocs gh-deploy
 ```
 * Note: this is a direct copy of the repository, not a clone of your copy of the repository.
 * Check that the updated tutorial appears under  https://plant-genomics.github.io/training/
+
+* Note: it is possible that we could make this deployment step automatic; GitHub has this as an option, but not sure if it's per user or per organisation. 
