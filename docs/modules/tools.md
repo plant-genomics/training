@@ -1,48 +1,29 @@
-## General tools
+<br>
+<br>
 
-<ss>BLAST</ss> Sequence matching
+<ss>Under development: 2019</ss>
 
-Paper: A Guide to BLAST: [https://f1000research.com/documents/7-1435](https://f1000research.com/documents/7-1435)
+## General and commonly-used tools
 
-Tutorial: BLAST: [https://isugenomics.github.io/bioinformatics-workbook/dataAnalysis/blast/blast_index](https://isugenomics.github.io/bioinformatics-workbook/dataAnalysis/blast/blast_index)
+<ss>BLAST</ss> Sequence matching: [https://blast.ncbi.nlm.nih.gov/Blast.cgi](https://blast.ncbi.nlm.nih.gov/Blast.cgi)
 
-## Genome assembly
+* Paper: A Guide to BLAST: [https://f1000research.com/documents/7-1435](https://f1000research.com/documents/7-1435)
+* Tutorial: BLAST: [https://isugenomics.github.io/bioinformatics-workbook/dataAnalysis/blast/blast_index](https://isugenomics.github.io/bioinformatics-workbook/dataAnalysis/blast/blast_index)
 
-<ss>Canu</ss> For noisy long-read assemblies.
+<ss>FastQC</ss>
 
-Github: [https://github.com/marbl/canu](https://github.com/marbl/canu)
+<ss>bwa</ss> Map sequences against reference database: [https://github.com/lh3/bwa](https://github.com/lh3/bwa)
 
-Manual: [https://canu.readthedocs.io/en/latest/](https://canu.readthedocs.io/en/latest/)
+<ss>minimap2</ss> Map long read sequences against reference database: [https://github.com/lh3/minimap2](https://github.com/lh3/minimap2)
 
-<ss>wtdbg2</ss> For noisy long-read assemblies.
+<ss>Samtools</ss> Tools for processing alignment files: [https://www.htslib.org/](https://www.htslib.org/)
 
-Does not error-correct the reads: fast; uses "fuzzy" de Bruijn graphs.
+<ss>Bedtools</ss>
 
-Github: [https://github.com/ruanjue/wtdbg2](https://github.com/ruanjue/wtdbg2)
+<ss>Spades</ss> Genome assembly: [http://cab.spbu.ru/software/spades/](http://cab.spbu.ru/software/spades/)
 
-<ss>Masurca</ss> Joins short reads into super-reads; for hybrid assemblies
+<ss>Freebayes</ss> Variant calling: [https://github.com/ekg/freebayes](https://github.com/ekg/freebayes)
 
-Github: [https://github.com/alekseyzimin/masurca/releases](https://github.com/alekseyzimin/masurca/releases)
+<ss>IQ-Tree</ss> Phylogenetics: [http://www.iqtree.org/](http://www.iqtree.org/)
 
-Blog: [http://masurca.blogspot.com/](http://masurca.blogspot.com/)
-
-<ss>Flye</ss> For noisy long-read assemblies
-
-Does not error-correct the reads: fast.
-
-Github: [https://github.com/fenderglass/Flye](https://github.com/fenderglass/Flye)
-
-<ss>Supernova</ss> For assembling 10x (linked) reads
-
-Information: [https://support.10xgenomics.com/de-novo-assembly/software/pipelines/latest/using/running](https://support.10xgenomics.com/de-novo-assembly/software/pipelines/latest/using/running)
-
-<ss>miniasm</ss>
-
-https://github.com/lh3/miniasm
-
-<ss>Racon</ss>
-
-<ss>Pilon</ss>
-
-
-<ss>Nanopolish</ss>
+<ss>Mothur</ss> Metagenomics: [https://www.mothur.org/](https://www.mothur.org/)

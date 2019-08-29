@@ -20,13 +20,27 @@ nav:
   - Getting started: modules/start.md
   - Tools: modules/tools.md
   - Data: modules/data.md
+  - Databases: modules/databases.md
   - Computing: modules/computing.md
-  - Virtual environments: modules/envs.md
-  - Using containers:  modules/docker.md
-  - Using HPC: modules/hpc.md
-  - Platforms: modules/platforms.md
-  - Workflows: modules/nextflow.md
-  - Help: modules/help.md
+  - Galaxy: modules/galaxy.md
+  - Genome assembly: modules/assembly.md
+  - Phylogenomics: modules/phylogenomics.md
+  - Variant calling: modules/variants.md
+  - RNA-seq: modules/rna.md
+  - Organisations: modules/orgs.md
+
+
+
+
+
+
+
+  #need to check these: may be incorrect:
+  #- Virtual environments: modules/envs.md
+  #- Using containers:  modules/docker.md
+  #- Using HPC: modules/hpc.md
+  #- Workflows: modules/nextflow.md
+
 
 
 extra:

@@ -12,3 +12,5 @@
 * It has been designed for the Australian plant genomics community as part of the Genomics for Australian Plants project, by Bioplatforms Australia.
 
 * [https://www.genomicsforaustralianplants.com/](https://www.genomicsforaustralianplants.com/)
+
+* This is a community resource and contributions, additions, suggestions are welcome - please email:   <img src="email.png" height="40" width="200"/>
