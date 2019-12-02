@@ -1,8 +1,7 @@
-## Unix
+#### computing
 
-Software carpentry tutorial: [http://swcarpentry.github.io/shell-novice/](http://swcarpentry.github.io/shell-novice/)
-
-Guide to Unix: [https://f1000research.com/documents/7-1436](https://f1000research.com/documents/7-1436)
+* Software carpentry tutorial: [http://swcarpentry.github.io/shell-novice/](http://swcarpentry.github.io/shell-novice/)
+* Guide to Unix: [https://f1000research.com/documents/7-1436](https://f1000research.com/documents/7-1436)
 
 ## Python
 

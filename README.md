@@ -11,9 +11,11 @@ Under development, 2019
 
 This section is a guide to contributing edits to the repository.
 
-### Email 
 
-* Email Anna the docs. Keep formatting minimal if possible and images as separate files; Anna will format in markdown. 
+
+### Email
+
+* Email Anna the docs. Keep formatting minimal if possible and images as separate files; Anna will format in markdown.
 
 ### or: Edit on GitHub
 
@@ -75,7 +77,7 @@ git fetch upstream
 git merge upstream/master
 ```
 
-* Note: we could probably change this to make it possible to interact directly with the main repository (cloning from, pushing to) without going via your own GitHub account. 
+* Note: we could probably change this to make it possible to interact directly with the main repository (cloning from, pushing to) without going via your own GitHub account.
 
 **Deploy**
 
@@ -86,7 +88,11 @@ git clone https://github.com/plant-genomics/training
 cd training
 mkdocs gh-deploy
 ```
-* Note: this is a direct copy of the repository, not a clone of your copy of the repository. (Your copy may be ahead or behind of this direct copy). 
+* Note: this is a direct copy of the repository, not a clone of your copy of the repository. (Your copy may be ahead or behind of this direct copy).
 * Check that the updated tutorial appears under  https://plant-genomics.github.io/training/
 
-* Note: it is possible that we could make this deployment step automatic; GitHub has this as an option, but not sure if it's per user or per organisation. 
+* Note: it is possible that we could make this deployment step automatic; GitHub has this as an option, but not sure if it's per user or per organisation.
+
+### Fix an issue
+
+* Click on the issues tab to see current tasks tagged with the "to-do" label. 

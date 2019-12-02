@@ -17,17 +17,18 @@ theme: windmill
 
 nav:
   - Home: index.md
-  - Getting started: modules/start.md
-  - Tools: modules/tools.md
-  - Data: modules/data.md
-  - Databases: modules/databases.md
-  - Computing: modules/computing.md
+  - Tutorials: modules/tutorials.md
   - Galaxy: modules/galaxy.md
   - Genome assembly: modules/assembly.md
   - Phylogenomics: modules/phylogenomics.md
   - Variant calling: modules/variants.md
   - RNA-seq: modules/rna.md
-  - Organisations: modules/orgs.md
+  - Data: modules/data.md
+  - Databases: modules/databases.md
+
+
+  - Links: modules/orgs.md
+  - Help: modules/help.md
 
 
 

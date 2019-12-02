@@ -1,11 +1,6 @@
-{!_inc/header.md}
-
 <br>
 <br>
-
-
-
-## Assembly tools
+#### Assembly tools
 
 <ss>Canu</ss> For noisy long-read assemblies.
 
