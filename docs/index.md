@@ -1,7 +1,7 @@
 <br>
 <br>
 
-<ss>Under development: 2019</ss>
+<ss>Under development: 2019-2020</ss>
 
 ## Welcome to plant genomics training
 
