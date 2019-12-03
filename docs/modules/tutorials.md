@@ -1,6 +1,6 @@
 #### Bioinformatics tutorials
 
-This website has a range of tutorials and links for plant bioinformatics - see the left-hand panel.
+This website has a range of tutorials and links under development for plant bioinformatics - see the left-hand panel. More will be added as they are developed, for topics such as phylogenomics, variant calling, and RNA-seq. 
 
 Here are some links to resources that are particularly useful for getting started in plant bioinformatics:
 

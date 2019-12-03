@@ -1,10 +1,14 @@
 #### Databases
 
 Notes:
-* Some of these databases are for one plant species only, and some are for a selection of species with tools to compare genome features.
-* There is no single standard repository for annotated genomes: these are held across various databases.
-* Most of these databases are linked to at least one other database. 
 
+* Some of these databases are for one plant species only, and some are for a selection of species with tools to compare genome features.
+* Most of these databases are linked to at least one other database by inputs or outputs.
+* Databases are sometimes abandoned - look at the most recent update/release or news on the start page to find out if it is current. The ones in the links below seem to be active.
+* There is no single standard repository for annotated genomes: these are held across various databases.
+
+
+Database links:
 
 * NCBI: Sequence Read Archive: [https://www.ncbi.nlm.nih.gov/sra](https://www.ncbi.nlm.nih.gov/sra)
 * NCBI: Genomes: [https://www.ncbi.nlm.nih.gov/home/genomes/](https://www.ncbi.nlm.nih.gov/home/genomes/)
@@ -13,20 +17,8 @@ Notes:
 * Protein Databank: [https://www.rcsb.org/](https://www.rcsb.org/)
 * UniProt : protein sequences: [https://www.uniprot.org/](https://www.uniprot.org/)
 * Ensembl Plants [https://plants.ensembl.org/index.html](https://plants.ensembl.org/index.html)
-
-
-* Ensembl: BioMart for data download [https://asia.ensembl.org/info/data/biomart/index.html](https://asia.ensembl.org/info/data/biomart/index.html)
-
-
 * JGI Phytozome: [https://phytozome.jgi.doe.gov/pz/portal.html](https://phytozome.jgi.doe.gov/pz/portal.html)
 * UCSC Genome Browser: [https://genome.ucsc.edu/index.html](https://genome.ucsc.edu/index.html)
-
-
-
-
-* RepBase
-* Elixir phenotypes
-
 * TAIR - *Arabidopsis thaliana* [https://www.arabidopsis.org/](https://www.arabidopsis.org/)
 * Genome database for Rosaceae [https://www.rosaceae.org/](https://www.rosaceae.org/)
 * Gramene - crops and model plant species [http://gramene.org/](http://gramene.org/)
