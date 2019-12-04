@@ -1,6 +1,6 @@
 #### Databases
 
-Notes:
+**Overview**
 
 * Some of these databases are for one plant species only, and some are for a selection of species with tools to compare genome features.
 * Most of these databases are linked to at least one other database by inputs or outputs.
@@ -8,7 +8,7 @@ Notes:
 * There is no single standard repository for annotated genomes: these are held across various databases.
 
 
-Database links:
+**Database links**
 
 * NCBI: Sequence Read Archive: [https://www.ncbi.nlm.nih.gov/sra](https://www.ncbi.nlm.nih.gov/sra)
 * NCBI: Genomes: [https://www.ncbi.nlm.nih.gov/home/genomes/](https://www.ncbi.nlm.nih.gov/home/genomes/)

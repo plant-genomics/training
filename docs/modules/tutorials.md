@@ -1,9 +1,13 @@
+<br>
+<br>
+
+<ss>Under development: 2019-2020</ss>
+
 #### Bioinformatics tutorials
 
-This website has a range of tutorials and links under development for plant bioinformatics - see the left-hand panel. More will be added as they are developed, for topics such as phylogenomics, variant calling, and RNA-seq. 
+Priority topics currently under development are genome assembly, phylogenomics, variant calling, and RNA-seq. These will appear as items in the left hand panel.
 
 Here are some links to resources that are particularly useful for getting started in plant bioinformatics:
-
 
 * Unix: Software Carpentry tutorial: [http://swcarpentry.github.io/shell-novice/](http://swcarpentry.github.io/shell-novice/)
 * Guide to Unix: [https://f1000research.com/documents/7-1436](https://f1000research.com/documents/7-1436)
@@ -18,7 +22,9 @@ Here are some links to resources that are particularly useful for getting starte
 * Docker: [https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/](https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/)
 * Data Carpentry Genomics Workshop: [https://datacarpentry.org/lessons/#genomics-workshop](https://datacarpentry.org/lessons/#genomics-workshop)
 * ISU Genomics: [https://isugenomics.github.io/bioinformatics-workbook/](https://isugenomics.github.io/bioinformatics-workbook/)
+* Gene expression on Coursera [https://www.coursera.org/learn/plant-bioinformatics](https://www.coursera.org/learn/plant-bioinformatics)
 * Sequence analysis workshop UCDavis: [https://angus.readthedocs.io/en/2018/](https://angus.readthedocs.io/en/2018/)
 * Melbourne Bioinformatics: [https://www.melbournebioinformatics.org.au/training-and-events/](https://www.melbournebioinformatics.org.au/training-and-events/)
+* Bioinformatics file formats and ontology: [http://bioportal.bioontology.org/ontologies/EDAM](http://bioportal.bioontology.org/ontologies/EDAM)
 * The Biostar Handbook (not free): [https://www.biostarhandbook.com/index.html](https://www.biostarhandbook.com/index.html)
 * Test yourself! Rosalind bioinformatics problems: [http://rosalind.info/problems/locations/](http://rosalind.info/problems/locations/)

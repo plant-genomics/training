@@ -93,6 +93,6 @@ mkdocs gh-deploy
 
 * Note: it is possible that we could make this deployment step automatic; GitHub has this as an option, but not sure if it's per user or per organisation.
 
-### Fix an issue
+### Fix an issue, add an enhancement
 
-* Click on the issues tab to see current tasks tagged with the "to-do" label. 
+* Click on the issues tab to see current tasks tagged with the "to-do" or "enhancement" labels. 
