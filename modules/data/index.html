@@ -35,8 +35,6 @@
         var pageToc = [
           {title: "How to get data", url: "#_top", children: [
           ]},
-          {title: "Sample sequencing data", url: "#sample-sequencing-data", children: [
-          ]},
         ];
 
     </script>
@@ -54,49 +52,48 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <a name="_top"></a>
     
 
-    <h2 id="how-to-get-data">How to get data</h2>
-<p>Three common options are wget, curl, and sra-toolkit.</p>
-<pre class="codehilite"><code>wget [address of file]</code></pre>
-
-
-<pre class="codehilite"><code>curl [address of file]</code></pre>
-
-
-<p>Find some SRR numbers for reads you are interested in (search <a href="https://www.ncbi.nlm.nih.gov/sra">NCBI&rsquo;s SRA</a>), then:</p>
-<pre class="codehilite"><code>fastq-dump SRR[number goes here]</code></pre>
-
-
-<p>More information:</p>
+    <h4 id="how-to-get-data">How to get data</h4>
+<p><strong>wget or curl</strong></p>
 <ul>
+<li><code>wget [address of file]</code></li>
+<li><code>curl [address of file]</code></li>
+</ul>
+<p><strong>SRA toolkit</strong></p>
+<ul>
+<li>Find some SRR numbers for reads you are interested in (search <a href="https://www.ncbi.nlm.nih.gov/sra">NCBI&rsquo;s SRA</a>)</li>
+<li><code>fastq-dump SRR[number goes here]</code></li>
+<li>Note: the SRR numbers refer to the sequencing run. <a href="https://www.ncbi.nlm.nih.gov/sra/docs/submitmeta/">https://www.ncbi.nlm.nih.gov/sra/docs/submitmeta/</a></li>
 <li><a href="https://ncbi.github.io/sra-tools/install_config.html">https://ncbi.github.io/sra-tools/install_config.html</a></li>
 <li><a href="https://isugenomics.github.io/bioinformatics-workbook/dataAcquisition/fileTransfer/sra.html">https://isugenomics.github.io/bioinformatics-workbook/dataAcquisition/fileTransfer/sra.html</a></li>
-<li>Note: the SRR numbers refer to the sequencing run. <a href="https://www.ncbi.nlm.nih.gov/sra/docs/submitmeta/">https://www.ncbi.nlm.nih.gov/sra/docs/submitmeta/</a></li>
 </ul>
-<h2 id="sample-sequencing-data">Sample sequencing data</h2>
+<p><strong>Sample sequencing data</strong></p>
 <p><ss>PacBio reads</ss> From Canu&rsquo;s quickstart page:</p>
-<pre class="codehilite"><code>curl -L -o pacbio.fastq http://gembox.cbcb.umd.edu/mhap/raw/ecoli_p6_25x.filtered.fastq</code></pre>
-
-
+<ul>
+<li><code>curl -L -o pacbio.fastq \
+http://gembox.cbcb.umd.edu/mhap/raw/ecoli_p6_25x.filtered.fastq</code></li>
+</ul>
 <p><ss>Synthetic PacBio data</ss></p>
-<pre class="codehilite"><code>wget https://zenodo.org/record/1009308/files/pacbio.fq?download=1</code></pre>
-
-
-<p><ss>Nanopore reads</ss> From Canu&rsquo;s quickstart page; data from the Loman lab</p>
-<pre class="codehilite"><code>curl -L -o oxford.fasta http://nanopore.s3.climb.ac.uk/MAP006-PCR-1_2D_pass.fasta</code></pre>
-
-
+<ul>
+<li><code>wget https://zenodo.org/record/1009308/files/pacbio.fq?download=1</code></li>
+</ul>
+<p><ss>Nanopore reads</ss> From Canu&rsquo;s quickstart page; data from the Loman lab:</p>
+<ul>
+<li><code>curl -L -o oxford.fasta \
+http://nanopore.s3.climb.ac.uk/MAP006-PCR-1_2D_pass.fasta</code></li>
+</ul>
 <p><ss>Downsampled nanopore data</ss></p>
-<pre class="codehilite"><code>wget https://zenodo.org/record/842795/files/minion_1.2d_pass.fastq.fastqsanger?download=1</code></pre>
-
-
-<p><ss>fast5 files</ss>
-<a href="https://figshare.com/articles/Raw_ONT_reads_-_barcode_1/5353210">https://figshare.com/articles/Raw_ONT_reads_-_barcode_1/5353210</a></p>
-<p><ss>10X (linked) reads</ss>
-<a href="https://www.10xgenomics.com/resources/datasets/">https://www.10xgenomics.com/resources/datasets/</a></p>
-<p>Mixed:</p>
-<p>Training:
-long read workshop in sydney - also contains data
-https://zenodo.org/record/1442930#.XHXRLlMza-4</p>
+<ul>
+<li><code>wget \
+https://zenodo.org/record/842795/files/minion_1.2d_pass.fastq.fastqsanger?download=1</code></li>
+</ul>
+<p><ss>fast5 files</ss></p>
+<ul>
+<li><a href="https://figshare.com/articles/Raw_ONT_reads_-_barcode_1/5353210">https://figshare.com/articles/Raw_ONT_reads_-_barcode_1/5353210</a></li>
+</ul>
+<p><ss>10X (linked) reads</ss></p>
+<ul>
+<li><a href="https://www.10xgenomics.com/resources/datasets/">https://www.10xgenomics.com/resources/datasets/</a></li>
+</ul>
 
   <br>
 </div>

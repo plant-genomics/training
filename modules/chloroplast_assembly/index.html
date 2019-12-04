@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="Anna Syme">
+    <link rel="canonical" href="https://plant-genomics.github.io/training/modules/chloroplast_assembly/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Chloroplast assembly - Plant Genomics Training</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <link href="../../css/style.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Assemble and annotate a chloroplast genome", url: "#_top", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h4 id="assemble-and-annotate-a-chloroplast-genome">Assemble and annotate a chloroplast genome</h4>
+<p><strong> What is genome assembly? </strong></p>
+<ul>
+<li>Genome assembly is the process of joining together DNA sequencing fragments into longer pieces, ideally up to chromosome lengths.</li>
+<li>The DNA fragments are produced by DNA sequencing machines, and are called &ldquo;reads&rdquo;. These are in lengths of about 150 base pairs, to up to a million (or more) base pairs, depending on the sequencing technology used. Currently, most reads are from Illumina (short), PacBio (long) or Oxford Nanopore (long and extra-long) machines.</li>
+<li>It is difficult to assemble plant genomes as they are often large (for example, 3,000,000,000 base pairs), have many repeat regions (such as transposons), and may be polyploid.</li>
+<li>This tutorial shows genome assembly for a smaller data set - the plant chloroplast genome - a circular chromosome about 160,000 base pairs long.</li>
+<li>The process shown here is applicable to assembling plant nuclear genomes but there would be extra steps (and much more time) involved. For example, additional sequencing would usually be run on 10X, BioNano or HiC to produce information to link up longer nuclear chromosome pieces.</li>
+<li>We will use the Galaxy Australia platform (a web page) to run our analysis.</li>
+</ul>
+<p><fn><strong>New to Galaxy?</strong> Go to <a href="https://galaxy-au-training.github.io/tutorials/">Galaxy Australian Training</a> and try the first two tutorials &ldquo;Get started&rdquo; and &ldquo;Learn key tasks&rdquo;</fn></p>
+<p><strong> Tutorial overview </strong></p>
+<ul>
+<li>The chloroplast genome of the sweet potato has been sequenced.</li>
+<li>This has produced many sequencing reads - DNA fragments.</li>
+<li>We will try to join these reads together to make the whole chloroplast genome sequence.</li>
+<li>The data is from this paper: <a href="https://doi.org/10.12688/gatesopenres.12856.1">Zhou C, Duarte T, Silvestre R et al. 2018</a></li>
+</ul>
+<p><strong> Get the data </strong></p>
+<ul>
+<li>Log in to Galaxy Australia at <a href="https://usegalaxy.org.au/">usegalaxy.org.au</a>.
+*</li>
+</ul>
+<p><strong> Where is the data from? </strong></p>
+
+  <br>
+</div>
+
+<footer class="col-md-12 wm-page-content"><p>&copy; The authors; 2019-</p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>
