@@ -2,13 +2,14 @@
 
 **Overview**
 
-* Some of these databases are for one plant species only, and some are for a selection of species with tools to compare genome features.
+* This page has links to databases for sequences, tools, workflows and plants.
+* Some of these databases are for one plant species only; some are for a selection of species with tools to compare genome features.
 * Most of these databases are linked to at least one other database by inputs or outputs.
 * Databases are sometimes abandoned - look at the most recent update/release or news on the start page to find out if it is current. The ones in the links below seem to be active.
 * There is no single standard repository for annotated genomes: these are held across various databases.
 
 
-**Database links**
+**Sequences and genome browsers**
 
 * NCBI: Sequence Read Archive: [https://www.ncbi.nlm.nih.gov/sra](https://www.ncbi.nlm.nih.gov/sra)
 * NCBI: Genomes: [https://www.ncbi.nlm.nih.gov/home/genomes/](https://www.ncbi.nlm.nih.gov/home/genomes/)
@@ -24,5 +25,17 @@
 * Gramene - crops and model plant species [http://gramene.org/](http://gramene.org/)
 * PlaBiPD - includes a chronology and phylogeny of pubplished plant genomes: [https://plabipd.de/index.ep](https://plabipd.de/index.ep)
 * PLAZA [https://bioinformatics.psb.ugent.be/plaza/](https://bioinformatics.psb.ugent.be/plaza/)
+
+
+**Plants and morphology**
+
 * Flora of Australia [https://profiles.ala.org.au/opus/foa](Flora of Australia https://profiles.ala.org.au/opus/foa)
 * Plant traits [https://www.try-db.org/TryWeb/Home.php](https://www.try-db.org/TryWeb/Home.php)
+
+**Tools, containers, workflows**
+
+* Search for tools: [https://bio.tools/](https://bio.tools/)
+* Tools for working with long reads:
+* BioContainers: containers for bioinformatics [https://biocontainers.pro/#/](https://biocontainers.pro/#/)
+* Docker Hub: docker containers [https://hub.docker.com/](https://hub.docker.com/)
+* nf-core: Nextflow workflows: [https://nf-co.re/](https://nf-co.re/)

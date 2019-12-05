@@ -1,19 +1,24 @@
 #### How to get data
 
-**wget or curl**
+When running bioinformatics analyses on the command-line, you may wish to use publically-available data for testing or for analysis. Some examples of how to do this are given here, along with sample datasets.
+
+
+**Get data with wget or curl**
 
 * `wget [address of file]`
 * `curl [address of file]`
 
-**SRA toolkit**
+More about wget: [https://en.wikipedia.org/wiki/Wget](https://en.wikipedia.org/wiki/Wget)
+More about curl: [https://en.wikipedia.org/wiki/CURL](https://en.wikipedia.org/wiki/CURL)
+
+
+**SRA Toolkit**
 
 * Find some SRR numbers for reads you are interested in (search [NCBI's SRA](https://www.ncbi.nlm.nih.gov/sra))
 * `fastq-dump SRR[number goes here]`
 * Note: the SRR numbers refer to the sequencing run. [https://www.ncbi.nlm.nih.gov/sra/docs/submitmeta/](https://www.ncbi.nlm.nih.gov/sra/docs/submitmeta/)
-* [https://ncbi.github.io/sra-tools/install_config.html](https://ncbi.github.io/sra-tools/install_config.html)
-* [https://isugenomics.github.io/bioinformatics-workbook/dataAcquisition/fileTransfer/sra.html](https://isugenomics.github.io/bioinformatics-workbook/dataAcquisition/fileTransfer/sra.html)
-
-
+* Note: `fasterq-dump` is now also supported and `fastq-dump` may be deprecated in the future.
+* More about the SRA Toolkit: [https://github.com/ncbi/sra-tools/wiki](https://github.com/ncbi/sra-tools/wiki)
 
 **Sample sequencing data**
 
