@@ -11,7 +11,7 @@
     <link rel="canonical" href="https://plant-genomics.github.io/training/modules/chloroplast_assembly/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Genome assembly - Plant Genomics Training</title>
+    <title>Chloroplast assembly - Plant Genomics Training</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -37,10 +37,11 @@
               {title: "What is genome assembly?", url: "#what-is-genome-assembly" },
               {title: "Tutorial overview", url: "#tutorial-overview" },
               {title: "Import the data", url: "#import-the-data" },
-              {title: "Look at the read quality", url: "#look-at-the-read-quality" },
+              {title: "Look at the read quality [to do]", url: "#look-at-the-read-quality-to-do" },
               {title: "Assemble the nanopore reads", url: "#assemble-the-nanopore-reads" },
-              {title: "View the assembly graph", url: "#view-the-assembly-graph" },
-              {title: "Polish the assembly with short reads", url: "#polish-the-assembly-with-short-reads" },
+              {title: "View assembly outputs", url: "#view-assembly-outputs" },
+              {title: "Map short reads to the aseembly", url: "#map-short-reads-to-the-aseembly" },
+              {title: "Polish the assembly", url: "#polish-the-assembly" },
               {title: "View read alignments", url: "#view-read-alignments" },
               {title: "Annotate", url: "#annotate" },
               {title: "See this history in Galaxy", url: "#see-this-history-in-galaxy" },
@@ -84,115 +85,85 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <h5 id="import-the-data">Import the data</h5>
 <ul>
 <li>Log in to <a href="https://usegalaxy.org.au/">Galaxy Australia</a> and create a new history.</li>
-<li>The data is from this paper: <a href="https://doi.org/10.12688/gatesopenres.12856.1">Zhou C, Duarte T, Silvestre R et al. 2018</a>, hosted at EBI ENA.</li>
-</ul>
-<!--
-How I got these files:
-Created history: sweet potato chloroplast tutorial data
-
-Nanopore data
-Galaxy: Get data: EBI SRA:
-enter in search box: SRR6828567
-click on the link under run
-under FASTQ files (Galaxy) click on File 1
-will upload into current history
-
-repeat for Illumina data: SRR6828568
-note this data says paired but there is only one file.
-these don't look paired, I uncompressed and looked at the last reads in the file and they are numbered xxx/1
-probably ok to use though as just using for correction
-
-Renamed.
-Uncompressed (don't know what this tool is or how to find it in tools).
-Reduced.
-Very reduced (for a bam example).
-
-the paper used slightly diff assembly method, which included correcting nanopore reads with illumina reads, trimming low qual, assembling nano with canu, then polish with pilon and illumina.
-
-=> illumina file
-[I found this by ncbi - looking at the Tanzania sample (see paper supp table S1) that gave the nanopore file (which is easy to find bc only one nanopore file in the set, but lots of illumina) - then searched for all reads under under this, and found the accompanying illumina file.
-
-I've cut down the size of these datasets and hosted the data on Zenodo (with permission from author Lachlan Coin) at http://doi.org/10.5281/zenodo.3567224
--->
-
-<ul>
-<li>Original FASTQ reads: illumina (SRR6828568) and nanopore (SRR6828567).</li>
+<li>The data is from this paper: <a href="https://doi.org/10.12688/gatesopenres.12856.1">Zhou C, Duarte T, Silvestre R et al. 2018</a>, hosted at EBI ENA.
+<!--How I got these files: see text at end of this document --></li>
+<li>Original FASTQ reads: Illumina (SRR6828568) and Nanopore (SRR6828567).</li>
 <li>These data sets have been highly reduced in size for this tutorial.</li>
-<li>
-<p>In a new browser tab, go to this webpage <a href="http://doi.org/10.5281/zenodo.3567224">at this link</a>.</p>
-</li>
-<li>
-<p>Find the file called <fn>mutant_R1.fastq</fn></p>
-</li>
+<li>In a new browser tab, go to this webpage <a href="http://doi.org/10.5281/zenodo.3567224">at this link</a>.</li>
+<li>Find the file called <fn>sweet-potato-chloroplast-illumina-reduced.fastq</fn></li>
 <li>Right click on file name: select &ldquo;copy link address&rdquo;</li>
-<li>In Galaxy, go to <ss>Get Data</ss> and then Upload File</li>
+<li>In Galaxy, go to <ss>Get Data</ss> and then <ss>Upload File</ss></li>
 <li>Click <ss>Paste/Fetch data</ss></li>
 <li>A box will appear: paste in link address</li>
-<li>Click <ss>Start</ss></li>
-<li>Click <ss>Close</ss></li>
+<li>Click <ss>Start</ss>; click <ss>Close</ss></li>
 <li>The file will now appear in the top of your history panel.</li>
-<li>Repeat for <fn>mutant_R2.fastq</fn>.</li>
-<li>We now have tow FastQ read files in our history.</li>
+<li>Repeat for the Nanopore reads <fn>sweet-potato-chloroplast-nanopore-reduced.fastq</fn>.</li>
+<li>We now have two FASTQ read files in our history.</li>
 <li>Click on the eye icon next to one of the FASTQ sequence files.</li>
 <li>View the file in the centre Galaxy panel.</li>
 </ul>
-<h5 id="look-at-the-read-quality">Look at the read quality</h5>
+<h5 id="look-at-the-read-quality-to-do">Look at the read quality [to do]</h5>
 <ul>
 <li>In the tool panel, search for Nanoplot</li>
-<li>[to do - run details]</li>
-<li>[to do - results] what does it mean, see sweet potato nanoplot - why is weighted histogram of read lengths have some that are in negative??</li>
-<li>eg NanoStats
-average read length = 7000
-av quality = 10
-2000 reads
-13 million bases</li>
+<li>[to do - run details] [to do - results] what does it mean, see sweet potato nanoplot - why is weighted histogram of read lengths have some that are in negative?/ eg NanoStats / average read length = 7000 / av quality = 10 / 2000 reads / 13 million bases</li>
 </ul>
 <h5 id="assemble-the-nanopore-reads">Assemble the nanopore reads</h5>
 <ul>
-<li>In the tool panel, search for ?Assembly? or flye</li>
-<li>leave settings as default; add genome size 160000</li>
-<li>rename scaffolds as flye.fasta</li>
-<li>
-<p>Click <ss>Execute</ss></p>
-</li>
-<li>
-<p>view outputs</p>
-</li>
+<li>In the tool panel, search for &ldquo;flye&rdquo;, and click on &ldquo;Assembly of long and error-prone reads&rdquo;.</li>
+<li>For <ss>Input reads</ss> select <fn>sweet-potato-chloroplast-nanopore-reduced.fastq</fn></li>
+<li>Leave other settings as default, except for <ss>estimated genome size</ss> add <fn>160000</fn></li>
+<li>Click <ss>Execute</ss></li>
 </ul>
-<p>in summary: three contigs, one of these is in two directions; then joins these together.</p>
-<p>1/ scaffolds (2 contigs): re-name flye.fasta
-2/ info (contigs as above, but shows the parts within these contigs)
-3/ graph_dot (what&rsquo;s connected - eg1-&gt;0-&gt;3-&gt;2-&gt;1)
-4/ gfa (seqs: contigs 1 2 and 3 and connecting info). 5/ log. can see that the order of doing stuff is: write fasta (=the three contigs? where is this?), generates scaffold connections, write dot, write fasta (=scaffolds? just the two contigs?), write gfa (the three contigs), polishes gfa (but doesn&rsquo;t write it?? &ndash; re do with no polish. )</p>
+<h5 id="view-assembly-outputs">View assembly outputs</h5>
 <ul>
-<li>fasta stats</li>
+<li>There are five output files.</li>
+<li>View the <fn>log</fn> file and scroll to the end. How many contigs were assembled? What is the length of the assembly?</li>
+<li>View the <fn>assembly_info</fn> file. What are the contig names? What does the &ldquo;graph_path&rdquo; show? <!-- that contig 2 has inverted repeats --></li>
+<li>The assembly sequence is in the <fn>scaffolds</fn>. Re-name this <fn>flye-assembly.fasta</fn></li>
+<li>Optional: Download the <fn>Graphical Fragment Assembly</fn></li>
+<li>Open the Bandage program (add link).</li>
+<li>Go to <ss>File: load graph</ss> then <ss>Draw graph</ss></li>
+<li>What is your interpretation of this assembly graph?
+<!--
+It looks like the LSC and SSC fragments are joined by a collapsed repeat (the inverted repeat)
+-->
+<img alt="assembly graph" src="../images/flye-assembly-graph.png" />
+[to do - check the lengths of these graph contigs match the lengths in the flye output files]
+[to do - check the contig naming - note that it is changed in bandage?]</li>
 </ul>
-<p>re-name as stats flye.fasta</p>
-<h5 id="view-the-assembly-graph">View the assembly graph</h5>
-<p>download gfa and view in bandage, see inv reps and contig sizes.</p>
-<p>[Note: discussion Qu: to join or not join contigs]
-[Note: further investigate: is this ambiguity (ie the join between the two contigs) due to structural heteroplasmy?]</p>
-<h5 id="polish-the-assembly-with-short-reads">Polish the assembly with short reads</h5>
+<h5 id="map-short-reads-to-the-aseembly">Map short reads to the aseembly</h5>
 <ul>
 <li>Short illumina reads are more accurate the nanopore reads. We will use them to correct errors in the nanopore assembly.</li>
+<li>The first step is to map the reads to the assembly.</li>
+<li>In the tool panel, search for &ldquo;bwa mem&rdquo;, and click on &ldquo;Map with BWA-MEM&rdquo;</li>
+<li>For <ss>Will you select a reference genome from your history</ss> select <fn>Use a genome from history</fn></li>
+<li>For <ss>Use the following dataset as the reference sequence</ss> select <fn>flye-assembly.fasta</fn></li>
+<li>For <ss>Algorithm for constructing the BWT index</ss> select <fn>Auto. Let BWA decide</fn></li>
+<li>For <ss>Single or Paired-end reads</ss> select <fn>Single</fn></li>
+<li>For <ss>Select fastq dataset</ss> select <fn>sweet-potato-chloroplast-illumina-reduced.fastq</fn></li>
+<li>For <ss>Set read groups information?</ss> select <fn>Do not set</fn></li>
+<li>For <ss>Select analysis mode</ss> select <fn>1. Simple Illumina mode</ss></li>
+<li>Click <ss>Execute</ss></li>
+<li>This maps the short reads to the assembly, and creates an alignment file.</li>
+<li>Re-name this file <fn>illumina.bam</fn></li>
 </ul>
-<p>Map illumina to flye scaffolds: bwa mem</p>
-<p>use a genome from history: flye.fasta
-reads: single
-fastq: illumina-reduced.fastq
-analysis mode: illumina
-=&gt; bam file: re-name illumina.bam</p>
-<p>Pilon</p>
-<p>[option: run a second round of polishing. keep track of file naming, and will need to generate a new bam [map illumina reads to polished.fasta]]]</p>
-<p>with Illumina bam and ref (=flye scaffolds)
-other settings default
-=&gt; fasta: re-name as polished.fasta
-=&gt; VCF: re-name pilon.vcf</p>
-<p>Fasta stats</p>
-<p>on polished.fasta
-What changed
-how many changes</p>
-<p>rename stats polished.fasta</p>
+<h5 id="polish-the-assembly">Polish the assembly</h5>
+<ul>
+<li>In the tool panel, search for &ldquo;pilon&rdquo;, and click on &ldquo;pilon&rdquo;</li>
+<li>For <ss>Source for reference genome used for BAM alignments</ss> select <fn>Use a genome from history</fn></li>
+<li>For <ss>Select a reference genome</ss> select <fn>flye-assembly.fasta</fn></li>
+<li>For <ss>Type automatically determined by pilon</ss> click <fn>Yes</fn></li>
+<li>For <ss>Input BAM file</ss> select <fn>illumina.bam</fn></li>
+<li>For <ss>Variant calling mode</ss> select <fn>No</fn></li>
+<li>For <ss>Create changes file</ss> select <fn>Yes</fn></li>
+<li>Click <ss>Execute</ss></li>
+<li>This compares the short reads to the assembly, and creates a polished (corrected) assembly file.
+<!-- option: run a second round of polishing. keep track of file naming, and will need to generate a new bam [map illumina reads to polished.fasta] --></li>
+<li>Re-name the fasta output file <fn>polished.fasta</fn></li>
+<li>Find and run the tool called &ldquo;Fasta statistics&rdquo; on this file.</li>
+<li>How does it compare to the unpolished <fn>flye-assembly.fasta</fn>?
+<!-- length 161333 compared to unpolished 160340; about 1k bases have been added back in; nanopore can have a lot of homopolymer deletions; the changes file shows lots of cases with a deletion changing to a base, there are also stretches of bases replaced--></li>
+</ul>
 <h5 id="view-read-alignments">View read alignments</h5>
 <p>Get cutdown nano and illumina reads for viewing in bams</p>
 <p>View all histories: see History: chloroplast-tutorial-data - drag sweet-potato-nanopore-tiny.fastq and sweet-potato-illumina-tiny.fastq
@@ -276,6 +247,34 @@ can be multiple annotations under each feature depending on the database matched
 <ul>
 <li><a href="http://galaxyproject.github.io/training-material/">http://galaxyproject.github.io/training-material/</a></li>
 </ul>
+<!-- File prep:
+
+Created history: sweet potato chloroplast tutorial data
+
+Nanopore data
+Galaxy: Get data: EBI SRA:
+enter in search box: SRR6828567
+click on the link under run
+under FASTQ files (Galaxy) click on File 1
+will upload into current history
+
+repeat for Illumina data: SRR6828568
+note this data says paired but there is only one file.
+these don't look paired, I uncompressed and looked at the last reads in the file and they are numbered xxx/1
+probably ok to use though as just using for correction
+
+Renamed.
+Uncompressed (don't know what this tool is or how to find it in tools).
+Reduced.
+Very reduced (for a bam example).
+
+the paper used slightly diff assembly method, which included correcting nanopore reads with illumina reads, trimming low qual, assembling nano with canu, then polish with pilon and illumina.
+
+=> illumina file
+[I found this by ncbi - looking at the Tanzania sample (see paper supp table S1) that gave the nanopore file (which is easy to find bc only one nanopore file in the set, but lots of illumina) - then searched for all reads under under this, and found the accompanying illumina file.
+
+I've cut down the size of these datasets and hosted the data on Zenodo (with permission from author Lachlan Coin) at http://doi.org/10.5281/zenodo.3567224
+-->
 
   <br>
 </div>
