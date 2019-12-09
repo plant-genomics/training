@@ -53,18 +53,21 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h4 id="how-to-get-data">How to get data</h4>
-<p><strong>wget or curl</strong></p>
+<p>When running bioinformatics analyses on the command-line, you may wish to use publically-available data for testing or for analysis. Some examples of how to do this are given here, along with sample datasets.</p>
+<p><strong>Get data with wget or curl</strong></p>
 <ul>
 <li><code>wget [address of file]</code></li>
 <li><code>curl [address of file]</code></li>
 </ul>
-<p><strong>SRA toolkit</strong></p>
+<p>More about wget: <a href="https://en.wikipedia.org/wiki/Wget">https://en.wikipedia.org/wiki/Wget</a>
+More about curl: <a href="https://en.wikipedia.org/wiki/CURL">https://en.wikipedia.org/wiki/CURL</a></p>
+<p><strong>SRA Toolkit</strong></p>
 <ul>
 <li>Find some SRR numbers for reads you are interested in (search <a href="https://www.ncbi.nlm.nih.gov/sra">NCBI&rsquo;s SRA</a>)</li>
 <li><code>fastq-dump SRR[number goes here]</code></li>
 <li>Note: the SRR numbers refer to the sequencing run. <a href="https://www.ncbi.nlm.nih.gov/sra/docs/submitmeta/">https://www.ncbi.nlm.nih.gov/sra/docs/submitmeta/</a></li>
-<li><a href="https://ncbi.github.io/sra-tools/install_config.html">https://ncbi.github.io/sra-tools/install_config.html</a></li>
-<li><a href="https://isugenomics.github.io/bioinformatics-workbook/dataAcquisition/fileTransfer/sra.html">https://isugenomics.github.io/bioinformatics-workbook/dataAcquisition/fileTransfer/sra.html</a></li>
+<li>Note: <code>fasterq-dump</code> is now also supported and <code>fastq-dump</code> may be deprecated in the future.</li>
+<li>More about the SRA Toolkit: <a href="https://github.com/ncbi/sra-tools/wiki">https://github.com/ncbi/sra-tools/wiki</a></li>
 </ul>
 <p><strong>Sample sequencing data</strong></p>
 <p><ss>PacBio reads</ss> From Canu&rsquo;s quickstart page:</p>
