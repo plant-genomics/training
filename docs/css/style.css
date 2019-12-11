@@ -4,17 +4,42 @@ SS = "screen shot" for menu items etc.
 FN = filename
 TX = text
 CO = code
+OP = optional
+ST = step highlight
 */
+
+ST {
+  font-family: "Lato", sans-serif;
+  font-style: italic;
+  font-size: 90%;
+  color: black;
+  text-align: center;
+  border-radius: 5px;
+  background-color:#B6BCD2;
+  padding: 0.3ex 0.3ex;
+}
+
+
+OP {
+  font-family: "Lato", sans-serif;
+  font-style: italic;
+  font-size: 90%;
+  color: black;
+  text-align: center;
+  border-radius: 5px;
+  background-color:#DCDCDC;
+  padding: 0.3ex 0.3ex;
+}
 
 SS {
   font-family: "Lucida Grande", sans-serif;
-  font-size: 80%;
+  font-size: 90%;
   font-weight: bolder;
   color: black;
   text-align: center;
   border-radius: 5px;
   background: #D6EDDF;
-  padding: 0.3ex 1ex;
+  padding: 0.1ex 0.5ex;
 
 }
 FN {
@@ -22,7 +47,7 @@ FN {
   font-size: 80%;
   color: black;
   text-align: center;
-  padding: 0.3ex 1ex;
+  padding: 0.2ex 0.5ex;
   border: solid thin black;
   border-radius: 4px;
 }
