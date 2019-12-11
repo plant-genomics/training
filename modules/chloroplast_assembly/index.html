@@ -35,15 +35,14 @@
         var pageToc = [
           {title: "Assemble and annotate a chloroplast genome", url: "#_top", children: [
               {title: "What is genome assembly?", url: "#what-is-genome-assembly" },
-              {title: "Tutorial overview", url: "#tutorial-overview" },
-              {title: "Import the data", url: "#import-the-data" },
-              {title: "Look at the read quality [to do]", url: "#look-at-the-read-quality-to-do" },
-              {title: "Assemble the nanopore reads", url: "#assemble-the-nanopore-reads" },
-              {title: "View assembly outputs", url: "#view-assembly-outputs" },
-              {title: "Map short reads to the aseembly", url: "#map-short-reads-to-the-aseembly" },
-              {title: "Polish the assembly", url: "#polish-the-assembly" },
-              {title: "View read alignments", url: "#view-read-alignments" },
+              {title: "What's in this tutorial?", url: "#whats-in-this-tutorial" },
+              {title: "Get data", url: "#get-data" },
+              {title: "Read quality", url: "#read-quality" },
+              {title: "Assemble", url: "#assemble" },
+              {title: "Polish", url: "#polish" },
+              {title: "View reads", url: "#view-reads" },
               {title: "Annotate", url: "#annotate" },
+              {title: "Repeat with new data", url: "#repeat-with-new-data" },
               {title: "See this history in Galaxy", url: "#see-this-history-in-galaxy" },
               {title: "See this workflow in Galaxy", url: "#see-this-workflow-in-galaxy" },
               {title: "What's next?", url: "#whats-next" },
@@ -65,8 +64,8 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <a name="_top"></a>
     
 
-    <h4 id="assemble-and-annotate-a-chloroplast-genome">Assemble and annotate a chloroplast genome</h4>
-<h5 id="what-is-genome-assembly">What is genome assembly?</h5>
+    <h3 id="assemble-and-annotate-a-chloroplast-genome">Assemble and annotate a chloroplast genome</h3>
+<h4 id="what-is-genome-assembly">What is genome assembly?</h4>
 <ul>
 <li>Genome assembly is the process of joining together DNA sequencing fragments into longer pieces, ideally up to chromosome lengths.</li>
 <li>The DNA fragments are produced by DNA sequencing machines, and are called &ldquo;reads&rdquo;. These are in lengths of about 150 base pairs, to up to a million (or more) base pairs, depending on the sequencing technology used. Currently, most reads are from Illumina (short), PacBio (long) or Oxford Nanopore (long and extra-long).</li>
@@ -74,15 +73,17 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li>This tutorial shows genome assembly for a smaller data set - the plant chloroplast genome - a circular chromosome about 160,000 base pairs long.</li>
 <li>The process shown here is applicable to assembling plant nuclear genomes but there would be extra steps (and much more time) involved. For example, additional sequencing would usually be run on 10X, BioNano or HiC to produce information to link up longer nuclear chromosome pieces and to separate out the maternal and paternal haplotypes.</li>
 </ul>
-<h5 id="tutorial-overview">Tutorial overview</h5>
+<h4 id="whats-in-this-tutorial">What&rsquo;s in this tutorial?</h4>
 <ul>
 <li>The chloroplast genome of the sweet potato has been sequenced.</li>
 <li>This has produced many sequencing reads - DNA fragments.</li>
 <li>We will try to join these reads together to make the whole chloroplast genome sequence.</li>
 <li>We will use the Galaxy Australia platform (a web page) to run our analysis.</li>
-<li>This tutorial assumes some familiarity with Galaxy and bioinformatics - if you are new to either of these, we recommend the <a href="https://galaxy-au-training.github.io/tutorials/">Galaxy Australia Training</a> tutorials <em>Get started, Learn key tasks, Quality control, Genome assembly, </em>and<em> Genome annotation</em>.</li>
+<li>This tutorial assumes some familiarity with Galaxy and bioinformatics - if you are new to either of these, we recommend the <a href="https://galaxy-au-training.github.io/tutorials/">Galaxy Australia Training</a> tutorials <em>Get started, Learn key tasks, Quality control, Genome assembly, </em>and<em> Genome annotation</em>, as this chloroplast genome assembly tutorial is slightly more complicated.</li>
+<li>You can follow all the steps, or skip the <op>optional</op> steps:</li>
+<li><st>Get data &rarr; <op>Read quality</op> &rarr; Assemble&rarr; Polish &rarr; <op>View reads</op>  &rarr; <op>Annotate</op>  &rarr; <op>Repeat with new data</op>   </st></li>
 </ul>
-<h5 id="import-the-data">Import the data</h5>
+<h4 id="get-data">Get data</h4>
 <ul>
 <li>Log in to <a href="https://usegalaxy.org.au/">Galaxy Australia</a> and create a new history.</li>
 <li>The data is from this paper: <a href="https://doi.org/10.12688/gatesopenres.12856.1">Zhou C, Duarte T, Silvestre R et al. 2018</a>, hosted at EBI ENA.
@@ -102,20 +103,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li>Click on the eye icon next to one of the FASTQ sequence files.</li>
 <li>View the file in the centre Galaxy panel.</li>
 </ul>
-<h5 id="look-at-the-read-quality-to-do">Look at the read quality [to do]</h5>
+<h4 id="read-quality">Read quality</h4>
 <ul>
+<li><op>Optional. Skip this section for a quicker tutorial</op></li>
 <li>In the tool panel, search for Nanoplot</li>
 <li>[to do - run details] [to do - results] what does it mean, see sweet potato nanoplot - why is weighted histogram of read lengths have some that are in negative?/ eg NanoStats / average read length = 7000 / av quality = 10 / 2000 reads / 13 million bases</li>
 </ul>
-<h5 id="assemble-the-nanopore-reads">Assemble the nanopore reads</h5>
+<h4 id="assemble">Assemble</h4>
 <ul>
+<li><st>Assemble:</st></li>
 <li>In the tool panel, search for &ldquo;flye&rdquo;, and click on &ldquo;Assembly of long and error-prone reads&rdquo;.</li>
 <li>For <ss>Input reads</ss> select <fn>sweet-potato-chloroplast-nanopore-reduced.fastq</fn></li>
 <li>Leave other settings as default, except for <ss>estimated genome size</ss> add <fn>160000</fn></li>
 <li>Click <ss>Execute</ss></li>
-</ul>
-<h5 id="view-assembly-outputs">View assembly outputs</h5>
-<ul>
+<li><st>View assembly outputs:</st></li>
 <li>There are five output files.</li>
 <li>View the <fn>log</fn> file and scroll to the end. How many contigs were assembled? What is the length of the assembly?</li>
 <li>View the <fn>assembly_info</fn> file. What are the contig names? What does the &ldquo;graph_path&rdquo; show? <!-- that contig 2 has inverted repeats --></li>
@@ -131,10 +132,10 @@ It looks like the LSC and SSC fragments are joined by a collapsed repeat (the in
 [to do - check the lengths of these graph contigs match the lengths in the flye output files]
 [to do - check the contig naming - note that it is changed in bandage?]</li>
 </ul>
-<h5 id="map-short-reads-to-the-aseembly">Map short reads to the aseembly</h5>
+<h4 id="polish">Polish</h4>
 <ul>
 <li>Short illumina reads are more accurate the nanopore reads. We will use them to correct errors in the nanopore assembly.</li>
-<li>The first step is to map the reads to the assembly.</li>
+<li><st>Map short reads to the assembly:</st></li>
 <li>In the tool panel, search for &ldquo;bwa mem&rdquo;, and click on &ldquo;Map with BWA-MEM&rdquo;</li>
 <li>For <ss>Will you select a reference genome from your history</ss> select <fn>Use a genome from history</fn></li>
 <li>For <ss>Use the following dataset as the reference sequence</ss> select <fn>flye-assembly.fasta</fn></li>
@@ -146,9 +147,7 @@ It looks like the LSC and SSC fragments are joined by a collapsed repeat (the in
 <li>Click <ss>Execute</ss></li>
 <li>This maps the short reads to the assembly, and creates an alignment file.</li>
 <li>Re-name this file <fn>illumina.bam</fn></li>
-</ul>
-<h5 id="polish-the-assembly">Polish the assembly</h5>
-<ul>
+<li><st>Polish the assembly:</st></li>
 <li>In the tool panel, search for &ldquo;pilon&rdquo;, and click on &ldquo;pilon&rdquo;</li>
 <li>For <ss>Source for reference genome used for BAM alignments</ss> select <fn>Use a genome from history</fn></li>
 <li>For <ss>Select a reference genome</ss> select <fn>flye-assembly.fasta</fn></li>
@@ -159,48 +158,69 @@ It looks like the LSC and SSC fragments are joined by a collapsed repeat (the in
 <li>Click <ss>Execute</ss></li>
 <li>This compares the short reads to the assembly, and creates a polished (corrected) assembly file.
 <!-- option: run a second round of polishing. keep track of file naming, and will need to generate a new bam [map illumina reads to polished.fasta] --></li>
-<li>Re-name the fasta output file <fn>polished.fasta</fn></li>
+<li>Re-name the fasta output file <fn>polished-assembly.fasta</fn></li>
 <li>Find and run the tool called &ldquo;Fasta statistics&rdquo; on this file.</li>
 <li>How does it compare to the unpolished <fn>flye-assembly.fasta</fn>?
 <!-- length 161333 compared to unpolished 160340; about 1k bases have been added back in; nanopore can have a lot of homopolymer deletions; the changes file shows lots of cases with a deletion changing to a base, there are also stretches of bases replaced--></li>
 </ul>
-<h5 id="view-read-alignments">View read alignments</h5>
-<p>Get cutdown nano and illumina reads for viewing in bams</p>
-<p>View all histories: see History: chloroplast-tutorial-data - drag sweet-potato-nanopore-tiny.fastq and sweet-potato-illumina-tiny.fastq
-click Analyze Data</p>
-<p>Map tiny nano to polished.fasta with bwa-mem</p>
-<p>bwa mem
-single reads
-analysis: nano mode
-=&gt; bam
-re-name as nanopore-tiny.bam</p>
-<p>map tiny illumina to polished.fasta with bwa-mem</p>
-<p>bwa mem
-single reads
-analysis: illumina mode
-=&gt; bam
-re-name as illumina-tiny.bam</p>
-<p>JBrowse on polished.fasta and nano-bam and illumina-bam</p>
-<p>ref = polished.fasta
-genetic code = 11</p>
-<p>Insert Track Group</p>
-<p>Insert Annotation Track
-Track type: BAM pileups
-BAM track data: nanopore-tiny.bam</p>
-<p>Insert Annotation Track
-Track type: BAM pileups
-BAM track data: illumina-tiny.bam</p>
-<p>=&gt; JBrowse. re-name: e.g. view flye.fasta and seq reads</p>
-<p>Two contigs in drop down.
-zoom all the way out
-zoom all the way in
-change ref seq display.
-see diffs bn long error nano reads and short low-error illumina reads</p>
-<p>note that the coverage is quite uneven, but that these reads could have bias as they are those that mapped to a certain set of cp genomes. If this new genome has new bits, these may be in the long-read assembly but missing in short reads.</p>
-<p>Why would the polished assembly (the ref track) be different to the reads - wouldn&rsquo;t these snps correct these places? maybe would need another round+ of polishing.</p>
-<h5 id="annotate">Annotate</h5>
+<h4 id="view-reads">View reads</h4>
 <ul>
-<li>Annotation is ....</li>
+<li><op>Optional. Skip this entire section for a quicker tutorial</op></li>
+<li>We will look at the original sequencing reads mapped to the genome assembly.</li>
+<li>In a new browser tab, go to this webpage <a href="http://doi.org/10.5281/zenodo.3567224">at this link</a>.</li>
+<li>See the two files with the &ldquo;-tiny&rdquo; in their file name. These are very cut-down files of sequencing reads.</li>
+<li>Upload these files to Galaxy, like we did in the first tutorial step, &ldquo;Import the Data&rdquo;.
+<!-- later: these will be in shared history and/or shared data lib --></li>
+<li><st>Map the reads:</st></li>
+<li>Map the Illumina reads (the new &ldquo;tiny&rdquo; dataset) to the <fn>polished-assembly.fasta</fn>, the same way we did before, using bwa mem.</li>
+<li>This creates one output file: re-name it <fn>illumina-tiny.bam</fn></li>
+<li>Map the Nanopore reads (the new &ldquo;tiny&rdquo; dataset) to the <fn>polished-assembly.fasta</fn>. The settings will be the same, except <ss>Select analysis mode</ss> should be <fn>Nanopore</fn>.</li>
+<li>This creates one output file: re-name it <fn>nanopore-tiny.bam</fn></li>
+<li><st>Create a visualization of the mapped reads:</st></li>
+<li>In the tool panel, search for &ldquo;JBrowse&rdquo;, and click on &ldquo;JBrowse genome browser&rdquo;</li>
+<li>This tool creates a visualization of our genome assembly with some of the original sequencing reads mapped to it.</li>
+<li>For <ss>Reference genome to display</ss> select <fn>polished-assembly.fasta</fn></li>
+<li>For <ss>Produce Standalone Instance</ss> select <fn>Yes</fn></li>
+<li>For <ss>Genetic Code</ss> select <fn>11. The Bacterial, Archaeal and Plant Plastid Code</fn></li>
+<li>For <ss>JBrowse-in-Galaxy Action</ss> select <fn>New JBrowse instance</fn></li>
+<li>Insert Track Group</li>
+<li>Insert Annotation Track. This is our first track, or row, to be displayed under the reference genome.</li>
+<li>For <ss>Track Category</ss> type in <fn>sequencing reads</fn></li>
+<li>For <ss>Track Type</ss> select <fn>BAM pileups</fn></li>
+<li>BAM track data: nanopore-tiny.bam</li>
+<li>autogenerate SNP track? yes?</li>
+<li>add zero to max chunk size or ok?</li>
+<li>Leave the other track features as default.</li>
+<li>Insert Annotation Track. This is our second track, or row, to be displayed under the reference genome.</li>
+<li>Track type: BAM pileups</li>
+<li>BAM track data: illumina-tiny.bam</li>
+<li>autogenerate SNP track? yes?</li>
+<li>add zero to max chunk size or ok?</li>
+<li>Leave the other track features as default.</li>
+<li>Execute</li>
+<li>This may take a few minutes. There is one output file: re-name: <fn>assembly-and-reads</fn></li>
+<li><st>View the JBrowse file:</st></li>
+<li>View.</li>
+<li>Two contigs in drop down.</li>
+<li>zoom all the way out; zoom all the way in</li>
+<li>change ref seq display.</li>
+<li>see diffs bn long error nano reads and short low-error illumina reads
+<!-- note that the coverage is quite uneven, but that these reads could have bias as they are those that mapped to a certain set of cp genomes. If this new genome has new bits, these may be in the long-read assembly but missing in short reads. --></li>
+</ul>
+<!-- Why would the polished assembly (the ref track) be different to the reads - wouldn't these snps correct these places? maybe would need another round+ of polishing. -->
+
+<ul>
+<li>add a question</li>
+<li>add image</li>
+</ul>
+<h4 id="annotate">Annotate</h4>
+<ul>
+<li>
+<p><op>Optional. Skip this step for a quicker tutorial</op></p>
+</li>
+<li>
+<p>Annotation is ....</p>
+</li>
 </ul>
 <p>download the polished.fasta
 https://chlorobox.mpimp-golm.mpg.de/geseq.html
@@ -227,8 +247,11 @@ choose local file x2, start, close</p>
 <p>annotation: a constantly-improving process as more info for matching to seq string, seq structure, etc.
 can be multiple annotations under each feature depending on the database matched.</p>
 <p>[option: repeat jbrowse, add the barrnap gff track to compare where that mapped the rRNAs - can see that the geseq annotation is slightly different]</p>
-<p><strong> Extension exercise: assemble the snow gum chloroplast genome </strong></p>
-<h5 id="see-this-history-in-galaxy">See this history in Galaxy</h5>
+<h4 id="repeat-with-new-data">Repeat with new data</h4>
+<ul>
+<li><op>Optional. Skip this step for a quicker tutorial</op></li>
+</ul>
+<h4 id="see-this-history-in-galaxy">See this history in Galaxy</h4>
 <p>If you want to see this Galaxy history without performing the steps above:</p>
 <ul>
 <li>Log in to Galaxy Australia: <a href="https://usegalaxy.org.au/">https://usegalaxy.org.au/</a></li>
@@ -238,8 +261,8 @@ can be multiple annotations under each feature depending on the database matched
 <li>Click <ss>Import</ss> (at the top right corner)</li>
 <li>The analysis should now be showing as your current history.</li>
 </ul>
-<h5 id="see-this-workflow-in-galaxy">See this workflow in Galaxy</h5>
-<h5 id="whats-next">What&rsquo;s next?</h5>
+<h4 id="see-this-workflow-in-galaxy">See this workflow in Galaxy</h4>
+<h4 id="whats-next">What&rsquo;s next?</h4>
 <p>You can find more tutorials at</p>
 <p>Galaxy Australia Training</p>
 <p>and</p>
