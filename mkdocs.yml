@@ -19,7 +19,7 @@ nav:
   - Home: index.md
   - Tutorials: modules/tutorials.md
   - Galaxy: modules/galaxy.md
-#  - Genome assembly: modules/chloroplast_assembly.md
+  - Genome assembly: modules/chloroplast_assembly.md
 #  - Phylogenomics: modules/phylogenomics.md
 #  - Variant calling: modules/variants.md
 #  - RNA-seq: modules/rna.md
