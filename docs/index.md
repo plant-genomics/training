@@ -17,6 +17,9 @@
 
 * To find information, click on the topics in the left-hand menu or use the search bar in the top right corner.
 
+* To get back to this home page, click on the leaf icon in the top left corner <img src="leaf2.svg" alt="leaf-icon" width=40pt height=40pt>
+
+
 ## Funders and supporters
 * With thanks to the following organisations, supporters, contributors, and everyone involved in the Genomics for Australian Plants project:
 ![gap-logos](modules/images/gap-logos.png)
