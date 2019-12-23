@@ -33,7 +33,10 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "How to get data", url: "#_top", children: [
+          {title: "Data", url: "#_top", children: [
+              {title: "Get data with wget or curl", url: "#get-data-with-wget-or-curl" },
+              {title: "SRA Toolkit", url: "#sra-toolkit" },
+              {title: "Sample sequencing data", url: "#sample-sequencing-data" },
           ]},
         ];
 
@@ -52,24 +55,25 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <a name="_top"></a>
     
 
-    <h4 id="how-to-get-data">How to get data</h4>
-<p>When running bioinformatics analyses on the command-line, you may wish to use publically-available data for testing or for analysis. Some examples of how to do this are given here, along with sample datasets.</p>
-<p><strong>Get data with wget or curl</strong></p>
+    <h1 id="data">Data</h1>
+<p>When running bioinformatics analyses on the command-line, you may wish to use publicly-available data for testing or for analysis. Some examples of how to do this are given here, along with sample datasets.</p>
+<h2 id="get-data-with-wget-or-curl">Get data with wget or curl</h2>
+<p>At the command line, type:</p>
 <ul>
-<li><code>wget [address of file]</code></li>
+<li><code>wget [address of file]</code>   or</li>
 <li><code>curl [address of file]</code></li>
 </ul>
-<p>More about wget: <a href="https://en.wikipedia.org/wiki/Wget">https://en.wikipedia.org/wiki/Wget</a>
-More about curl: <a href="https://en.wikipedia.org/wiki/CURL">https://en.wikipedia.org/wiki/CURL</a></p>
-<p><strong>SRA Toolkit</strong></p>
+<p>More about wget: <a href="https://en.wikipedia.org/wiki/Wget">https://en.wikipedia.org/wiki/Wget</a></p>
+<p>More about curl: <a href="https://en.wikipedia.org/wiki/CURL">https://en.wikipedia.org/wiki/CURL</a></p>
+<h2 id="sra-toolkit">SRA Toolkit</h2>
 <ul>
 <li>Find some SRR numbers for reads you are interested in (search <a href="https://www.ncbi.nlm.nih.gov/sra">NCBI&rsquo;s SRA</a>)</li>
-<li><code>fastq-dump SRR[number goes here]</code></li>
+<li>At the command line, type <code>fastq-dump SRR[number goes here]</code></li>
 <li>Note: the SRR numbers refer to the sequencing run. <a href="https://www.ncbi.nlm.nih.gov/sra/docs/submitmeta/">https://www.ncbi.nlm.nih.gov/sra/docs/submitmeta/</a></li>
 <li>Note: <code>fasterq-dump</code> is now also supported and <code>fastq-dump</code> may be deprecated in the future.</li>
 <li>More about the SRA Toolkit: <a href="https://github.com/ncbi/sra-tools/wiki">https://github.com/ncbi/sra-tools/wiki</a></li>
 </ul>
-<p><strong>Sample sequencing data</strong></p>
+<h2 id="sample-sequencing-data">Sample sequencing data</h2>
 <p><ss>PacBio reads</ss> From Canu&rsquo;s quickstart page:</p>
 <ul>
 <li><code>curl -L -o pacbio.fastq \
