@@ -1,11 +1,6 @@
-<br>
-<br>
+# Bioinformatics tutorials
 
-<ss>Under development: 2019-2020</ss>
-
-#### Bioinformatics tutorials
-
-Priority topics currently under development are genome assembly, phylogenomics, variant calling, and RNA-seq. These will appear as items in the left hand panel.
+Priority topics currently under development are genome assembly, phylogenomics, variant calling, and RNA-seq.These will appear as items in the left hand panel.
 
 Here are some links to resources that are particularly useful for getting started in plant bioinformatics:
 

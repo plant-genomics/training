@@ -1,4 +1,4 @@
-#### Galaxy
+# Galaxy
 
 Galaxy is a web platform for bioinformatics.
 

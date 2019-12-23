@@ -1,26 +1,26 @@
-#### How to get data
+# Data
 
-When running bioinformatics analyses on the command-line, you may wish to use publically-available data for testing or for analysis. Some examples of how to do this are given here, along with sample datasets.
+When running bioinformatics analyses on the command-line, you may wish to use publicly-available data for testing or for analysis. Some examples of how to do this are given here, along with sample datasets.
 
+## Get data with wget or curl
+At the command line, type:
 
-**Get data with wget or curl**
-
-* `wget [address of file]`
+* `wget [address of file]`   or
 * `curl [address of file]`
 
 More about wget: [https://en.wikipedia.org/wiki/Wget](https://en.wikipedia.org/wiki/Wget)
+
 More about curl: [https://en.wikipedia.org/wiki/CURL](https://en.wikipedia.org/wiki/CURL)
 
-
-**SRA Toolkit**
+## SRA Toolkit
 
 * Find some SRR numbers for reads you are interested in (search [NCBI's SRA](https://www.ncbi.nlm.nih.gov/sra))
-* `fastq-dump SRR[number goes here]`
+* At the command line, type `fastq-dump SRR[number goes here]`
 * Note: the SRR numbers refer to the sequencing run. [https://www.ncbi.nlm.nih.gov/sra/docs/submitmeta/](https://www.ncbi.nlm.nih.gov/sra/docs/submitmeta/)
 * Note: `fasterq-dump` is now also supported and `fastq-dump` may be deprecated in the future.
 * More about the SRA Toolkit: [https://github.com/ncbi/sra-tools/wiki](https://github.com/ncbi/sra-tools/wiki)
 
-**Sample sequencing data**
+## Sample sequencing data
 
 <ss>PacBio reads</ss> From Canu's quickstart page:
 

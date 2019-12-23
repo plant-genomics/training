@@ -1,4 +1,4 @@
-#### Papers
+# Papers
 
 Some useful papers about plant bioinformatics.
 
@@ -8,7 +8,7 @@ Kersey PJ: **Plant genome sequences: past, present, future.** Curr. Opin. Plant 
 
 One Thousand Plant Transcriptomes Initiative: **One thousand plant transcriptomes and the phylogenomics of green plants.** Nature 2019, 574:679–685.
 
-Dominguez Del Angel V, Hjerde E, Sterck L, Capella-Gutierrez S, Notredame C, Vinnere Pettersson O, Amselem J, Bouri L, Bocs S, Klopp C, Gibrat J-F, Vlasova A, Leskosek BL, Soler L, Binzer-Panchal M, Lantz H: Ten steps to get started in Genome Assembly and Annotation. F1000Res. 2018, 7.
+Dominguez Del Angel V, Hjerde E, Sterck L, Capella-Gutierrez S, Notredame C, Vinnere Pettersson O, Amselem J, Bouri L, Bocs S, Klopp C, Gibrat J-F, Vlasova A, Leskosek BL, Soler L, Binzer-Panchal M, Lantz H: **Ten steps to get started in Genome Assembly and Annotation.** F1000Res. 2018, 7.
 
 
 Ghurye J, Pop M: **Modern technologies and algorithms for scaffolding assembled genomes.** PLoS Comput. Biol. 2019, 15:e1006994.

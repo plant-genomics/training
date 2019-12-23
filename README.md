@@ -1,4 +1,4 @@
-Under development, 2019
+Under development, 2020
 
 # Training
 
@@ -11,6 +11,7 @@ Under development, 2019
 
 This section is a guide to contributing edits to the repository.
 
+We welcome contributions from the community!
 
 
 ### Email
@@ -95,4 +96,4 @@ mkdocs gh-deploy
 
 ### Fix an issue, add an enhancement
 
-* Click on the issues tab to see current tasks tagged with the "to-do" or "enhancement" labels. 
+* Click on the issues tab to see current tasks tagged with the "to-do" or "enhancement" labels.

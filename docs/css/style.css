@@ -34,7 +34,7 @@ OP {
 SS {
   font-family: "Lucida Grande", sans-serif;
   font-size: 90%;
-  font-weight: bolder;
+  font-weight: normal;
   color: black;
   text-align: center;
   border-radius: 5px;
@@ -62,3 +62,39 @@ CO {
   font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;
   background-color:#EEEEEE;
 }
+
+
+/* Header formatting */
+
+BODY {
+  line-height: 1.5;
+  font-family: "Lato", sans-serif;
+}
+
+LI {
+  margin-top: 1ex;
+}
+
+H1 {
+  font-size: 2em;
+  font-weight: lighter;
+}
+
+H2 {
+  font-size: 1.5em;
+  font-weight: lighter;
+}
+
+H3 {
+
+  font-weight: 900;
+  font-size: 1em;
+
+
+}
+img {
+    margin-top:5px !important;
+    margin-bottom:5px !important;
+}
+/* Note that ""!important" means that this setting will override the base css*/
+/* Otherwise images add extra white space */
