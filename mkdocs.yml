@@ -8,7 +8,7 @@ site_url: 'https://plant-genomics.github.io/training/'
 #repo_name: 'plant-genomics/training'
 #repo_url: 'https://github.com/plant-genomics/training'
 
-google_analytics: ['UA-154956469-1']
+google_analytics: UA-154956469-1
 
 #copyright: '&copy; The authors; 2019-'
 
