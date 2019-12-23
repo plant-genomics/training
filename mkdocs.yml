@@ -10,7 +10,7 @@ site_url: 'https://plant-genomics.github.io/training/'
 
 google_analytics: ['UA-154956469-2', 'auto']
 
-#copyright: '&copy; The authors; 2019-'
+copyright: '<br><br><br><br><br><br><br>&copy; The authors; 2020-'
 
 #theme: yeti
 #theme: cluster
@@ -32,25 +32,10 @@ nav:
   - Help: modules/help.md
 
 
-
-
-
-
-
-  #need to check these: may be incorrect:
-  #- Virtual environments: modules/envs.md
-  #- Using containers:  modules/docker.md
-  #- Using HPC: modules/hpc.md
-  #- Workflows: modules/nextflow.md
-
-
-
 extra:
     article_nav_top: false
     article_nav_bottom: false
     logo: leaf2.svg
-
-
     feature:
         tabs: true
     social:
@@ -66,8 +51,10 @@ markdown_extensions:
     - codehilite
     - pymdownx.details
     - footnotes
+
 extra_css:
     - css/style.css
+
 
 
 
