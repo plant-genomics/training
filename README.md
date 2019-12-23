@@ -96,4 +96,4 @@ mkdocs gh-deploy
 
 ### Fix an issue, add an enhancement
 
-* Click on the issues tab to see current tasks tagged with the "to-do" or "enhancement" labels.
+* Click on the issues tab to see current tasks.
