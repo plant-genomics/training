@@ -26,4 +26,4 @@ This training aims to support the Australian plant genomics community as part of
 This nationally-inclusive and collaborative initiative is supported by funding from Bioplatforms Australia through the Australian Government National Collaborative Research Infrastructure Strategy (NCRIS), the Ian Potter Foundation, Royal Botanic Gardens Victoria, the Royal Botanic Gardens and Domain Trust, CSIRO, Centre for Australian National Biodiversity Research and the Department of Biodiversity, Conservation and Attractions, Western Australia.
 
 
-<img src="modules/images/mixed-gap-logo.png" alt="gap-logos"> 
+<img src="modules/images/all-logos.png" alt="gap-logos"> 
