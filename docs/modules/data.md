@@ -6,7 +6,7 @@ When running bioinformatics analyses on the command-line, you may wish to use pu
 At the command line, type:
 
 * `wget [address of file]`   or
-* `curl [address of file]`
+* `curl -o [give the file a name][address of file]`
 
 More about wget: [https://en.wikipedia.org/wiki/Wget](https://en.wikipedia.org/wiki/Wget)
 
