@@ -39,7 +39,7 @@
 * Click on the eye icon next to one of the FASTQ sequence files.
 * View the file in the centre Galaxy panel.
 
-## Read quality
+## Check read quality
 
 * <op>Optional. Skip this section for a quicker tutorial</op>
 
@@ -85,7 +85,7 @@ why negative axis also?
 have requested update to nanoplot latest version in case of numpy issue
 -->
 
-## Assemble
+## Assemble reads
 
 * <st>Assemble:</st>
 * In the tool panel, search for "flye", and click on "Assembly of long and error-prone reads".
@@ -111,7 +111,7 @@ to do - check the lengths of these graph contigs match the lengths in the flye o
 to do - check the contig naming - note that it is changed in bandage?
 -->
 
-## Polish
+## Polish assembly
 
 * Short illumina reads are more accurate the nanopore reads. We will use them to correct errors in the nanopore assembly.
 * <st>Map short reads to the assembly:</st>
@@ -143,11 +143,13 @@ to do - check the contig naming - note that it is changed in bandage?
 * How does it compare to the unpolished <fn>flye-assembly.fasta</fn>?
 <!-- length 161333 compared to unpolished 160340; about 1k bases have been added back in; nanopore can have a lot of homopolymer deletions; the changes file shows lots of cases with a deletion changing to a base, there are also stretches of bases replaced-->
 
+<!-- run fasta stats? -->
+
 ## View reads
 
 * <op>Optional. Skip this entire section for a quicker tutorial</op>
 * We will look at the original sequencing reads mapped to the genome assembly.
-* In a new browser tab, go to this webpage [at this link](http://doi.org/10.5281/zenodo.3567224).
+go to this webpage [https://zenodo.org/record/3567224](http://doi.org/10.5281/zenodo.3567224)
 * See the two files with the "-tiny" in their file name. These are very cut-down files of sequencing reads.
 * Upload these files to Galaxy, like we did in the first tutorial step, "Import the Data".
 <!-- later: these will be in shared history and/or shared data lib -->
@@ -163,39 +165,58 @@ to do - check the contig naming - note that it is changed in bandage?
 * For <ss>Produce Standalone Instance</ss> select <fn>Yes</fn>
 * For <ss>Genetic Code</ss> select <fn>11. The Bacterial, Archaeal and Plant Plastid Code</fn>
 * For <ss>JBrowse-in-Galaxy Action</ss> select <fn>New JBrowse instance</fn>
-* Insert Track Group
-* Insert Annotation Track. This is our first track, or row, to be displayed under the reference genome.
-* For <ss>Track Category</ss> type in <fn>sequencing reads</fn>
+* <ss>Insert Track Group</ss>
+* Now we'll set up two tracks (or rows) to display underneath the assembled genome.
+* One track will be the nanopore reads; one track will be the illumina reads.
+* <ss>Insert Annotation Track</ss>. This is our first track, or row, to be displayed under the reference genome.
+* For <ss>Track Category</ss> type in <fn>nanopore reads</fn>
 * For <ss>Track Type</ss> select <fn>BAM pileups</fn>
-* BAM track data: nanopore-tiny.bam
-* autogenerate SNP track? yes?
-* add zero to max chunk size or ok?
+* For <ss>BAM track data</ss> select <ss>nanopore-tiny.bam</ss>.
+* For <ss>Autogenerate SNP track</ss> click <fn>No</fn>.
 * Leave the other track features as default.
-* Insert Annotation Track. This is our second track, or row, to be displayed under the reference genome.
-* Track type: BAM pileups
-* BAM track data: illumina-tiny.bam
-* autogenerate SNP track? yes?
-* add zero to max chunk size or ok?
+* <ss>Insert Annotation Track</ss>. This is our second track, or row, to be displayed under the reference genome.
+* For <ss>Track Category</ss> type in <fn>illumina reads</fn>
+* For <ss>Track Type</ss> select <fn>BAM pileups</fn>
+* For <ss>BAM track data</ss> select <ss>illumina-tiny.bam</ss>.
+* For <ss>Autogenerate SNP track</ss> click <fn>No</fn>.
 * Leave the other track features as default.
-* Execute
+* Click <ss>Execute</ss>
 * This may take a few minutes. There is one output file: re-name: <fn>assembly-and-reads</fn>
 * <st>View the JBrowse file:</st>
-* View.
-* Two contigs in drop down.
-* zoom all the way out; zoom all the way in
-* change ref seq display.
-* see diffs bn long error nano reads and short low-error illumina reads
-<!-- note that the coverage is quite uneven, but that these reads could have bias as they are those that mapped to a certain set of cp genomes. If this new genome has new bits, these may be in the long-read assembly but missing in short reads. -->
+* Click on the eye icon to view. (For more room, collapse Galaxy side menus with corner > signs).
+<!-- if jbrowse has too much to display, repeat but increase the chunk size (eg add an extra zero) -->
+* Choose a contig in the drop down menu. Zoom in and out with + and - buttons.
+* Change the reference sequence display using the drop down menu. Uncheck boxes for <ss>show reverse strand</ss> and <ss>show translation</ss>.
 
-<!-- Why would the polished assembly (the ref track) be different to the reads - wouldn't these snps correct these places? maybe would need another round+ of polishing. -->
-* add a question
-* add image
 
-## Annotate
+* **Reference and reads: zoomed-out view**
+* What are some reasons that the read coverage may vary across the reference genome?
+
+<!--
+1/ high cov: collapsed repeats
+2/ low or no cov: seq failed in certain regions (eg due to base composition)
+3/ low or no cov: assembly is different to the the set of cp genomes that reads were originally mapped to. (so some reads were left out)
+-->
+
+<!--
+Why would the polished assembly (the ref track) be different to the reads - wouldn't these snps correct these places? maybe would need another round+ of polishing.
+-->
+
+<img src="../images/jbrowse-read-mapping-zoomed-out.png" alt="jbrowse" height=70% width=70%>
+
+
+* **Reference and reads: zoomed-in view**
+* What are the differences between the nanopore and the illumina reads?
+
+<!-- eg length; high error in nanopore reads -->
+
+<img src="../images/jbrowse-read-mapping-zoomed-in.png" alt="jbrowse" height=70% width=70%>
+
+## Annotate genome
 
 * <op>Optional. Skip this step for a quicker tutorial</op>
 
-
+<!-- to do
 
 * Annotation is ....
 
@@ -234,13 +255,34 @@ annotation: a constantly-improving process as more info for matching to seq stri
 can be multiple annotations under each feature depending on the database matched.
 
 [option: repeat jbrowse, add the barrnap gff track to compare where that mapped the rRNAs - can see that the geseq annotation is slightly different]
-
+-->
 
 ## Repeat with new data
 
 * <op>Optional. Skip this step for a quicker tutorial</op>
 
+* We can try chloroplast genome assembly using data from a different plant species: the snow gum, *Eucalyptus pauciflora*.
 
+<!-- to do: data prep. see which is the smallest nanopore set that works in the assembly -->
+
+* Get the data: import the files from [zenodo link/ check with RL if that's ok to make]. This data is from [Wang W, Schalamun M, Morales-Suarez A et al. 2018](https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-018-5348-8). The original FASTQ read files are Illumina (SRR7153063) and Nanopore (SRR7153095) which have then been modified and reduced for this tutorial (details at Zenodo link).
+
+<!-- how: detail this in the zenodo link.
+these read files have been mapped to the snow gum chloroplast genome (NCBI Reference Sequence: NC_039597.1) using bwa-mem. then etc
+-->
+* Run Nanoplot on the nanopore reads.
+<!-- notes: av read length much longer than sweet potato; has this improved IR placement -->
+
+* Assemble the nanopore reads with Flye.
+* View the assembly graph in Bandage.
+* Polish the assembly with short reads and Pilon.
+* Annotate the genome using [web thing]
+* [upload the gff3 file to galaxy]
+* View annotated genome using JBrowse. [the gff3 vs the polished.fasta? ]
+
+
+* Add questions/ comparisons throughout here. eg how does assembly graph compare to sweet potato (include a bandage pic)
+* Want to highlight the effect of diff read sets - eg in this case, much longer reads ? => IR placement ? => single contig assembled => better annotation (or not).
 
 ## See this history in Galaxy
 
