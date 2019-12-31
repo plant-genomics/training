@@ -183,7 +183,7 @@ go to this webpage [https://zenodo.org/record/3567224](http://doi.org/10.5281/ze
 * Click <ss>Execute</ss>
 * This may take a few minutes. There is one output file: re-name: <fn>assembly-and-reads</fn>
 * <st>View the JBrowse file:</st>
-* Click on the eye icon to view. (For more room, collapse Galaxy side menus with corner > signs).
+* Click on the eye icon to view. (For more room, collapse Galaxy side menus with corner < > signs).
 <!-- if jbrowse has too much to display, repeat but increase the chunk size (eg add an extra zero) -->
 * Choose a contig in the drop down menu. Zoom in and out with + and - buttons.
 * Change the reference sequence display using the drop down menu. Uncheck boxes for <ss>show reverse strand</ss> and <ss>show translation</ss>.
@@ -216,52 +216,43 @@ Why would the polished assembly (the ref track) be different to the reads - woul
 
 * <op>Optional. Skip this step for a quicker tutorial</op>
 
-<!-- to do
+* We can now annotate our assembled genome with information about genomic features.
+* Download <fn>polished.fasta</fn> to your computer (click on the file in your history; then click on the disk icon).
+* In a new broswer tab, go to [Chlorobox](https://chlorobox.mpimp-golm.mpg.de/geseq.html) where we will use the [GeSeq tool](https://academic.oup.com/nar/article/45/W1/W6/3806659) to annotate our sequence.
+* For <ss>FASTA file to annotate</ss> click <fn>+ Upload File</fn> and select <fn>polished.fasta</fn>.
+* Select <fn>Linear</fn> (we have not yet circularized the sequence) and <fn>Plastid</fn>.
+* For <ss>Options</ss> select <fn>Generate codon-based alignments</fn>.
+* For <ss>BLAT search<ss> leave defaults.
+<!-- can't seem to select any changes here -->
+* For <ss>HMMER profile search</ss> tick <fn>Embryophta</fn>.
+* For <ss>ARAGORN</ss> tick the box and leave defaults.
+* For <ss>tRNAscan</ss> tick the box and leave defaults.
+* Don't tick anything in the <ss>BLAT reference sequences</ss> box.
+* For <ss>Actions</ss>, tick to accept the Disclaimer and <fn>Submit</fn>.
+* A <ss>Results</ss> box will appear underneath and fill with files as they are created, as well as reporting the job status.
+<! -- submit: (5 mins): tutorial break -->
 
-* Annotation is ....
+* Results:
+* We have a set of files for each of our uploaded contigs.
+* For each of the GFF3 files, click on the file, and then click on Download.
+* Or just download the bigger contig.
+* Click on the OGDRAW results to see. More here.
 
-download the polished.fasta
-https://chlorobox.mpimp-golm.mpg.de/geseq.html
-web: geseq: upload the fasta file.
-linear
-options: generate codon-based alignments
-Blat - default
-hmmer - tick emrbyophyta
-argaron tick
-tRNAscan - tick
-accept disclaimer
-submit: (5 mins): tutorial break
+<!-- Note: can see the repeated 16sRNA and 23sRNA -- although one of sets only has fragments? not full length? -- also, where does the Inverted Repeat start - is is ycf2? -->
 
-contigA: gff3: click on it: click download at the bottom
-contigB: repeat
+* In Galaxy, upload the two GFF files. Get data- choose local file x2, start, close
+* Make a JBrowse file: with the polished.fasta and the annotation file gff.
+* View. Zoom out a lot. Until can see what has been annotated.
+* pic of annotations.
 
-click on ogdraw to look
-[Note: can see the repeated 16sRNA and 23sRNA -- although one of sets only has fragments? not full length? -- also, where does the Inverted Repeat start - is is ycf2?]
-
-upload geseq.gff3 to galaxy
-
-Get data
-choose local file x2, start, close
-
-JBrowse: geseq.gff3 and polished.fasta
-
-two contigs
-
-re-name view polished.fasta annotations
-
-[note: two gff tracks displayed under each but one will be empty under each.]
-
-annotation: a constantly-improving process as more info for matching to seq string, seq structure, etc.
+Note: annotation: a constantly-improving process as more info for matching to seq string, seq structure, etc.
 can be multiple annotations under each feature depending on the database matched.
-
-[option: repeat jbrowse, add the barrnap gff track to compare where that mapped the rRNAs - can see that the geseq annotation is slightly different]
--->
 
 ## Repeat with new data
 
 * <op>Optional. Skip this step for a quicker tutorial</op>
 
-* We can try chloroplast genome assembly using data from a different plant species: the snow gum, *Eucalyptus pauciflora*.
+* We can assemble another chloroplast genome using sequence data from a different plant species: the snow gum, *Eucalyptus pauciflora*.
 
 <!-- to do: data prep. see which is the smallest nanopore set that works in the assembly -->
 
@@ -291,7 +282,9 @@ If you want to see this Galaxy history without performing the steps above:
 * Log in to Galaxy Australia: [https://usegalaxy.org.au/](https://usegalaxy.org.au/)
 * Go to <ss>Shared Data</ss>
 * Click <ss>Histories</ss>
-* Click <fn>Completed-assembly-analysis</fn>
+* Click <fn>Completed-assembly-sweet-potato</fn>
+* or
+* <fn>Completed-assembly-snow-gum</fn>
 * Click <ss>Import</ss> (at the top right corner)
 * The analysis should now be showing as your current history.
 
