@@ -5,8 +5,7 @@
 * Genome assembly is the process of joining together DNA sequencing fragments into longer pieces, ideally up to chromosome lengths.
 * The DNA fragments are produced by DNA sequencing machines, and are called "reads". These are in lengths of about 150 nucleotides (base pairs), to up to a million+ nucleotides, depending on the sequencing technology used. Currently, most reads are from Illumina (short), PacBio (long) or Oxford Nanopore (long and extra-long).
 * It is difficult to assemble plant genomes as they are often large (for example, 3,000,000,000 base pairs), have many repeat regions (such as transposons), and may be polyploid.
-* This tutorial shows genome assembly for a smaller data set - the plant chloroplast genome - a single circular chromosome about 160,000 base pairs long.
-* The process shown here is applicable to assembling plant nuclear genomes but there would be extra steps (and much more time) involved. For example, additional sequencing would usually be run on 10X, BioNano or HiC to produce information to link up longer nuclear chromosome pieces and to separate out the maternal and paternal haplotypes.
+* This tutorial shows genome assembly for a smaller data set - the plant chloroplast genome - a single circular chromosome about 160,000 base pairs long. ![plant-genome](images/plant-chromosomes.png)
 
 ## What's in this tutorial?
 
@@ -18,6 +17,12 @@
 * You can follow all the steps, or skip any <op>optional</op> steps:
 * <st>Get data &rarr; <op>Read quality</op> &rarr; Assemble&rarr; Polish &rarr; <op>View reads</op>  &rarr; <op>Annotate</op>  &rarr; <op>Repeat with new data</op>   </st>
 
+## What's *not* in this tutorial?
+
+*  A full chloroplast data set: we are using a subset.
+* A full explanation of all the steps involved and all the possible variations in the workflow; answers to some of the questions.
+* A workflow to assemble and annotate the chloroplast genome of any plant species: in this tutorial some steps are manual, and tools and settings may not be optimal for other plant species.
+* A workflow to assemble the nuclear genome of any plant species. The process shown here is generally applicable to assembling plant nuclear genomes but there would be extra steps (and much more time) involved. For example, additional sequencing would usually be run on 10X, BioNano or HiC to produce information to link up longer nuclear chromosome pieces and to separate out the maternal and paternal haplotypes.
 
 ## Get data
 
@@ -42,7 +47,7 @@
 ## Check read quality
 
 * <op>Optional. Skip this section for a quicker tutorial</op>
-
+* We will look at the quality of the nanopore reads.
 * In the tool panel, search for [Nanoplot](https://github.com/wdecoster/NanoPlot)
 * For <ss>Select multifile mode</ss> select  <fn>batch</fn>.
 * For  <ss>Type of file to work on</ss> select <fn>fastq</fn>
@@ -97,8 +102,8 @@ have requested update to nanoplot latest version in case of numpy issue
 * View the <fn>log</fn> file and scroll to the end. How many contigs were assembled? What is the length of the assembly?
 * View the <fn>assembly_info</fn> file. What are the contig names? What does the "graph_path" show? <!-- that contig 2 has inverted repeats -->
 * The assembly sequence is in the <fn>scaffolds</fn>. Re-name this <fn>flye-assembly.fasta</fn>
-* <op>Optional: Download the <fn>Graphical Fragment Assembly</fn>
-* <op>Open the Bandage program (add link).</op>
+* <op>Optional: Download the <fn>Graphical Fragment Assembly</fn></op>
+* <op>Install; open the [Bandage program](https://rrwick.github.io/Bandage/).</op>
 * <op>Go to <ss>File: load graph</ss> then <ss>Draw graph</ss></op>
 * What is your interpretation of this assembly graph?
 <!--
@@ -138,20 +143,19 @@ to do - check the contig naming - note that it is changed in bandage?
 * This compares the short reads to the assembly, and creates a polished (corrected) assembly file.
 
 <!-- option: run a second round of polishing. keep track of file naming, and will need to generate a new bam [map illumina reads to polished.fasta] -->
+
 * Re-name the fasta output file <fn>polished-assembly.fasta</fn>
 * Find and run the tool called "Fasta statistics" on this file.
 * How does it compare to the unpolished <fn>flye-assembly.fasta</fn>?
 <!-- length 161333 compared to unpolished 160340; about 1k bases have been added back in; nanopore can have a lot of homopolymer deletions; the changes file shows lots of cases with a deletion changing to a base, there are also stretches of bases replaced-->
 
-<!-- run fasta stats? -->
-
 ## View reads
 
 * <op>Optional. Skip this entire section for a quicker tutorial</op>
 * We will look at the original sequencing reads mapped to the genome assembly.
-go to this webpage [https://zenodo.org/record/3567224](http://doi.org/10.5281/zenodo.3567224)
+* In a new browser tab, go to this webpage [https://zenodo.org/record/3567224](http://doi.org/10.5281/zenodo.3567224)
 * See the two files with the "-tiny" in their file name. These are very cut-down files of sequencing reads.
-* Upload these files to Galaxy, like we did in the first tutorial step, "Import the Data".
+* Upload these files to Galaxy.
 <!-- later: these will be in shared history and/or shared data lib -->
 * <st>Map the reads:</st>
 * Map the Illumina reads (the new "tiny" dataset) to the <fn>polished-assembly.fasta</fn>, the same way we did before, using bwa mem.
@@ -171,13 +175,13 @@ go to this webpage [https://zenodo.org/record/3567224](http://doi.org/10.5281/ze
 * <ss>Insert Annotation Track</ss>. This is our first track, or row, to be displayed under the reference genome.
 * For <ss>Track Category</ss> type in <fn>nanopore reads</fn>
 * For <ss>Track Type</ss> select <fn>BAM pileups</fn>
-* For <ss>BAM track data</ss> select <ss>nanopore-tiny.bam</ss>.
+* For <ss>BAM track data</ss> select <fn>nanopore-tiny.bam</fn>.
 * For <ss>Autogenerate SNP track</ss> click <fn>No</fn>.
 * Leave the other track features as default.
 * <ss>Insert Annotation Track</ss>. This is our second track, or row, to be displayed under the reference genome.
 * For <ss>Track Category</ss> type in <fn>illumina reads</fn>
 * For <ss>Track Type</ss> select <fn>BAM pileups</fn>
-* For <ss>BAM track data</ss> select <ss>illumina-tiny.bam</ss>.
+* For <ss>BAM track data</ss> select <fn>illumina-tiny.bam</fn>.
 * For <ss>Autogenerate SNP track</ss> click <fn>No</fn>.
 * Leave the other track features as default.
 * Click <ss>Execute</ss>
@@ -221,32 +225,59 @@ Why would the polished assembly (the ref track) be different to the reads - woul
 * In a new broswer tab, go to [Chlorobox](https://chlorobox.mpimp-golm.mpg.de/geseq.html) where we will use the [GeSeq tool](https://academic.oup.com/nar/article/45/W1/W6/3806659) to annotate our sequence.
 * For <ss>FASTA file to annotate</ss> click <fn>+ Upload File</fn> and select <fn>polished.fasta</fn>.
 * Select <fn>Linear</fn> (we have not yet circularized the sequence) and <fn>Plastid</fn>.
-* For <ss>Options</ss> select <fn>Generate codon-based alignments</fn>.
-* For <ss>BLAT search<ss> leave defaults.
-<!-- can't seem to select any changes here -->
+* For <ss>Options</ss> tick <fn>Generate codon-based alignments</ss>
+* For <ss>BLAT search</ss> leave defaults.
 * For <ss>HMMER profile search</ss> tick <fn>Embryophta</fn>.
-* For <ss>ARAGORN</ss> tick the box and leave defaults.
-* For <ss>tRNAscan</ss> tick the box and leave defaults.
-* Don't tick anything in the <ss>BLAT reference sequences</ss> box.
-* For <ss>Actions</ss>, tick to accept the Disclaimer and <fn>Submit</fn>.
-* A <ss>Results</ss> box will appear underneath and fill with files as they are created, as well as reporting the job status.
-<! -- submit: (5 mins): tutorial break -->
 
-* Results:
-* We have a set of files for each of our uploaded contigs.
-* For each of the GFF3 files, click on the file, and then click on Download.
-* Or just download the bigger contig.
-* Click on the OGDRAW results to see. More here.
+<!-- what does this do-->
+
+* For <ss>ARAGORN</ss> tick the box and leave defaults.
+
+<!-- what does this do -->
+
+* For <ss>BLAT Reference Sequences</ss> tick <fn>MPI-MP chloroplast refrences</fn>
+
+* For <ss>Actions</ss>, tick to accept the Disclaimer and <fn>Submit</fn>.
+* A <ss>Results</ss> box will appear underneath and fill with files as they are created.
+* When job status is <fn>finished</fn>, click on each of the <fn>OGDRAW</fN> files to view the annotations.
+
+* Example of an annotated contig:
+
+![ogdraw](images/OGDRAW.jpg)
+
+* For the longer contig, click on its <fn>GFF3</fn> file, then click <fn>Download</fn>. (We will look at this contig only.)
 
 <!-- Note: can see the repeated 16sRNA and 23sRNA -- although one of sets only has fragments? not full length? -- also, where does the Inverted Repeat start - is is ycf2? -->
 
-* In Galaxy, upload the two GFF files. Get data- choose local file x2, start, close
-* Make a JBrowse file: with the polished.fasta and the annotation file gff.
-* View. Zoom out a lot. Until can see what has been annotated.
-* pic of annotations.
+* In Galaxy, in the tool panel, <ss>Get Data</ss> : <ss>Upload File</ss> : <ss>Choose local file</ss> <fn>GFF3 file</fn> : <ss>Start</ss> : <ss>Close</ss>
 
-Note: annotation: a constantly-improving process as more info for matching to seq string, seq structure, etc.
-can be multiple annotations under each feature depending on the database matched.
+* Make a JBrowse file to view the annotations (the GFF3 file) under the assembly (the polished.fasta file).
+
+* In the tool panel, search for "JBrowse", and click on "JBrowse genome browser"
+* For <ss>Reference genome to display</ss> select <fn>polished-assembly.fasta</fn>
+* For <ss>Produce Standalone Instance</ss> select <fn>Yes</fn>
+* For <ss>Genetic Code</ss> select <fn>11. The Bacterial, Archaeal and Plant Plastid Code</fn>
+* For <ss>JBrowse-in-Galaxy Action</ss> select <fn>New JBrowse instance</fn>
+* <ss>Insert Track Group</ss>
+* <ss>Insert Annotation Track</ss>.
+* For <ss>Track Category</ss> type in <fn>Annotations</fn>
+* For <ss>Track Type</ss> select <fn>GFF/GFF3/BED/GBK Features</fn>
+* For <ss>GFF/GFF3/BED Track Data</ss> select the <fn>GFF3</fn> annotation file.
+* Click <ss>Execute</ss>
+* This may take a few minutes. There is one output file: re-name: <fn>view-annotations</fn>
+* Click on the eye icon to view.
+* Zoom out (with the minus button) until annotations are visible.
+* Your annotations may look like this:
+![annotations](images/annotations1.png)
+
+* Zoom in (with the plus button) to see annotation details. Click on an annotation to see its sequence and source (e.g. the tool that predicted it).
+![annotations](images/annotations2.png)
+
+* Why might there be several annotations over the same genome region?
+
+<!-- they are predictions from different tools - eg blat or hmmer. this helps with manual curation of annotations -->
+
+<!-- Note: annotation: a constantly-improving process as more info for matching to seq string, seq structure, etc. can be multiple annotations under each feature depending on the database matched. -->
 
 ## Repeat with new data
 
