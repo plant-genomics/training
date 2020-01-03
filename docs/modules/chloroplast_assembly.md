@@ -218,7 +218,7 @@ Why would the polished assembly (the ref track) be different to the reads - woul
 
 ## Annotate genome
 
-* <op>Optional. Skip this step for a quicker tutorial</op>
+* <op>Optional. Skip this section for a quicker tutorial</op>
 
 * We can now annotate our assembled genome with information about genomic features.
 * Download <fn>polished.fasta</fn> to your computer (click on the file in your history; then click on the disk icon).
@@ -281,59 +281,73 @@ Why would the polished assembly (the ref track) be different to the reads - woul
 
 ## Repeat with new data
 
-* <op>Optional. Skip this step for a quicker tutorial</op>
+* <op>Optional. Skip this section for a quicker tutorial</op>
 
 * We can assemble another chloroplast genome using sequence data from a different plant species: the snow gum, *Eucalyptus pauciflora*.
 
-<!-- to do: data prep. see which is the smallest nanopore set that works in the assembly -->
+* This data is from [Wang W, Schalamun M, Morales-Suarez A et al. 2018](https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-018-5348-8). The original FASTQ read files (Illumina - SRR7153063, Nanopore - SRR7153095) have been modified and reduced for this tutorial.
 
-* Get the data: import the files from [zenodo link/ check with RL if that's ok to make]. This data is from [Wang W, Schalamun M, Morales-Suarez A et al. 2018](https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-018-5348-8). The original FASTQ read files are Illumina (SRR7153063) and Nanopore (SRR7153095) which have then been modified and reduced for this tutorial (details at Zenodo link).
+* Get the data: *If ok with data authors, upload data subsets to zenodo and link here.*  
 
-<!-- how: detail this in the zenodo link.
-these read files have been mapped to the snow gum chloroplast genome (NCBI Reference Sequence: NC_039597.1) using bwa-mem. then etc
--->
-* Run Nanoplot on the nanopore reads.
+<!-- how: detail this in the zenodo link. these read files have been mapped to the snow gum chloroplast genome (NCBI Reference Sequence: NC_039597.1) using bwa-mem. then etc -->
+
+* Run <ss>Nanopolot</ss> on the nanopore reads.
+
 <!-- notes: av read length much longer than sweet potato; has this improved IR placement -->
+* Use <ss>Flye</ss> to assemble the nanopore reads, then get <ss>Fasta statistics</ss>
 
-* Assemble the nanopore reads with Flye.
-* View the assembly graph in Bandage.
-* Polish the assembly with short reads and Pilon.
-* Annotate the genome using [web thing]
-* [upload the gff3 file to galaxy]
-* View annotated genome using JBrowse. [the gff3 vs the polished.fasta? ]
+* Use <ss>Bandage</ss> to view the assembly graph.
 
+    * *Note: Download the <fn>graphical fragment assembly</fn> file from Galaxy, not the <fn>assembly_graph</fn> file.*
 
-* Add questions/ comparisons throughout here. eg how does assembly graph compare to sweet potato (include a bandage pic)
-* Want to highlight the effect of diff read sets - eg in this case, much longer reads ? => IR placement ? => single contig assembled => better annotation (or not).
+    * *Bandage needs to be installed on your computer.*
+
+* Use <ss>Pilon</ss> to polish the assembly with short Illumina reads.
+
+    * *Note: Don't forget to **map** these Illumina reads to the assembly first using bwa-mem, then use the resulting <fn>bam</fn> file as input to Pilon.*
+
+* Annotate the genome using the GeSeq tool at [Chlorobox](https://chlorobox.mpimp-golm.mpg.de/geseq.html).
+
+    * *Note: First download the <fn>polished.fasta</fn> file, then upload at Chlorobox.*
+
+* Upload the annotations to Galaxy.
+
+    * *Note: First download the <fn>gff3</fn> file from Chlorobox, then upload to Galaxy.*
+
+* Use <ss>JBrowse</ss> to view the assembled, annotated genome.
+
+    * *Note: JBrowse uses the <fn>polished.fasta</fn> file and the annotations <fn>GFF3</fn> file.*
+
+<!-- how does assembly graph compare to sweet potato (include a bandage pic)? -->
+
+<!-- in this case, much longer reads ? => IR placement ? => single contig assembled => better annotation (or not) -->
 
 ## See this history in Galaxy
+
+*to do*
 
 If you want to see this Galaxy history without performing the steps above:
 
 * Log in to Galaxy Australia: [https://usegalaxy.org.au/](https://usegalaxy.org.au/)
 * Go to <ss>Shared Data</ss>
 * Click <ss>Histories</ss>
-* Click <fn>Completed-assembly-sweet-potato</fn>
-* or
-* <fn>Completed-assembly-snow-gum</fn>
+* Click <fn>Completed-assembly-sweet-potato</fn> or <fn>Completed-assembly-snow-gum</fn>
 * Click <ss>Import</ss> (at the top right corner)
 * The analysis should now be showing as your current history.
 
 ## See this workflow in Galaxy
 
-
+*to do*
 
 ## What's next?
 
-You can find more tutorials at
+* What can you do with an assembled genome? Common tasks are:
+* Call (find) variants (SNPs) by comparing sequencing reads to the reference (the assembled genome).
+* Find larger structural variants (SVs) by comparing multiple genomes.
+* Use multiple genomes (or a set of genes within) for phylogenetic inference.
+* Compare the genes found in one genome with another.
+* See more tutorials in the left-hand panel or in our list of other [bioinformatics tutorials](tutorials.md).
 
-Galaxy Australia Training
-
-and
-
-the Galaxy Training Network:
-
-* [http://galaxyproject.github.io/training-material/](http://galaxyproject.github.io/training-material/)
 
 
 
