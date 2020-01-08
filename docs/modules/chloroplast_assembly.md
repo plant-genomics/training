@@ -1,5 +1,8 @@
 # Assemble and annotate a chloroplast genome
 
+*<ss>\*New\*</ss>* *<ss>Feedback: anna.syme<code>@</code>rbg.vic.gov.au</ss>*
+
+
 ## What is genome assembly?
 
 * Genome assembly is the process of joining together DNA sequencing fragments into longer pieces, ideally up to chromosome lengths.
@@ -55,13 +58,22 @@
 * Click <ss>Execute</ss>
 * There are five output files.
 * View the <fn>HTML report</fn> file
-* What summary statistics would be useful to look at?
 
-* What do the plots mean?
+!!! note ""
+    What summary statistics would be useful to look at?
+
+    ??? "Click for answer"
+        <br>
+        This will depend on the aim of your analysis, but usually:
+
+        * sequencing depth (the number of reads covering each base position; also called "coverage"). Higher depth is usually better, but at very high depths it may be better to subsample the reads, as errors can swamp the assembly graph.
+
+        * sequencing quality (the quality score indicates probability of base call being correct). Average read quality may show if there were sequencing problems. You may trim or filter reads on quality. Phred quality scores are logarithmic: phred quality 10 = 90% chance of base call being correct; phred quality 20 = 99% chance of base call being correct. More detail [here](https://en.wikipedia.org/wiki/Phred_quality_score).
+
+        * Read lengths histogram, and reads lengths vs. quality plots. Your analysis or assembly may need reads of a certain length.
 
 <!--
-summary stats:what's important? perhaps:
-1/ sequencing depth
+sequencing depth
 total bases, to work out depth (num of reads covering each base position)
 e.g. total bases = 13 million
 (total bases = num reads x av read length)
@@ -70,24 +82,11 @@ if genome size  = 160,000
 then depth 13,000,000 / 160,000
 depth = approx X80
 
-2/ sequencing quality
-A quality score indicates probability of being correct
-phred quality scores are logarithmic
-phred quality 10 = 90% chance of base call being correct
-phred quality 20 = 99% chance of base call being correct
-phred page https://en.wikipedia.org/wiki/Phred_quality_score
-
-average read quality = 10.6
-
-Or, take the quality you need , e.g Q10 - and filter out reads below that cutoff
-
-3/ read lengths histogram
+read lengths histogram
 number of reads per each bin of read lengths
 
-4/ Weighted Histogram of read lengths
-number of bases per each bin of read lengths
-why negative axis also?
-have requested update to nanoplot latest version in case of numpy issue
+Weighted Histogram of read lengths
+number of BASES per each bin of read lengths
 -->
 
 ## Assemble reads
@@ -105,10 +104,8 @@ have requested update to nanoplot latest version in case of numpy issue
 * <op>Optional: Download the <fn>Graphical Fragment Assembly</fn></op>
 * <op>Install the [Bandage program](https://rrwick.github.io/Bandage/), then open.</op>
 * <op>Go to <ss>File: load graph</ss> then <ss>Draw graph</ss></op>
-* What is your interpretation of this assembly graph?
 
-
-
+<!-- note assemblies won't be the same size, may differ 100bp etc, due to heuristics in assembler and other tools -->
 
 ![assembly graph](images/flye-assembly-graph.png)
 
@@ -117,16 +114,41 @@ to do - check the lengths of these graph contigs match the lengths in the flye o
 to do - check the contig naming - note that it is changed in bandage?
 -->
 
+!!! note ""
+    What is your interpretation of this assembly graph?
 
-<!--
-It looks like the LSC and SSC fragments are joined by a collapsed repeat (the inverted repeat)
--->
+    ??? "Click for answer"
+        <br>
+        One interpretation is that this represents the typical circular chloroplast structure:
 
+        long single-copy region - inverted repeat - short single-copy region - inverted repeat
 
-<!-- because there are likely two cp forms - it can't resolve the orientation of the IRs ? -->
+        In the graph, each end loop is a single-copy region (either long or short) and the centre bar is the collapsed inverted repeat with about twice the sequencing depth.
 
-<!-- select reads 100k + ; make two ref genomes as the two structures; make two jbrowse files with reads aligned to each of the structures;-->
+!!! note ""
+    Why is the assembly not a single circular chloroplast chromosome?
 
+    ??? "Click for answer"
+        <br>
+        One reason may be that it contains inverted repeats.
+
+        "Inverted repeats" occur when one repeat is the reverse complement of the other repeat.
+
+        For example:
+
+        The sequence AAAGGG has the complement TTTCCC.
+
+        Reading this in reverse, the sequence is CCCTTT.
+
+        Thus, the inverted repeats appear in the genome sequence as:
+
+        **AAAGGG---some-other-bases---CCCTTT**
+
+        Assembly graphs usually pair a sequence and its reverse complement into a single node (e.g. a set of overlapping kmers).
+
+        Reads that map to either of the inverted repeats are then all placed in the same part of the assembly graph.
+
+        <!-- eg see page 24 https://www.ebi.ac.uk/sites/ebi.ac.uk/files/shared/documents/phdtheses/daniel_zerbino.pdf -->
 
 
 ## Polish assembly
@@ -300,58 +322,54 @@ Why would the polished assembly (the ref track) be different to the reads - woul
 
 * We can assemble another chloroplast genome using sequence data from a different plant species: the snow gum, *Eucalyptus pauciflora*.
 
-* This data is from [Wang W, Schalamun M, Morales-Suarez A et al. 2018](https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-018-5348-8). The original FASTQ read files (Illumina - SRR7153063, Nanopore - SRR7153095) have been modified and reduced for this tutorial.
+* This data is from [Wang W, Schalamun M, Morales-Suarez A et al. 2018](https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-018-5348-8). It is a subset of the original FASTQ read files (Illumina - SRR7153063, Nanopore - SRR7153095).
 
-* Get the data: *If ok with data authors, upload data subsets to zenodo and link here.*  
+* <st>Get data:</st> at this [Zenodo link](https://doi.org/10.5281/zenodo.3600662), then upload to Galaxy.
 
-<!-- how: detail this in the zenodo link. these read files have been mapped to the snow gum chloroplast genome (NCBI Reference Sequence: NC_039597.1) using bwa-mem. then etc -->
-
-* Run <ss>Nanopolot</ss> on the nanopore reads.
+* <st>Check reads:</st> Run <ss>Nanopolot</ss> on the nanopore reads.
 
 <!-- notes: av read length much longer than sweet potato; has this improved IR placement -->
 
-* Use <ss>Flye</ss> to assemble the nanopore reads, then get <ss>Fasta statistics</ss>
+* <st>Assemble:</st> Use <ss>Flye</ss> to assemble the nanopore reads, then get <ss>Fasta statistics</ss> *Note: this may take several hours.*
 
-    * *Note: this may take several hours. To see a completed assembly of this data now - go to XXX.*
+<!-- To see a completed assembly of this data now - go to .-->
 
-* Use <ss>Bandage</ss> to view the assembly graph.
+* <st>View assembly:</st> Use <ss>Bandage</ss> to view the assembly graph. *Note: Bandage needs to be installed on your computer. Download the <fn>graphical fragment assembly</fn> file from Galaxy, not the <fn>assembly_graph</fn> file.*
 
-    * *Note: Download the <fn>graphical fragment assembly</fn> file from Galaxy, not the <fn>assembly_graph</fn> file.*
+* <st>Polish assembly:</st> Use <ss>Pilon</ss> to polish the assembly with short Illumina reads. *Note: Don't forget to **map** these Illumina reads to the assembly first using bwa-mem, then use the resulting <fn>bam</fn> file as input to Pilon.*
 
-    * *Bandage needs to be installed on your computer.*
+* <st>Annotate:</st> Use the GeSeq tool at [Chlorobox](https://chlorobox.mpimp-golm.mpg.de/geseq.html). *Note: First download the <fn>polished.fasta</fn> file, then upload to Chlorobox. After annotation, download the <fn>gff3</fn> file from Chlorobox, then upload to Galaxy.*
 
-* Use <ss>Pilon</ss> to polish the assembly with short Illumina reads.
-
-    * *Note: Don't forget to **map** these Illumina reads to the assembly first using bwa-mem, then use the resulting <fn>bam</fn> file as input to Pilon.*
-
-* Annotate the genome using the GeSeq tool at [Chlorobox](https://chlorobox.mpimp-golm.mpg.de/geseq.html).
-
-    * *Note: First download the <fn>polished.fasta</fn> file, then upload at Chlorobox.*
-
-* Upload the annotations to Galaxy.
-
-    * *Note: First download the <fn>gff3</fn> file from Chlorobox, then upload to Galaxy.*
-
-* Use <ss>JBrowse</ss> to view the assembled, annotated genome.
-
-    * *Note: JBrowse uses the <fn>polished.fasta</fn> file and the annotations <fn>GFF3</fn> file.*
+* <st>View annotations:</st> Use <ss>JBrowse</ss> to view the assembled, annotated genome. *Note: JBrowse uses the <fn>polished.fasta</fn> file and the annotations <fn>gff3</fn> file.*
 
 <!-- how does assembly graph compare to sweet potato (include a bandage pic)? -->
 
+<!-- why does this one have only one contig, compared to the potato's 3 contigs? is it to do with the IR and/or the SSC placement? or neither? -->
+
 <!-- in this case, much longer reads ? => IR placement ? => single contig assembled => better annotation (or not) -->
 
-## A summary of what we did
+## Tutorial summary
 
-* What were the main steps
+!!! note ""
+    What were the main steps in this tutorial?
 
-* <st>Get data &rarr; Assemble &rarr; Polish &rarr; Annotate </st>
+    ??? "Click for answer"
+        <br>
+        <st>Get data &rarr; Assemble &rarr; Polish &rarr; Annotate </st>
 
+!!! note ""
+    What common file types were used or created?
 
-* What file types were used or created
-
-* click to reveal
-
-* <st><fn>input_reads.fastq</fn> &rarr; <fn>assembly.fasta</fn> and <fn>assembly_graph.gfa</fn> &rarr; <fn>mapped_short_reads_to_assembly.bam</fn> and <fn>polished_assembly.fasta</fn> &rarr; <fn>annotations.gff3</fn> </st>
+    ??? "Click for answer"
+        <br>
+        <fn>fastq</fn>
+        <fn>fasta</fn>
+        <fn>gfa</fn>
+        <fn>bam</fn>
+        <fn>gff3</fn>
+        <br>
+        <br>
+        <fn>input_reads.fastq</fn> &rarr; <fn>assembly.fasta</fn> and <fn>assembly_graph.gfa</fn> &rarr; <fn>mapped_short_reads_to_assembly.bam</fn> and <fn>polished_assembly.fasta</fn> &rarr; <fn>annotations.gff3</fn>
 
 ## See this history in Galaxy
 
