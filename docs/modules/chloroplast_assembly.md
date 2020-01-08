@@ -15,7 +15,7 @@
 * We will use the Galaxy Australia platform (a web page) to run our analysis.
 * This tutorial assumes some familiarity with Galaxy and bioinformatics - if you are new to either of these, we recommend the [Galaxy Australia Training](https://galaxy-au-training.github.io/tutorials/) tutorials *Get started, Learn key tasks, Quality control, Genome assembly, *and* Genome annotation*, as this chloroplast genome assembly tutorial is slightly more complicated.
 * You can follow all the steps, or skip any <op>optional</op> steps:
-* <st>Get data &rarr; <op>Read quality</op> &rarr; Assemble&rarr; Polish &rarr; <op>View reads</op>  &rarr; <op>Annotate</op>  &rarr; <op>Repeat with new data</op>   </st>
+* <st>Get data &rarr; <op>Read quality</op> &rarr; Assemble&rarr; Polish &rarr; <op>View reads</op> &rarr; <op>Annotate</op>  &rarr; <op>Repeat with new data</op></st>
 
 ## What's *not* in this tutorial?
 
@@ -103,18 +103,31 @@ have requested update to nanoplot latest version in case of numpy issue
 * View the <fn>assembly_info</fn> file. What are the contig names? What does the "graph_path" show? <!-- that contig 2 has inverted repeats -->
 * The assembly sequence is in the <fn>scaffolds</fn>. Re-name this <fn>flye-assembly.fasta</fn>
 * <op>Optional: Download the <fn>Graphical Fragment Assembly</fn></op>
-* <op>Install; open the [Bandage program](https://rrwick.github.io/Bandage/).</op>
+* <op>Install the [Bandage program](https://rrwick.github.io/Bandage/), then open.</op>
 * <op>Go to <ss>File: load graph</ss> then <ss>Draw graph</ss></op>
 * What is your interpretation of this assembly graph?
-<!--
-It looks like the LSC and SSC fragments are joined by a collapsed repeat (the inverted repeat)
--->
+
+
+
+
 ![assembly graph](images/flye-assembly-graph.png)
 
 <!--
 to do - check the lengths of these graph contigs match the lengths in the flye output files
 to do - check the contig naming - note that it is changed in bandage?
 -->
+
+
+<!--
+It looks like the LSC and SSC fragments are joined by a collapsed repeat (the inverted repeat)
+-->
+
+
+<!-- because there are likely two cp forms - it can't resolve the orientation of the IRs ? -->
+
+<!-- select reads 100k + ; make two ref genomes as the two structures; make two jbrowse files with reads aligned to each of the structures;-->
+
+
 
 ## Polish assembly
 
@@ -221,6 +234,7 @@ Why would the polished assembly (the ref track) be different to the reads - woul
 * <op>Optional. Skip this section for a quicker tutorial</op>
 
 * We can now annotate our assembled genome with information about genomic features.
+* <st>Use a web-based tool to annotate:</st>
 * Download <fn>polished.fasta</fn> to your computer (click on the file in your history; then click on the disk icon).
 * In a new broswer tab, go to [Chlorobox](https://chlorobox.mpimp-golm.mpg.de/geseq.html) where we will use the [GeSeq tool](https://academic.oup.com/nar/article/45/W1/W6/3806659) to annotate our sequence.
 * For <ss>FASTA file to annotate</ss> click <fn>+ Upload File</fn> and select <fn>polished.fasta</fn>.
@@ -249,6 +263,7 @@ Why would the polished assembly (the ref track) be different to the reads - woul
 
 <!-- Note: can see the repeated 16sRNA and 23sRNA -- although one of sets only has fragments? not full length? -- also, where does the Inverted Repeat start - is is ycf2? -->
 
+* <st>View the annotations in Galaxy:</st>
 * In Galaxy, in the tool panel, <ss>Get Data</ss> : <ss>Upload File</ss> : <ss>Choose local file</ss> <fn>GFF3 file</fn> : <ss>Start</ss> : <ss>Close</ss>
 
 * Make a JBrowse file to view the annotations (the GFF3 file) under the assembly (the polished.fasta file).
@@ -294,7 +309,10 @@ Why would the polished assembly (the ref track) be different to the reads - woul
 * Run <ss>Nanopolot</ss> on the nanopore reads.
 
 <!-- notes: av read length much longer than sweet potato; has this improved IR placement -->
+
 * Use <ss>Flye</ss> to assemble the nanopore reads, then get <ss>Fasta statistics</ss>
+
+    * *Note: this may take several hours. To see a completed assembly of this data now - go to XXX.*
 
 * Use <ss>Bandage</ss> to view the assembly graph.
 
@@ -321,6 +339,19 @@ Why would the polished assembly (the ref track) be different to the reads - woul
 <!-- how does assembly graph compare to sweet potato (include a bandage pic)? -->
 
 <!-- in this case, much longer reads ? => IR placement ? => single contig assembled => better annotation (or not) -->
+
+## A summary of what we did
+
+* What were the main steps
+
+* <st>Get data &rarr; Assemble &rarr; Polish &rarr; Annotate </st>
+
+
+* What file types were used or created
+
+* click to reveal
+
+* <st><fn>input_reads.fastq</fn> &rarr; <fn>assembly.fasta</fn> and <fn>assembly_graph.gfa</fn> &rarr; <fn>mapped_short_reads_to_assembly.bam</fn> and <fn>polished_assembly.fasta</fn> &rarr; <fn>annotations.gff3</fn> </st>
 
 ## See this history in Galaxy
 

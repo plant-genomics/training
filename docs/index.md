@@ -11,8 +11,6 @@ The website is under development and will expand over the next three years.
 
 More information about page content and contributing is at the GitHub repository [https://github.com/plant-genomics/training](https://github.com/plant-genomics/training).
 
-## Navigating
-
 <ss>Show or hide the left-hand menu</ss> click the icon in the top menu bar that looks like this <img src="modules/images/menu-icon.png" alt="menu-icon" width=25pt height=25pt>
 
 <ss>Find information</ss> click on the topics in the left-hand menu or use the search bar in the top right corner
@@ -26,4 +24,4 @@ This training aims to support the Australian plant genomics community as part of
 This nationally-inclusive and collaborative initiative is supported by funding from Bioplatforms Australia through the Australian Government National Collaborative Research Infrastructure Strategy (NCRIS), the Ian Potter Foundation, Royal Botanic Gardens Victoria, the Royal Botanic Gardens and Domain Trust, CSIRO, Centre for Australian National Biodiversity Research and the Department of Biodiversity, Conservation and Attractions, Western Australia.
 
 
-<img src="modules/images/all-logos.png" alt="gap-logos"> 
+<img src="modules/images/all-logos2.png" alt="gap-logos">
