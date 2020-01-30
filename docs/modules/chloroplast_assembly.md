@@ -24,7 +24,7 @@
 
 ## What's *not* in this tutorial?
 
-*  The best assembly of the sweet potato chloroplast data: we are using a data subset.
+*  The best assembly of the sweet potato chloroplast data: here, we are using a data subset.
 * A full explanation of all the steps involved and all the possible variations in the workflow; answers to some of the questions.
 * A workflow to assemble and annotate the chloroplast genome of any plant species: in this tutorial some steps are manual, and tools and settings may not be optimal for other plant species.
 * A workflow to assemble the nuclear genome of any plant species. The process shown here is generally applicable to assembling plant nuclear genomes but there would be extra steps (and much more time) involved. For example, additional sequencing would usually be run on 10X, BioNano or HiC to produce information to link up longer nuclear chromosome pieces and to separate out the maternal and paternal haplotypes.
@@ -132,6 +132,10 @@ number of BASES per each bin of read lengths
 
     ??? "Click for answer"
         <br>
+        (Note: there is a newer version of the assembly tool Flye that may change this to a complete circular assembly. Under investigation. It may be useful to include the analysis with the older version to illustrate the effect of inverted repeats on assembly).
+
+
+
         One reason may be that it contains inverted repeats.
 
         "Inverted repeats" occur when one repeat is the reverse complement of the other repeat.
@@ -244,8 +248,12 @@ Why would the polished assembly (the ref track) be different to the reads - woul
 
 
     ??? "Click for answer"
+        (Note: this answer is in draft.)
+
         1/ high cov: collapsed repeats
+
         2/ low or no cov: seq failed in certain regions (eg due to base composition)
+
         3/ low or no cov: assembly is different to the the set of cp genomes that reads were originally mapped to. (so some reads were left out)
 
 
@@ -258,7 +266,9 @@ Why would the polished assembly (the ref track) be different to the reads - woul
     What are the differences between the nanopore and the illumina reads?
 
     ??? "Click for answer"
-        eg length; high error in nanopore reads
+        (Note: this answer is in draft.)
+
+        e.g. length; high error in nanopore reads
 
 ## Annotate genome
 
@@ -269,7 +279,7 @@ Why would the polished assembly (the ref track) be different to the reads - woul
 * Download <fn>polished.fasta</fn> to your computer (click on the file in your history; then click on the disk icon).
 * In a new broswer tab, go to [Chlorobox](https://chlorobox.mpimp-golm.mpg.de/geseq.html) where we will use the [GeSeq tool](https://academic.oup.com/nar/article/45/W1/W6/3806659) to annotate our sequence.
 * For <ss>FASTA file to annotate</ss> click <fn>+ Upload File</fn> and select <fn>polished.fasta</fn>.
-* Select <fn>Linear</fn> (we have not yet circularized the sequence) and <fn>Plastid</fn>.
+* Select <fn>Circular</fn> (it will then consider annotations that span ends) and <fn>Plastid</fn>.
 * For <ss>Options</ss> tick <fn>Generate codon-based alignments</ss>
 * For <ss>BLAT search</ss> leave defaults.
 * For <ss>HMMER profile search</ss> tick <fn>Embryophta</fn>.
@@ -325,7 +335,12 @@ Why would the polished assembly (the ref track) be different to the reads - woul
     Why might there be several annotations over the same genome region?
 
     ??? "Click for answer"
-        they are predictions from different tools - eg blat or hmmer. this helps with manual curation of annotations...
+        (Note: this answer is in draft.)
+
+        they are predictions from different tools - eg blat or hmmer.
+
+        this helps with manual curation of annotations...
+
         Note: annotation: a constantly-improving process as more info for matching to seq string, seq structure, etc. can be multiple annotations under each feature depending on the database matched.
 
 ## Repeat with new data
@@ -388,7 +403,7 @@ Why would the polished assembly (the ref track) be different to the reads - woul
 
 ## See this history in Galaxy
 
-*to do*
+*to do - not yet available*
 
 If you want to see this Galaxy history without performing the steps above:
 
@@ -419,7 +434,7 @@ Some interesting papers about chloroplast structure.
 
 * Turmel, M., Otis, C. & Lemieux, C. Divergent copies of the large inverted repeat in the chloroplast genomes of ulvophycean green algae. Sci Rep 7, 994 (2017) [doi:10.1038/s41598-017-01144-1](doi:10.1038/s41598-017-01144-1)
 
-
+* *to do - add*
 
 
 
