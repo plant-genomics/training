@@ -15,6 +15,9 @@ copyright: '<br><br><br><br><br><br><br>&copy; The authors; 2020-'
 #theme: yeti
 #theme: cluster
 theme: windmill
+  font:
+    text: Ubuntu
+    code: Ubuntu Mono
 
 
 nav:
