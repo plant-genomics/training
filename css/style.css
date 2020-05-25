@@ -9,7 +9,7 @@ ST = step highlight
 */
 
 ST {
-  font-family: "Lato", sans-serif;
+  /*font-family: "Lato", sans-serif; */
   font-style: italic;
   font-size: 90%;
   color: black;
@@ -21,7 +21,7 @@ ST {
 
 
 OP {
-  font-family: "Lato", sans-serif;
+  /*font-family: "Lato", sans-serif;*/
   font-style: italic;
   font-size: 90%;
   color: black;
@@ -32,7 +32,7 @@ OP {
 }
 
 SS {
-  font-family: "Lucida Grande", sans-serif;
+  /*font-family: "Lucida Grande", sans-serif;*/
   font-size: 90%;
   font-weight: bolder;
   color: black;
@@ -43,7 +43,7 @@ SS {
 
 }
 FN {
-  font-family: "Lucida Grande", sans-serif;
+  /*font-family: "Lucida Grande", sans-serif;*/
   font-size: 80%;
   color: black;
   text-align: center;
@@ -68,7 +68,7 @@ CO {
 
 BODY {
   line-height: 1.5;
-  font-family: "Lato", sans-serif;
+  /*font-family: "Lato", sans-serif;*/
 }
 
 LI {
