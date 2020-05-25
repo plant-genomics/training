@@ -78,11 +78,12 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li>Open docker (e.g.: if it&rsquo;s running, it may show an icon in the top menu bar).</li>
 <li>In the terminal (or equivalent):</li>
 </ul>
-<pre class="codehilite"><code>docker pull busybox   //pulls the image named &quot;busybox&quot; from DockerHub
-docker run busybox    //creates the container, then exits if no tasks are running
-docker run busybox ls //creates container, lists files, exits
-docker image ls       //lists all docker images
-docker --help         // docker help</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">docker pull busybox   //pulls the image named &quot;busybox&quot; from DockerHub</span>
+<span class="err">docker run busybox    //creates the container, then exits if no tasks are running</span>
+<span class="err">docker run busybox ls //creates container, lists files, exits</span>
+<span class="err">docker image ls       //lists all docker images</span>
+<span class="err">docker --help         // docker help</span>
+</code></pre></div>
 
 
 <h3 id="getting-files-in-and-out-of-containers">Getting files in and out of containers</h3>
@@ -90,9 +91,10 @@ docker --help         // docker help</code></pre>
 <li>We will make a folder that can get share files with our containers.</li>
 <li>In your home directory (/Users/yourname/):</li>
 </ul>
-<pre class="codehilite"><code>mkdir workspace     
-cd workspace
-docker run -v /Users/[yourname]/workspace:/data/ busybox touch data/plantfile</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">mkdir</span><span class="w"> </span><span class="n">workspace</span><span class="w">     </span>
+<span class="n">cd</span><span class="w"> </span><span class="n">workspace</span><span class="w"></span>
+<span class="n">docker</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="o">-</span><span class="n">v</span><span class="w"> </span><span class="o">/</span><span class="n">Users</span><span class="o">/[</span><span class="n">yourname</span><span class="o">]/</span><span class="nl">workspace</span><span class="p">:</span><span class="o">/</span><span class="k">data</span><span class="o">/</span><span class="w"> </span><span class="n">busybox</span><span class="w"> </span><span class="n">touch</span><span class="w"> </span><span class="k">data</span><span class="o">/</span><span class="n">plantfile</span><span class="w"></span>
+</code></pre></div>
 
 
 <ul>
@@ -104,21 +106,24 @@ docker run -v /Users/[yourname]/workspace:/data/ busybox touch data/plantfile</c
 <ul>
 <li>Get some sample data files (synthetic bacterial illumina reads):</li>
 </ul>
-<pre class="codehilite"><code>wget https://zenodo.org/record/582600/files/mutant_R1.fastq?download=1
-wget https://zenodo.org/record/582600/files/mutant_R2.fastq?download=1</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">wget https://zenodo.org/record/582600/files/mutant_R1.fastq?download=1</span>
+<span class="err">wget https://zenodo.org/record/582600/files/mutant_R2.fastq?download=1</span>
+</code></pre></div>
 
 
 <ul>
 <li>Shorten the names:</li>
 </ul>
-<pre class="codehilite"><code>mv mutant_R1.fastq?download=1 mutant_R1.fastq
-mv mutant_R2.fastq?download=1 mutant_R2.fastq</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">mv mutant_R1.fastq?download=1 mutant_R1.fastq</span>
+<span class="err">mv mutant_R2.fastq?download=1 mutant_R2.fastq</span>
+</code></pre></div>
 
 
 <ul>
 <li>Run the assembly tool (spades) in a container:</li>
 </ul>
-<pre class="codehilite"><code>docker run -v /Users/[yourname]/workspace:/data/ quay.io/biocontainers/spades:3.13.0--0 ./usr/local/bin/spades.py -1 data/mutant_R1.fastq -2 data/mutant_R2.fastq -o data/spades_outdir</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">docker</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="o">-</span><span class="n">v</span><span class="w"> </span><span class="o">/</span><span class="n">Users</span><span class="o">/[</span><span class="n">yourname</span><span class="o">]/</span><span class="nl">workspace</span><span class="p">:</span><span class="o">/</span><span class="k">data</span><span class="o">/</span><span class="w"> </span><span class="n">quay</span><span class="p">.</span><span class="n">io</span><span class="o">/</span><span class="n">biocontainers</span><span class="o">/</span><span class="nl">spades</span><span class="p">:</span><span class="mf">3.13.0</span><span class="c1">--0 ./usr/local/bin/spades.py -1 data/mutant_R1.fastq -2 data/mutant_R2.fastq -o data/spades_outdir</span>
+</code></pre></div>
 
 
 <ul>
@@ -128,19 +133,22 @@ mv mutant_R2.fastq?download=1 mutant_R2.fastq</code></pre>
 <li><ss>-2</ss> specifies the file with reverse reads, <fn>data/mutant_R2.fastq<//fn></li>
 <li><ss>-o</ss> specifies the output directory, <fn>data/spades_outdir</fn></li>
 </ul>
-<pre class="codehilite"><code>ls      //to see the output files in your local workspace folder</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">ls      //to see the output files in your local workspace folder</span>
+</code></pre></div>
 
 
 <ul>
 <li>Move the assembled reads - the contigs file - into the workspace folder:</li>
 </ul>
-<pre class="codehilite"><code>mv spades_outdir/contigs.fasta .</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">mv spades_outdir/contigs.fasta .</span>
+</code></pre></div>
 
 
 <ul>
 <li>Run the annotation tool (prokka) in a container:</li>
 </ul>
-<pre class="codehilite"><code>docker run -v /Users/[yourname]/workspace:/data/ ummidock/prokka:1.13.3-01 prokka contigs.fasta</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">docker</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="o">-</span><span class="n">v</span><span class="w"> </span><span class="o">/</span><span class="n">Users</span><span class="o">/[</span><span class="n">yourname</span><span class="o">]/</span><span class="nl">workspace</span><span class="p">:</span><span class="o">/</span><span class="k">data</span><span class="o">/</span><span class="w"> </span><span class="n">ummidock</span><span class="o">/</span><span class="nl">prokka</span><span class="p">:</span><span class="mf">1.13.3</span><span class="o">-</span><span class="mi">01</span><span class="w"> </span><span class="n">prokka</span><span class="w"> </span><span class="n">contigs</span><span class="p">.</span><span class="n">fasta</span><span class="w"></span>
+</code></pre></div>
 
 
 <ul>
@@ -150,9 +158,10 @@ mv mutant_R2.fastq?download=1 mutant_R2.fastq</code></pre>
 <li>this container has been configured to start within the data folder, so &ldquo;data/&rdquo; is not needed before the input file</li>
 <li>this container has also been configured to put output in the data folder, so it is not necessary to specify an output directory name</li>
 </ul>
-<pre class="codehilite"><code>ls                        //to see the annotation output
-cd PROKKA_outfile_name
-less PROKKA_outfile.txt   //summary of annotation</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">ls                        //to see the annotation output</span>
+<span class="err">cd PROKKA_outfile_name</span>
+<span class="err">less PROKKA_outfile.txt   //summary of annotation</span>
+</code></pre></div>
 
 
 <h3 id="troubleshooting">Troubleshooting</h3>
@@ -176,7 +185,7 @@ less PROKKA_outfile.txt   //summary of annotation</code></pre>
   <br>
 </div>
 
-<footer class="col-md-12 wm-page-content"><p><br><br><br><br><br><br><br>&copy; The authors; 2020-</p>
+<footer class="container-fluid wm-page-content"><p><br><br><br><br><br><br><br>&copy; The authors; 2020-</p>
   <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
 </footer>
 

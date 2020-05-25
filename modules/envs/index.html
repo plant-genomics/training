@@ -81,32 +81,35 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>In the terminal (or equivalent), set up the bioconda channel: (More information: <a href="https://bioconda.github.io/">https://bioconda.github.io/</a>)</p>
 </li>
 </ul>
-<pre class="codehilite"><code>conda config --add channels defaults
-conda config --add channels bioconda
-conda config --add channels conda-forge</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">conda config --add channels defaults</span>
+<span class="err">conda config --add channels bioconda</span>
+<span class="err">conda config --add channels conda-forge</span>
+</code></pre></div>
 
 
 <ul>
 <li>This example shows how to set up and use an environment:</li>
 </ul>
-<pre class="codehilite"><code>conda create --name mrbayes //create new environment called mrbayes
-conda activate mrbayes      //activate this environment
-conda install mrbayes       //install the &quot;mrbayes&quot; tool
-[amazing analysis]          //run your analysis
-conda deactivate            //deactive this environment</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">conda</span> <span class="n">create</span> <span class="o">--</span><span class="n">name</span> <span class="n">mrbayes</span> <span class="c1">//create new environment called mrbayes</span>
+<span class="n">conda</span> <span class="n">activate</span> <span class="n">mrbayes</span>      <span class="c1">//activate this environment</span>
+<span class="n">conda</span> <span class="n">install</span> <span class="n">mrbayes</span>       <span class="c1">//install the &quot;mrbayes&quot; tool</span>
+<span class="p">[</span><span class="n">amazing</span> <span class="n">analysis</span><span class="p">]</span>          <span class="c1">//run your analysis</span>
+<span class="n">conda</span> <span class="n">deactivate</span>            <span class="c1">//deactive this environment</span>
+</code></pre></div>
 
 
 <ul>
 <li>Search here for tools: <a href="https://anaconda.org/bioconda/">https://anaconda.org/bioconda/</a></li>
 </ul>
 <h2 id="using-conda">Using conda</h2>
-<pre class="codehilite"><code>conda env list              //what environments have you set up?
-conda list -n mrbayes       // what's installed in the mrbayes environment</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">conda env list              //what environments have you set up?</span>
+<span class="err">conda list -n mrbayes       // what&#39;s installed in the mrbayes environment</span>
+</code></pre></div>
 
   <br>
 </div>
 
-<footer class="col-md-12 wm-page-content"><p><br><br><br><br><br><br><br>&copy; The authors; 2020-</p>
+<footer class="container-fluid wm-page-content"><p><br><br><br><br><br><br><br>&copy; The authors; 2020-</p>
   <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
 </footer>
 
