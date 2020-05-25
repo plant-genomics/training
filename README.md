@@ -42,7 +42,9 @@ git clone https://github.com/yourname/training.git
 ```
 conda create --name mkdocs       //we call our environment "mkdocs"
 conda activate mkdocs
-conda install pip               
+conda install mkdocs
+conda install pip  
+pip install -U mkdocs //update
 pip install -r requirements.txt  //this file lists the packages required
 ```
 
