@@ -14,7 +14,8 @@ copyright: '<br><br><br><br><br><br><br>&copy; The authors; 2020-'
 
 #theme: yeti
 #theme: cluster
-theme: windmill
+theme: 
+  name: windmill
 
 
 nav:
