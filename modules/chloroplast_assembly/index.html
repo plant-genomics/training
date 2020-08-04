@@ -45,10 +45,7 @@
               {title: "Annotate genome", url: "#annotate-genome" },
               {title: "Repeat with new data", url: "#repeat-with-new-data" },
               {title: "Tutorial summary", url: "#tutorial-summary" },
-              {title: "See this history in Galaxy", url: "#see-this-history-in-galaxy" },
-              {title: "See this workflow in Galaxy", url: "#see-this-workflow-in-galaxy" },
               {title: "What's next?", url: "#whats-next" },
-              {title: "Papers", url: "#papers" },
           ]},
         ];
 
@@ -138,8 +135,10 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li>For <ss>files</ss> select the nanopore FASTQ file</li>
 <li>Click <ss>Execute</ss></li>
 <li>There are five output files.</li>
-<li>View the <fn>HTML report</fn> file</li>
+<li>View the <fn>Histogram Read Length</fn> file</li>
 </ul>
+<!-- the HTML report is not currently renedering properly unless downloaded, but this has a nice plot of read length vs av qual -->
+
 <div class="admonition note">
 <p>What summary statistics would be useful to look at?</p>
 <details><summary>Click for answer</summary><p><br>
@@ -174,10 +173,21 @@ Weighted Histogram of read lengths
 number of BASES per each bin of read lengths
 -->
 
+<ul>
+<li><op>Optional further steps:</op></li>
+<li>Find out the quality of your reads using other tools such as fastp or FastQC. </li>
+<li>To visualize base quality using emoji you can also use FASTQE :smile:</li>
+<li>Run FASTQE for the illumina reads. In the output, look at the mean values (the middle row)</li>
+<li>Repeat FASTQE for the nanopore reads. In the tool settings, increase the maximum read length to 30000.</li>
+</ul>
+<!-- get max read length from nanoplot nano stats -->
+
+<!-- the mean value is quite bad for nanopore reads, as would be expected -->
+
 <h2 id="assemble-reads">Assemble reads</h2>
 <ul>
 <li><st>Assemble:</st></li>
-<li>In the tool panel, search for &ldquo;flye&rdquo;, and click on &ldquo;Assembly of long and error-prone reads&rdquo;.</li>
+<li>In the tool panel, search for &ldquo;Flye&rdquo;.</li>
 <li>For <ss>Input reads</ss> select <fn>sweet-potato-chloroplast-nanopore-reduced.fastq</fn></li>
 <li>Leave other settings as default, except for <ss>estimated genome size</ss> add <fn>160000</fn></li>
 <li>Click <ss>Execute</ss></li>
@@ -185,47 +195,43 @@ number of BASES per each bin of read lengths
 <li>There are five output files.</li>
 <li><em>Note: this tool is heuristic; your results may differ slightly from the results here, and if repeated.</em></li>
 <li>View the <fn>log</fn> file and scroll to the end.</li>
-<li>How many contigs were assembled?</li>
+<li>How many contigs (fragments) were assembled?</li>
 <li>What is the length of the assembly?</li>
 <li>View the <fn>assembly_info</fn> file.</li>
+<li>What are the contig names and lengths?</li>
 <li>
-<p>What are the contig names?</p>
+<p>The assembly sequence is in the <fn>consensus</fn>. Re-name this <fn>flye-assembly.fasta</fn>
+<!-- note assemblies won't be the same size, may differ 100bp etc, due to heuristics in assembler and other tools --></p>
 </li>
 <li>
-<p>The assembly sequence is in the <fn>scaffolds</fn>. Re-name this <fn>flye-assembly.fasta</fn></p>
+<p><st>View the assembly:</st></p>
+</li>
+<li>In the tool panel, search for &ldquo;Bandage&rdquo;.</li>
+<li>Run &ldquo;Bandage Info&rdquo; on the Flye output file <fn>Graphical Fragment Assembly</fn> (not the &ldquo;assembly_graph&rdquo; file) with the default settings. </li>
+<li>View the ouput file: how many nodes and edges are there?</li>
+<li>Run &ldquo;Bandage Image&rdquo; on the Flye output file <fn>Graphical Fragment Assembly</fn>, clicking &ldquo;Yes&rdquo; to display &ldquo;Node length labels&rdquo;. </li>
+<li>
+<p>(Note that some text may be cut off this image due to a bug, under investigation). 
+<!-- node names and lengths are not rendering properly for now --></p>
 </li>
 <li>
-<p>Here is an example output of the assembly graph, in the <a href="https://rrwick.github.io/Bandage/">Bandage program</a>.</p>
+<p>Your assembly graph may look like this:</p>
 </li>
 </ul>
-<!-- note assemblies won't be the same size, may differ 100bp etc, due to heuristics in assembler and other tools -->
-
 <p><img alt="assembly graph" src="../images/sweet-potato-assembly-graph.png" /></p>
+<!-- replace with the galaxy version when bug is fixed -->
+
 <div class="admonition note">
 <p>What is your interpretation of this assembly graph?</p>
 <details><summary>Click for answer</summary><p><br>
-One interpretation is that this represents the typical circular chloroplast structure:</p>
-<p>long single-copy region - inverted repeat - short single-copy region - inverted repeat</p>
-<p>In the graph, each end loop is a single-copy region (either long or short) and the centre bar is the collapsed inverted repeat with about twice the sequencing depth.</p>
+One interpretation is that this represents the typical circular chloroplast structure: There is a long single-copy region (the node of around 78,000 bp), connected to the inverted repeat (a node of around 28,000 bp), connected to the short single-copy region (of around 11,000 bp). In the graph, each end loop is a single-copy region (either long or short) and the centre bar is the collapsed inverted repeat which should have about twice the sequencing depth.</p>
 </details>
 </div>
-<div class="admonition note">
-<p>Why is the assembly not a single circular chloroplast chromosome?</p>
-<details><summary>Click for answer</summary><p><br>
-(Note: there is a newer version of the assembly tool Flye that may change this to a complete circular assembly. Under investigation. It may be useful to include the analysis with the older version to illustrate the effect of inverted repeats on assembly).</p>
-<p>One reason may be that it contains inverted repeats.</p>
-<p>&ldquo;Inverted repeats&rdquo; occur when one repeat is the reverse complement of the other repeat.</p>
-<p>For example:</p>
-<p>The sequence AAAGGG has the complement TTTCCC.</p>
-<p>Reading this in reverse, the sequence is CCCTTT.</p>
-<p>Thus, the inverted repeats appear in the genome sequence as:</p>
-<p><strong>AAAGGG&mdash;some-other-bases&mdash;CCCTTT</strong></p>
-<p>Assembly graphs usually pair a sequence and its reverse complement into a single node (e.g. a set of overlapping kmers).</p>
-<p>Reads that map to either of the inverted repeats are then all placed in the same part of the assembly graph.</p>
-<!-- eg see page 24 https://www.ebi.ac.uk/sites/ebi.ac.uk/files/shared/documents/phdtheses/daniel_zerbino.pdf -->
-
-</details>
-</div>
+<ul>
+<li><op>Optional further steps:</op></li>
+<li>Repeat the Flye assembly with different parameters, and/or a filtered read set. </li>
+<li>Try an alternative assembly tool, such as Canu or Unicycler. </li>
+</ul>
 <h2 id="polish-assembly">Polish assembly</h2>
 <ul>
 <li>Short illumina reads are more accurate the nanopore reads. We will use them to correct errors in the nanopore assembly.</li>
@@ -235,7 +241,7 @@ One interpretation is that this represents the typical circular chloroplast stru
 <li>For <ss>Use the following dataset as the reference sequence</ss> select <fn>flye-assembly.fasta</fn></li>
 <li>For <ss>Algorithm for constructing the BWT index</ss> select <fn>Auto. Let BWA decide</fn></li>
 <li>For <ss>Single or Paired-end reads</ss> select <fn>Single</fn></li>
-<li>For <ss>Select fastq dataset</ss> select <fn>sweet-potato-chloroplast-illumina-reduced.fastq</fn></li>
+<li>For <ss>Select fastq dataset</ss> select <fn>sweet-potato-illumina-reduced.fastq</fn></li>
 <li>For <ss>Set read groups information?</ss> select <fn>Do not set</fn></li>
 <li>For <ss>Select analysis mode</ss> select <fn>1. Simple Illumina mode</ss></li>
 <li>Click <ss>Execute</ss></li>
@@ -250,19 +256,27 @@ One interpretation is that this represents the typical circular chloroplast stru
 <li>For <ss>Variant calling mode</ss> select <fn>No</fn></li>
 <li>For <ss>Create changes file</ss> select <fn>Yes</fn></li>
 <li>Click <ss>Execute</ss></li>
-<li>This compares the short reads to the assembly, and creates a polished (corrected) assembly file.</li>
-</ul>
-<!-- option: run a second round of polishing. keep track of file naming, and will need to generate a new bam [map illumina reads to polished.fasta] -->
-
-<ul>
-<li>There are two outputs: a <fn>fasta</fn> file and a <fn>changes</fn> file.</li>
+<li>
+<p>This compares the short reads to the assembly, and creates a polished (corrected) assembly file.</p>
+</li>
+<li>
+<p>There are two outputs: a <fn>fasta</fn> file and a <fn>changes</fn> file.</p>
+</li>
 <li>What is in the <fn>changes</fn> file?</li>
 <li>Re-name the fasta output file <fn>polished-assembly.fasta</fn></li>
-<li>Find and run the tool called &ldquo;Fasta statistics&rdquo; on this file.</li>
-<li>How does it compare to the unpolished <fn>flye-assembly.fasta</fn>?</li>
+<li>Find and run the tool called &ldquo;Fasta statistics&rdquo; on the original flye assembly and the polished version.</li>
 </ul>
-<!-- length 161333 compared to unpolished 160340; about 1k bases have been added back in; nanopore can have a lot of homopolymer deletions; the changes file shows lots of cases with a deletion changing to a base, there are also stretches of bases replaced-->
-
+<div class="admonition note">
+<p>How does the short-read Pilon-polished assembly compare to the unpolished <fn>flye-assembly.fasta</fn>?</p>
+<details><summary>Click for answer</summary><p><br>
+This will depend on the settings, but as an example: your polished assembly might be about 10-15 Kbp longer. Nanopore reads can have homopolymer deletions - a run of AAAA may be interpreted as AAA - so the more accurate illumina reads may correct these parts of the long-read assembly. In the <fn>Changes</fn> file, there may be a lot of cases showing a supposed deletion (represented by a dot) being corrected to a base. </p>
+</details>
+</div>
+<ul>
+<li><op>Optional further steps:</op></li>
+<li>Run a second round (or more) of Pilon polishing. Keep track of file naming; you will need to generate a new bam file first before each round of Pilon.</li>
+<li>Run an alternative polishing tool, such as Racon. This uses the long reads themselves to correct the long-read (Flye) assembly. It would be better to run this tool on the Flye assembly before running Pilon, rather than after Pilon. </li>
+</ul>
 <h2 id="view-reads">View reads</h2>
 <ul>
 <li><op>Optional. Skip this entire section for a quicker tutorial</op></li>
@@ -302,24 +316,25 @@ One interpretation is that this represents the typical circular chloroplast stru
 <li><st>View the JBrowse file:</st></li>
 <li>Click on the eye icon to view. (For more room, collapse Galaxy side menus with corner &lt; &gt; signs).
 <!-- if jbrowse has too much to display, repeat but increase the chunk size (eg add an extra zero) --></li>
+<li>Make sure the bam files are ticked in the left hand panel. </li>
 <li>
 <p>Choose a contig in the drop down menu. Zoom in and out with + and - buttons.
 <!-- Change the reference sequence display using the drop down menu. Uncheck boxes for <ss>show reverse strand</ss> and <ss>show translation</ss>.--></p>
 </li>
 <li>
-<p><strong>Reference and reads: zoomed-out view</strong>
-<!--
-Why would the polished assembly (the ref track) be different to the reads - wouldn't these snps correct these places? maybe would need another round+ of polishing.
---></p>
+<p><strong>Reference and reads: zoomed-out view</strong></p>
 </li>
 </ul>
+<!--
+Why would the polished assembly (the ref track) be different to the reads - wouldn't these snps correct these places? => probably need further rounds of short-read polishing. e.g. see position on contig1 32897 - all the illumina and most nano reads are Ts, and ref is A. 
+-->
+
 <p><img src="../images/jbrowse-read-mapping-zoomed-out.png" alt="jbrowse" height=70% width=70%></p>
 <div class="admonition note">
 <p>What are some reasons that the read coverage may vary across the reference genome?</p>
-<details><summary>Click for answer</summary><p>(Note: this answer is in draft.)</p>
-<p>1/ high cov: collapsed repeats</p>
-<p>2/ low or no cov: seq failed in certain regions (eg due to base composition)</p>
-<p>3/ low or no cov: assembly is different to the the set of cp genomes that reads were originally mapped to. (so some reads were left out)</p>
+<details><summary>Click for answer</summary><p>There may be lots of reasons. Some possibilities: </p>
+<p>1/ In areas of high read coverage: this region may be a collapsed repeat. </p>
+<p>2/ In areas of low or no coverage: this region may be difficult to sequence; or, this region may be a misassembly. </p>
 </details>
 </div>
 <ul>
@@ -328,8 +343,7 @@ Why would the polished assembly (the ref track) be different to the reads - woul
 <p><img src="../images/jbrowse-read-mapping-zoomed-in.png" alt="jbrowse" height=70% width=70%></p>
 <div class="admonition note">
 <p>What are the differences between the nanopore and the illumina reads?</p>
-<details><summary>Click for answer</summary><p>(Note: this answer is in draft.)</p>
-<p>e.g. length; high error in nanopore reads</p>
+<details><summary>Click for answer</summary><p>Nanopore reads are longer and have a higher error rate.  </p>
 </details>
 </div>
 <h2 id="annotate-genome">Annotate genome</h2>
@@ -413,10 +427,7 @@ Why would the polished assembly (the ref track) be different to the reads - woul
 </ul>
 <div class="admonition note">
 <p>Why might there be several annotations over the same genome region?</p>
-<details><summary>Click for answer</summary><p>(Note: this answer is in draft.)</p>
-<p>they are predictions from different tools - eg blat or hmmer.</p>
-<p>this helps with manual curation of annotations&hellip;</p>
-<p>Note: annotation: a constantly-improving process as more info for matching to seq string, seq structure, etc. can be multiple annotations under each feature depending on the database matched.</p>
+<details><summary>Click for answer</summary><p>One reason is that these are predictions from different tools - such as BLAT or HMMER. </p>
 </details>
 </div>
 <h2 id="repeat-with-new-data">Repeat with new data</h2>
@@ -444,15 +455,9 @@ Why would the polished assembly (the ref track) be different to the reads - woul
 <!-- notes: av read length much longer than sweet potato; has this improved IR placement -->
 
 <ul>
-<li><st>Assemble:</st> Use <ss>Flye</ss> to assemble the nanopore reads, then get <ss>Fasta statistics</ss> <em>Note: this may take several hours.</em></li>
-</ul>
-<!-- To see a completed assembly of this data now - go to .-->
-
-<!--
-* <st>View assembly:</st> Use <ss>Bandage</ss> to view the assembly graph. *Note: Bandage needs to be installed on your computer. Download the <fn>graphical fragment assembly</fn> file from Galaxy, not the <fn>assembly_graph</fn> file.*
--->
-
-<ul>
+<li>
+<p><st>Assemble:</st> Use <ss>Flye</ss> to assemble the nanopore reads, then get <ss>Fasta statistics</ss> <em>Note: this may take several hours.</em></p>
+</li>
 <li>
 <p><st>Polish assembly:</st> Use <ss>Pilon</ss> to polish the assembly with short Illumina reads. <em>Note: Don&rsquo;t forget to </em><em>map</em><em> these Illumina reads to the assembly first using bwa-mem, then use the resulting <fn>bam</fn> file as input to Pilon.</em></p>
 </li>
@@ -463,12 +468,6 @@ Why would the polished assembly (the ref track) be different to the reads - woul
 <p><st>View annotations:</st> Use <ss>JBrowse</ss> to view the assembled, annotated genome. <em>Note: JBrowse uses the <fn>polished.fasta</fn> file and the annotations <fn>GFF3</fn> file.</em></p>
 </li>
 </ul>
-<!-- how does assembly graph compare to sweet potato (include a bandage pic)? -->
-
-<!-- why does this one have only one contig, compared to the potato's 3 contigs? is it to do with the IR and/or the SSC placement? or neither? -->
-
-<!-- in this case, much longer reads ? => IR placement ? => single contig assembled => better annotation (or not) -->
-
 <h2 id="tutorial-summary">Tutorial summary</h2>
 <div class="admonition note">
 <p>What were the main steps in this tutorial?</p>
@@ -488,19 +487,35 @@ Why would the polished assembly (the ref track) be different to the reads - woul
 <fn>input_reads.fastq</fn> &rarr; <fn>assembly.fasta</fn>&rarr; <fn>mapped_short_reads_to_assembly.bam</fn> and <fn>polished_assembly.fasta</fn> &rarr; <fn>annotations.gff3</fn></p>
 </details>
 </div>
-<h2 id="see-this-history-in-galaxy">See this history in Galaxy</h2>
-<p><em>to do - not yet available</em></p>
-<p>If you want to see this Galaxy history without performing the steps above:</p>
-<ul>
-<li>Log in to Galaxy Australia: <a href="https://usegalaxy.org.au/">https://usegalaxy.org.au/</a></li>
-<li>Go to <ss>Shared Data</ss></li>
-<li>Click <ss>Histories</ss></li>
-<li>Click <fn>Completed-assembly-sweet-potato</fn> or <fn>Completed-assembly-snow-gum</fn></li>
-<li>Click <ss>Import</ss> (at the top right corner)</li>
-<li>The analysis should now be showing as your current history.</li>
-</ul>
-<h2 id="see-this-workflow-in-galaxy">See this workflow in Galaxy</h2>
-<p><em>to do</em></p>
+<!-- 
+## See this history in Galaxy
+
+If you want to see this Galaxy history without performing the steps above:
+
+* Log in to Galaxy Australia: [https://usegalaxy.org.au/](https://usegalaxy.org.au/)
+* Go to <ss>Shared Data</ss>
+* Click <ss>Histories</ss>
+* Click <fn>Completed-assembly-sweet-potato</fn> or <fn>Completed-assembly-snow-gum</fn>
+* Click <ss>Import</ss> (at the top right corner)
+* The analysis should now be showing as your current history.
+
+## See this workflow in Galaxy
+
+To see these workflows in Galaxy:
+
+* Log in to Galaxy Australia: [https://usegalaxy.org.au/](https://usegalaxy.org.au/)
+* Go to <ss>Shared Data</ss>
+* Click <ss>Workflows</ss>
+* Search for "sweet potato" or "snow gum"
+* Click on the worfklow  name
+* In the very top right corner,  click the plus button to Import Workflow
+* Click "Start using this workflow"
+* This will bring up a list of all your workflows
+* Click on the workflow name, then choose "Edit" in the drop-down menu
+* This brings up the worfklow canvas. 
+* Click the Triangle icon in the top bar to run the workflow. Make sure you specify the right input Nanopore and Illumina read files.  
+ -->
+
 <h2 id="whats-next">What&rsquo;s next?</h2>
 <ul>
 <li>What can you do with an assembled genome? Common tasks are:</li>
@@ -510,17 +525,9 @@ Why would the polished assembly (the ref track) be different to the reads - woul
 <li>Compare the genes found in one genome with another.</li>
 <li>See more tutorials in the left-hand panel or in our list of other <a href="../tutorials/">bioinformatics tutorials</a>.</li>
 </ul>
-<h2 id="papers">Papers</h2>
-<p>Some interesting papers about chloroplast structure.</p>
-<ul>
-<li>
-<p>Turmel, M., Otis, C. &amp; Lemieux, C. Divergent copies of the large inverted repeat in the chloroplast genomes of ulvophycean green algae. Sci Rep 7, 994 (2017) <a href="doi:10.1038/s41598-017-01144-1">doi:10.1038/s41598-017-01144-1</a></p>
-</li>
-<li>
-<p><em>to do - add</em></p>
-</li>
-</ul>
-<!-- File prep:
+<!-- File prep sweet potato data:
+
+I've cut down the size of these datasets and hosted the data on Zenodo (with permission from author Lachlan Coin) at http://doi.org/10.5281/zenodo.3567224
 
 Created history: sweet potato chloroplast tutorial data
 
@@ -544,9 +551,15 @@ Very reduced (for a bam example).
 the paper used slightly diff assembly method, which included correcting nanopore reads with illumina reads, trimming low qual, assembling nano with canu, then polish with pilon and illumina.
 
 => illumina file
-[I found this by ncbi - looking at the Tanzania sample (see paper supp table S1) that gave the nanopore file (which is easy to find bc only one nanopore file in the set, but lots of illumina) - then searched for all reads under under this, and found the accompanying illumina file.
+I found this by ncbi - looking at the Tanzania sample (see paper supp table S1) that gave the nanopore file (which is easy to find bc only one nanopore file in the set, but lots of illumina) - then searched for all reads under under this, and found the accompanying illumina file.
+-->
 
-I've cut down the size of these datasets and hosted the data on Zenodo (with permission from author Lachlan Coin) at http://doi.org/10.5281/zenodo.3567224
+<!-- File prep snow gum data:
+
+I've cut down the size of these datasets and hosted the data on Zenodo (with permission from author Rob Lanfear) at [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3600662.svg)](https://doi.org/10.5281/zenodo.3600662)
+
+detail on how files were made are at zenodo
+
 -->
 
   <br>
