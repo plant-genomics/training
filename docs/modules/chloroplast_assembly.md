@@ -125,28 +125,24 @@ number of BASES per each bin of read lengths
 * In the tool panel, search for "Bandage".
 * Run "Bandage Info" on the Flye output file <fn>Graphical Fragment Assembly</fn> (not the "assembly_graph" file) with the default settings. 
 * View the ouput file: how many nodes and edges are there?
-* Run "Bandage Image" on the Flye output file <fn>Graphical Fragment Assembly</fn> with the default settings. 
-<!-- node names and lengths are not rendering properly for now so don't display-->
+* Run "Bandage Image" on the Flye output file <fn>Graphical Fragment Assembly</fn>, clicking "Yes" to display "Node length labels". 
+* (Note that some text may be cut off this image due to a bug, under investigation). 
+<!-- node names and lengths are not rendering properly for now -->
+
 * Your assembly graph may look like this:
 
 ![assembly graph](images/sweet-potato-assembly-graph.png)
+
+<!-- replace with the galaxy version when bug is fixed -->
 
 !!! note ""
     What is your interpretation of this assembly graph?
 
     ??? "Click for answer"
         <br>
-        One interpretation is that this represents the typical circular chloroplast structure:
-
-        long single-copy region - inverted repeat - short single-copy region - inverted repeat
-
-        In the graph, each end loop is a single-copy region (either long or short) and the centre bar is the collapsed inverted repeat with about twice the sequencing depth.
-
-
-
+        One interpretation is that this represents the typical circular chloroplast structure: There is a long single-copy region (the node of around 78,000 bp), connected to the inverted repeat (a node of around 28,000 bp), connected to the short single-copy region (of around 11,000 bp). In the graph, each end loop is a single-copy region (either long or short) and the centre bar is the collapsed inverted repeat which should have about twice the sequencing depth.
         
-
-
+        
 ## Polish assembly
 
 * Short illumina reads are more accurate the nanopore reads. We will use them to correct errors in the nanopore assembly.
