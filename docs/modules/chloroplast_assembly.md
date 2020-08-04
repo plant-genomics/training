@@ -62,6 +62,8 @@
 * There are five output files.
 * View the <fn>Histogram Read Length</fn> file
 
+<!-- the HTML report is not currently renedering properly unless downloaded, but this has a nice plot of read length vs av qual -->
+
 !!! note ""
     What summary statistics would be useful to look at?
 
@@ -93,13 +95,18 @@ number of BASES per each bin of read lengths
 -->
 
 * <op>Optional further steps:</op>
-* Run the tool FASTQE to look at the quality scores of your illumina reads... in emoji :smile:
-* In the output, look at the mean values (the middle row)
+* Find out the quality of your reads using other tools such as fastp or FastQC. 
+* To visualize base quality using emoji you can also use FASTQE :smile:
+* Run FASTQE for the illumina reads. In the output, look at the mean values (the middle row)
+* Repeat FASTQE for the nanopore reads. In the tool settings, increase the maximum read length to 30000.
+
+<!-- get max read length from nanoplot nano stats -->
+<!-- the mean value is quite bad for nanopore reads, as would be expected -->
 
 ## Assemble reads
 
 * <st>Assemble:</st>
-* In the tool panel, search for "flye", and click on "Assembly of long and error-prone reads".
+* In the tool panel, search for "Flye".
 * For <ss>Input reads</ss> select <fn>sweet-potato-chloroplast-nanopore-reduced.fastq</fn>
 * Leave other settings as default, except for <ss>estimated genome size</ss> add <fn>160000</fn>
 * Click <ss>Execute</ss>
