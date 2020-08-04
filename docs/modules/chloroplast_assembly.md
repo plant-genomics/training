@@ -376,6 +376,7 @@ Why would the polished assembly (the ref track) be different to the reads - woul
         <br>
         <fn>input_reads.fastq</fn> &rarr; <fn>assembly.fasta</fn>&rarr; <fn>mapped_short_reads_to_assembly.bam</fn> and <fn>polished_assembly.fasta</fn> &rarr; <fn>annotations.gff3</fn>
 
+<!-- 
 ## See this history in Galaxy
 
 If you want to see this Galaxy history without performing the steps above:
@@ -402,7 +403,9 @@ To see these workflows in Galaxy:
 * Click on the workflow name, then choose "Edit" in the drop-down menu
 * This brings up the worfklow canvas. 
 * Click the Triangle icon in the top bar to run the workflow. Make sure you specify the right input Nanopore and Illumina read files.  
-
+ -->
+ 
+ 
 
 ## What's next?
 
@@ -412,19 +415,6 @@ To see these workflows in Galaxy:
 * Use multiple genomes (or a set of genes within) for phylogenetic inference.
 * Compare the genes found in one genome with another.
 * See more tutorials in the left-hand panel or in our list of other [bioinformatics tutorials](tutorials.md).
-
-
-## Papers
-
-Some interesting papers about chloroplast structure.
-
-* Turmel, M., Otis, C. & Lemieux, C. Divergent copies of the large inverted repeat in the chloroplast genomes of ulvophycean green algae. Sci Rep 7, 994 (2017) [doi:10.1038/s41598-017-01144-1](doi:10.1038/s41598-017-01144-1)
-
-* 
-
-
-
-
 
 <!-- File prep sweet potato data:
 
