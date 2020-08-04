@@ -141,7 +141,10 @@ number of BASES per each bin of read lengths
     ??? "Click for answer"
         <br>
         One interpretation is that this represents the typical circular chloroplast structure: There is a long single-copy region (the node of around 78,000 bp), connected to the inverted repeat (a node of around 28,000 bp), connected to the short single-copy region (of around 11,000 bp). In the graph, each end loop is a single-copy region (either long or short) and the centre bar is the collapsed inverted repeat which should have about twice the sequencing depth.
-        
+
+* <op>Optional further steps:</op>
+* Repeat the Flye assembly with different parameters, and/or a filtered read set. 
+* Try an alternative assembly tool, such as Canu or Unicycler. 
         
 ## Polish assembly
 
@@ -152,7 +155,7 @@ number of BASES per each bin of read lengths
 * For <ss>Use the following dataset as the reference sequence</ss> select <fn>flye-assembly.fasta</fn>
 * For <ss>Algorithm for constructing the BWT index</ss> select <fn>Auto. Let BWA decide</fn>
 * For <ss>Single or Paired-end reads</ss> select <fn>Single</fn>
-* For <ss>Select fastq dataset</ss> select <fn>sweet-potato-chloroplast-illumina-reduced.fastq</fn>
+* For <ss>Select fastq dataset</ss> select <fn>sweet-potato-illumina-reduced.fastq</fn>
 * For <ss>Set read groups information?</ss> select <fn>Do not set</fn>
 * For <ss>Select analysis mode</ss> select <fn>1. Simple Illumina mode</ss>
 * Click <ss>Execute</ss>
@@ -169,8 +172,6 @@ number of BASES per each bin of read lengths
 * Click <ss>Execute</ss>
 * This compares the short reads to the assembly, and creates a polished (corrected) assembly file.
 
-<!-- option: run a second round of polishing. keep track of file naming, and will need to generate a new bam [map illumina reads to polished.fasta] -->
-
 * There are two outputs: a <fn>fasta</fn> file and a <fn>changes</fn> file.
 * What is in the <fn>changes</fn> file?
 * Re-name the fasta output file <fn>polished-assembly.fasta</fn>
@@ -179,6 +180,10 @@ number of BASES per each bin of read lengths
 
 
 <!-- length 161333 compared to unpolished 160340; about 1k bases have been added back in; nanopore can have a lot of homopolymer deletions; the changes file shows lots of cases with a deletion changing to a base, there are also stretches of bases replaced-->
+
+* <op>Optional further steps:</op>
+* Run a second round (or more) of Pilon polishing. Keep track of file naming; you will need to generate a new bam file first before each round of Pilon.
+* Run an alternative polishing tool, such as Racon. This uses the long reads themselves to correct the long-read (Flye) assembly. It would be better to run this tool on the Flye assembly before running Pilon, rather than after Pilon. 
 
 ## View reads
 
