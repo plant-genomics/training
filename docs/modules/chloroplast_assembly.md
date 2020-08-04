@@ -114,16 +114,20 @@ number of BASES per each bin of read lengths
 * There are five output files.
 * *Note: this tool is heuristic; your results may differ slightly from the results here, and if repeated.*
 * View the <fn>log</fn> file and scroll to the end.
-* How many contigs were assembled?
+* How many contigs (fragments) were assembled?
 * What is the length of the assembly?
 * View the <fn>assembly_info</fn> file.
-* What are the contig names?
-
-* The assembly sequence is in the <fn>scaffolds</fn>. Re-name this <fn>flye-assembly.fasta</fn>
-
-* Here is an example output of the assembly graph, in the [Bandage program](https://rrwick.github.io/Bandage/).
-
+* What are the contig names and lengths?
+* The assembly sequence is in the <fn>consensus</fn>. Re-name this <fn>flye-assembly.fasta</fn>
 <!-- note assemblies won't be the same size, may differ 100bp etc, due to heuristics in assembler and other tools -->
+
+* <st>View the assembly:</st>
+* In the tool panel, search for "Bandage".
+* Run "Bandage Info" on the Flye output file <fn>Graphical Fragment Assembly</fn> (not the "assembly_graph" file) with the default settings. 
+* View the ouput file: how many nodes and edges are there?
+* Run "Bandage Image" on the Flye output file <fn>Graphical Fragment Assembly</fn> with the default settings. 
+<!-- node names and lengths are not rendering properly for now so don't display-->
+* Your assembly graph may look like this:
 
 ![assembly graph](images/sweet-potato-assembly-graph.png)
 
@@ -138,34 +142,9 @@ number of BASES per each bin of read lengths
 
         In the graph, each end loop is a single-copy region (either long or short) and the centre bar is the collapsed inverted repeat with about twice the sequencing depth.
 
-!!! note ""
-    Why is the assembly not a single circular chloroplast chromosome?
-
-    ??? "Click for answer"
-        <br>
-        (Note: there is a newer version of the assembly tool Flye that may change this to a complete circular assembly. Under investigation. It may be useful to include the analysis with the older version to illustrate the effect of inverted repeats on assembly).
 
 
-
-        One reason may be that it contains inverted repeats.
-
-        "Inverted repeats" occur when one repeat is the reverse complement of the other repeat.
-
-        For example:
-
-        The sequence AAAGGG has the complement TTTCCC.
-
-        Reading this in reverse, the sequence is CCCTTT.
-
-        Thus, the inverted repeats appear in the genome sequence as:
-
-        **AAAGGG---some-other-bases---CCCTTT**
-
-        Assembly graphs usually pair a sequence and its reverse complement into a single node (e.g. a set of overlapping kmers).
-
-        Reads that map to either of the inverted repeats are then all placed in the same part of the assembly graph.
-
-        <!-- eg see page 24 https://www.ebi.ac.uk/sites/ebi.ac.uk/files/shared/documents/phdtheses/daniel_zerbino.pdf -->
+        
 
 
 ## Polish assembly
