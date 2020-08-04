@@ -60,7 +60,7 @@
 * For <ss>files</ss> select the nanopore FASTQ file
 * Click <ss>Execute</ss>
 * There are five output files.
-* View the <fn>HTML report</fn> file
+* View the <fn>Histogram Read Length</fn> file
 
 !!! note ""
     What summary statistics would be useful to look at?
@@ -91,6 +91,15 @@ number of reads per each bin of read lengths
 Weighted Histogram of read lengths
 number of BASES per each bin of read lengths
 -->
+
+* <op>Optional further steps:</op>
+* Re-run Nanoplot with some changed settings. For example:
+* Click "Options for filtering or transforming input prior to plotting" and <ss>Drop reads shorter than</ss> 2000. 
+* Click "Options for customizing the plots created" and select "Yes" for <ss>Show the N50 mark in the read length histogram</ss>.
+
+* <op>Optional further steps:</op>
+* Run the tool FASTQE 
+
 
 ## Assemble reads
 
