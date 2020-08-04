@@ -176,10 +176,14 @@ number of BASES per each bin of read lengths
 * What is in the <fn>changes</fn> file?
 * Re-name the fasta output file <fn>polished-assembly.fasta</fn>
 * Find and run the tool called "Fasta statistics" on this file.
-* How does it compare to the unpolished <fn>flye-assembly.fasta</fn>?
 
 
-<!-- length 161333 compared to unpolished 160340; about 1k bases have been added back in; nanopore can have a lot of homopolymer deletions; the changes file shows lots of cases with a deletion changing to a base, there are also stretches of bases replaced-->
+!!! note ""
+    How does the short-read Pilon-polished assembly compare to the unpolished <fn>flye-assembly.fasta</fn>?
+
+    ??? "Click for answer"
+        <br>
+        This will depend on the settings, but as an example: you may see that your polished assembly is about 1000 base pairs longer. Nanopore reads may have homopolymer deletions - a run of AAAA may be interpreted as AAA - so the more accurate illumina reads may correct these by adding in the additional base(s). In the <fn>Changes</fn> file, there may be a lot of cases showing a supposed deletion being corrected to a base. 
 
 * <op>Optional further steps:</op>
 * Run a second round (or more) of Pilon polishing. Keep track of file naming; you will need to generate a new bam file first before each round of Pilon.
