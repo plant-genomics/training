@@ -93,13 +93,8 @@ number of BASES per each bin of read lengths
 -->
 
 * <op>Optional further steps:</op>
-* Re-run Nanoplot with some changed settings. For example:
-* Click "Options for filtering or transforming input prior to plotting" and <ss>Drop reads shorter than</ss> 2000. 
-* Click "Options for customizing the plots created" and select "Yes" for <ss>Show the N50 mark in the read length histogram</ss>.
-
-* <op>Optional further steps:</op>
-* Run the tool FASTQE 
-
+* Run the tool FASTQE to look at the quality scores of your illumina reads... in emoji :smile:
+* In the output, look at the mean values (the middle row)
 
 ## Assemble reads
 
