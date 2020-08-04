@@ -342,7 +342,7 @@ Why would the polished assembly (the ref track) be different to the reads - woul
 
 * <st>Get data:</st> at this [Zenodo link](https://doi.org/10.5281/zenodo.3600662), then upload to Galaxy.
 
-* <st>Check reads:</st> Run <ss>Nanopolot</ss> on the nanopore reads.
+* <st>Check reads:</st> Run <ss>Nanoplot</ss> on the nanopore reads.
 
 <!-- notes: av read length much longer than sweet potato; has this improved IR placement -->
 
