@@ -228,12 +228,14 @@ number of BASES per each bin of read lengths
 * <st>View the JBrowse file:</st>
 * Click on the eye icon to view. (For more room, collapse Galaxy side menus with corner < > signs).
 <!-- if jbrowse has too much to display, repeat but increase the chunk size (eg add an extra zero) -->
+*  Make sure the bam files are ticked in the left hand panel. 
 * Choose a contig in the drop down menu. Zoom in and out with + and - buttons.
 <!-- Change the reference sequence display using the drop down menu. Uncheck boxes for <ss>show reverse strand</ss> and <ss>show translation</ss>.-->
 
 * **Reference and reads: zoomed-out view**
+
 <!--
-Why would the polished assembly (the ref track) be different to the reads - wouldn't these snps correct these places? maybe would need another round+ of polishing.
+Why would the polished assembly (the ref track) be different to the reads - wouldn't these snps correct these places? => probably need further rounds of short-read polishing. e.g. see position on contig1 32897 - all the illumina and most nano reads are Ts, and ref is A. 
 -->
 
 <img src="../images/jbrowse-read-mapping-zoomed-out.png" alt="jbrowse" height=70% width=70%>
@@ -243,13 +245,11 @@ Why would the polished assembly (the ref track) be different to the reads - woul
 
 
     ??? "Click for answer"
-        (Note: this answer is in draft.)
+        There may be lots of reasons. Some possibilities: 
 
-        1/ high cov: collapsed repeats
+        1/ In areas of high read coverage: this region may be a collapsed repeat. 
 
-        2/ low or no cov: seq failed in certain regions (eg due to base composition)
-
-        3/ low or no cov: assembly is different to the the set of cp genomes that reads were originally mapped to. (so some reads were left out)
+        2/ In areas of low or no coverage: this region may be difficult to sequence; or, this region may be a misassembly. 
 
 
 * **Reference and reads: zoomed-in view**
@@ -261,9 +261,7 @@ Why would the polished assembly (the ref track) be different to the reads - woul
     What are the differences between the nanopore and the illumina reads?
 
     ??? "Click for answer"
-        (Note: this answer is in draft.)
-
-        e.g. length; high error in nanopore reads
+        Nanopore reads are longer and have a higher error rate.  
 
 ## Annotate genome
 
@@ -330,13 +328,7 @@ Why would the polished assembly (the ref track) be different to the reads - woul
     Why might there be several annotations over the same genome region?
 
     ??? "Click for answer"
-        (Note: this answer is in draft.)
-
-        they are predictions from different tools - eg blat or hmmer.
-
-        this helps with manual curation of annotations...
-
-        Note: annotation: a constantly-improving process as more info for matching to seq string, seq structure, etc. can be multiple annotations under each feature depending on the database matched.
+        One reason is that these are predictions from different tools - such as BLAT or HMMER. 
 
 ## Repeat with new data
 
@@ -356,23 +348,11 @@ Why would the polished assembly (the ref track) be different to the reads - woul
 
 * <st>Assemble:</st> Use <ss>Flye</ss> to assemble the nanopore reads, then get <ss>Fasta statistics</ss> *Note: this may take several hours.*
 
-<!-- To see a completed assembly of this data now - go to .-->
-
-<!--
-* <st>View assembly:</st> Use <ss>Bandage</ss> to view the assembly graph. *Note: Bandage needs to be installed on your computer. Download the <fn>graphical fragment assembly</fn> file from Galaxy, not the <fn>assembly_graph</fn> file.*
--->
-
 * <st>Polish assembly:</st> Use <ss>Pilon</ss> to polish the assembly with short Illumina reads. *Note: Don't forget to **map** these Illumina reads to the assembly first using bwa-mem, then use the resulting <fn>bam</fn> file as input to Pilon.*
 
 * <st>Annotate:</st> Use the GeSeq tool at [Chlorobox](https://chlorobox.mpimp-golm.mpg.de/geseq.html). *Note: First download the <fn>polished.fasta</fn> file, then upload to Chlorobox. After annotation, download the <fn>GFF3</fn> file from Chlorobox, then upload to Galaxy.*
 
 * <st>View annotations:</st> Use <ss>JBrowse</ss> to view the assembled, annotated genome. *Note: JBrowse uses the <fn>polished.fasta</fn> file and the annotations <fn>GFF3</fn> file.*
-
-<!-- how does assembly graph compare to sweet potato (include a bandage pic)? -->
-
-<!-- why does this one have only one contig, compared to the potato's 3 contigs? is it to do with the IR and/or the SSC placement? or neither? -->
-
-<!-- in this case, much longer reads ? => IR placement ? => single contig assembled => better annotation (or not) -->
 
 ## Tutorial summary
 
@@ -398,8 +378,6 @@ Why would the polished assembly (the ref track) be different to the reads - woul
 
 ## See this history in Galaxy
 
-*to do - not yet available*
-
 If you want to see this Galaxy history without performing the steps above:
 
 * Log in to Galaxy Australia: [https://usegalaxy.org.au/](https://usegalaxy.org.au/)
@@ -411,7 +389,20 @@ If you want to see this Galaxy history without performing the steps above:
 
 ## See this workflow in Galaxy
 
-*to do*
+To see these workflows in Galaxy:
+
+* Log in to Galaxy Australia: [https://usegalaxy.org.au/](https://usegalaxy.org.au/)
+* Go to <ss>Shared Data</ss>
+* Click <ss>Workflows</ss>
+* Search for "sweet potato" or "snow gum"
+* Click on the worfklow  name
+* In the very top right corner,  click the plus button to Import Workflow
+* Click "Start using this workflow"
+* This will bring up a list of all your workflows
+* Click on the workflow name, then choose "Edit" in the drop-down menu
+* This brings up the worfklow canvas. 
+* Click the Triangle icon in the top bar to run the workflow. Make sure you specify the right input Nanopore and Illumina read files.  
+
 
 ## What's next?
 
@@ -429,13 +420,15 @@ Some interesting papers about chloroplast structure.
 
 * Turmel, M., Otis, C. & Lemieux, C. Divergent copies of the large inverted repeat in the chloroplast genomes of ulvophycean green algae. Sci Rep 7, 994 (2017) [doi:10.1038/s41598-017-01144-1](doi:10.1038/s41598-017-01144-1)
 
-* *to do - add*
+* 
 
 
 
 
 
-<!-- File prep:
+<!-- File prep sweet potato data:
+
+I've cut down the size of these datasets and hosted the data on Zenodo (with permission from author Lachlan Coin) at http://doi.org/10.5281/zenodo.3567224
 
 Created history: sweet potato chloroplast tutorial data
 
@@ -459,7 +452,14 @@ Very reduced (for a bam example).
 the paper used slightly diff assembly method, which included correcting nanopore reads with illumina reads, trimming low qual, assembling nano with canu, then polish with pilon and illumina.
 
 => illumina file
-[I found this by ncbi - looking at the Tanzania sample (see paper supp table S1) that gave the nanopore file (which is easy to find bc only one nanopore file in the set, but lots of illumina) - then searched for all reads under under this, and found the accompanying illumina file.
-
-I've cut down the size of these datasets and hosted the data on Zenodo (with permission from author Lachlan Coin) at http://doi.org/10.5281/zenodo.3567224
+I found this by ncbi - looking at the Tanzania sample (see paper supp table S1) that gave the nanopore file (which is easy to find bc only one nanopore file in the set, but lots of illumina) - then searched for all reads under under this, and found the accompanying illumina file.
 -->
+
+<!-- File prep snow gum data: 
+
+I've cut down the size of these datasets and hosted the data on Zenodo (with permission from author Rob Lanfear) at [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3600662.svg)](https://doi.org/10.5281/zenodo.3600662)
+
+detail on how files were made are at zenodo
+
+--> 
+
