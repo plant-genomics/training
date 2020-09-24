@@ -14,11 +14,7 @@ This section is a guide to contributing edits to the repository.
 We welcome contributions from the community!
 
 
-### Email
-
-* Email Anna the docs. Keep formatting minimal if possible and images as separate files; Anna will format in markdown.
-
-### or: Edit on GitHub
+### Edit on GitHub
 
 * Click the pencil icon in the top right
 * Edit
